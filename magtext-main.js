@@ -22,9 +22,7 @@ function main()
    
    // Check compatibility
    if (checkWebcamCompat())
-   {
-      console.log("Webcam capture supported");
-   
+   {   
       // Attach camera
       attachCamera(width, height);
       

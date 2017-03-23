@@ -16,17 +16,24 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Check compatibility
+// Check webcam capture compatibility
+// Checks to see if the web browser can capture the webcam
 
 function checkWebcamCompat()
 {
-   // Verify compatibility
-   alert("Checking compatibility....");
+   // Log process
+   console.log("Checking for webcam capture support....");
+   
+   // Check compatibility by engine
    var compatible = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia ||
    navigator.msGetUserMedia );
    
-   // Notify user of incompatibility
-   if (!compatible)
+   // Notify user/developer of compatibility
+   if (compatible)
+   {   
+      console.log("Webcam capture supported by browser");
+   }
+   else
    {
       alert("Webcam capture not supported by your web browser");
    }
