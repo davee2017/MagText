@@ -18,10 +18,14 @@
 // Capture image
 // Grabs an image from the webcam
 
-function captureImage(width, height)       // Test out (width, height)
+function captureImage(width, height) 
 {     
-   // Draw camera picture on canvas
-   var canvas = document.getElementById("canvas")     
-   var context = canvas.getContext('2d');             
-   context.drawImage(video, 0, 0, width, height);          
+   // Create canvas
+   var outCanvas = document.getElementById("outCanvas");     
+   
+   // Create 2D context of canvas
+   var outContext = outCanvas.getContext('2d');             
+   
+   // Draw webcam image on canvas
+   outContext.drawImage(video, 0, 0, width, height);          
 }
