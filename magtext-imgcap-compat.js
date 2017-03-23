@@ -17,26 +17,15 @@
 */
 
 // Check webcam capture compatibility
-// Checks to see if the web browser can capture the webcam
+// Checks to see if the web browser can capture the webcam.
+// Returns true if compatible
+// Returns false if incompatible
 
 function checkWebcamCompat()
 {
-   // Log process
-   console.log("Checking for webcam capture support....");
-   
    // Check compatibility by engine
    var compatible = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia ||
    navigator.msGetUserMedia );
-   
-   // Notify user/developer of compatibility
-   if (compatible)
-   {   
-      console.log("Webcam capture supported by browser");
-   }
-   else
-   {
-      alert("Webcam capture not supported by your web browser");
-   }
    
    // Return compatibility status
    return compatible;
