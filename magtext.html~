@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<!-- Set markup to HTML5 --!>
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Set character set to UTF-8 --!>
+   <head>
+      <!-- Set title --!>
+      <title>MagText Web Application</title>
+      
+      <!-- Attach scripts --!>
+      <script src="magtext-main.js"></script>
+      <script src="magtext-imgcap-chrome.js"></script>
+      <script src="magtext-imgcap-compat.js"></script>
+   </head>
+   
+   <body onLoad="main()">
+      <!-- Create empty hidden video placeholder --!>
+      <video id="video" width="640" height="480"></video>
+      
+      <!-- Create empty canvas --!>
+      <canvas id="canvas" width="640" height="480"></canvas>
+   </body>
+</html>
