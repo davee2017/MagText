@@ -15,29 +15,18 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-function main()
+
+// Check webcam image capture compatibility
+// Checks to see if the web browser can capture an image from the webcam.
+// Returns true if compatible
+// Returns false if incompatible
+
+function chkImgCapCompat()
 {
-   var width = 640;
-   var height = 480;
+   // Check compatibility by engine
+   var compatible = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia ||
+   navigator.msGetUserMedia );
    
-   // Check compatibility
-   console.log("Checking for webcam capture support....");        // Log process
-   if (chkImgCapCompat())
-   {   
-      // Notify developer of compatibility
-      console.log("Webcam capture supported by browser");
-      
-      // Attach camera
-      attachCamera(width, height);
-      
-      // Capture image
-      captureImage(width, height);
-      // Note: Part of box content. Capture video can be done 
-      // seperate?
-   }
-   else
-   {
-      // Notify user of incompatibility
-      alert("Webcam capture not supported by your web browser");
-   }
+   // Return compatibility status
+   return compatible;
 }
