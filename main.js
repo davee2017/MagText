@@ -21,11 +21,11 @@ function main()
    var height = 480;
    
    // Check compatibility
-   console.log("Checking for webcam capture support....");        // Log process
+   console.log("Checking for webcam image capture support....");        // Log process
    if (chkImgCapCompat())
    {   
       // Notify developer of compatibility
-      console.log("Webcam capture supported by browser");
+      console.log("Webcam image capture supported by browser");
       
       // Attach camera
       attachCam(width, height);
@@ -38,6 +38,6 @@ function main()
    else
    {
       // Notify user of incompatibility
-      alert("Webcam capture not supported by your web browser");
+      alert("Webcam image capture not supported by your web browser");
    }
 }
