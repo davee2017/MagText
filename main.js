@@ -28,7 +28,7 @@ function main()
       console.log("Webcam capture supported by browser");
       
       // Attach camera
-      attachCamera(width, height);
+      attachCam(width, height);
       
       // Capture image
       captureImage(width, height);

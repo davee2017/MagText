@@ -26,7 +26,7 @@ works for all browsers.*/
 // Attaches webcam to an element so it can be accessed.
 // Uses getUserMedia() to access
 
-function attachCamera(width, height)       
+function attachCam(width, height)       
 {
    
    // Get video element
