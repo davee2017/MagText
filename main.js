@@ -17,9 +17,6 @@
 */
 function main()
 {
-   var width = 640;
-   var height = 480;
-   
    // Check compatibility
    console.log("Checking for webcam image capture support....");        // Log process
    if (chkImgCapCompat())
@@ -27,8 +24,15 @@ function main()
       // Notify developer of compatibility
       console.log("Webcam image capture supported by browser");
       
+      // Get video element
+      var video = document.getElementById('video');
+      
+      // Set webcam capture dimensions
+      var width = 640;
+      var height = 480;
+      
       // Attach camera
-      attachCam(width, height);
+      attachCam(video, width, height);
       
       // Capture image
       captureImage(width, height);

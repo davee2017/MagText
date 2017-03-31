@@ -26,13 +26,9 @@ works for all browsers.*/
 // Attaches webcam to an element so it can be accessed.
 // Uses getUserMedia() to access
 
-function attachCam(width, height)       
+function attachCam(video, width, height)       
 {
-   
-   // Get video element
-   var video = document.getElementById('video');
-   
-   // Set dimensions of webcam view
+   // Set up webcam video dimnesions
    var dimensions =
    {
       video:
@@ -57,7 +53,7 @@ function attachCam(width, height)
       dimensions,    
       function(stream)  // Success
       {
-         // Access
+         // Connect webcam stream
          video.src = window.URL.createObjectURL(stream);
       }, 
       function()        // Failure
