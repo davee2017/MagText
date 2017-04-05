@@ -24,18 +24,13 @@ function main()
       // Notify developer of compatibility
       console.log("Webcam image capture supported by browser");
       
-      // Get video element
-      var videoElem = document.getElementById('video');
-      
-      // Set webcam capture dimensions
-      //var width = 100;
-      //var height = 100;
-      
       // Attach camera
+      var videoElem = document.getElementById('video');         // Video
       attachCam(videoElem);
       
       // Capture image
-      captureImage(width, height);
+      var outCanvasElem = document.getElementById("outCanvas"); // Canvas
+      captureImage(outCanvasElem);
       // Note: Part of box content. Capture video can be done 
       // seperate?
    }

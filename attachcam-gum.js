@@ -29,7 +29,7 @@ works for all browsers.*/
 function attachCam(videoElem)       
 {
    
-   // Set up webcam video dimnesions
+   // Set up webcam video dimensions
    var dimensions =
    {
       video:
@@ -42,7 +42,7 @@ function attachCam(videoElem)
       }
    }; 
    
-   // Get getUserMedia for particular browser (in order of engine)
+   // Get getUserMedia API for particular browser (in order of engine)
    navigator.getUserMedia = navigator.getUserMedia ||
                             navigator.webkitGetUserMedia ||
                             navigator.mozGetUserMedia ||    // Firefox has new
