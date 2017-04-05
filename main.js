@@ -28,11 +28,11 @@ function main()
       var video = document.getElementById('video');
       
       // Set webcam capture dimensions
-      var width = 640;
-      var height = 480;
+      //var width = 100;
+      //var height = 100;
       
       // Attach camera
-      attachCam(video, width, height);
+      attachCam(video);
       
       // Capture image
       captureImage(width, height);
