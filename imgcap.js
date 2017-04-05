@@ -25,5 +25,5 @@ function drawImg(videoElem, canvasElem)
    var context = canvasElem.getContext('2d');             
    
    // Draw webcam image on canvas
-   context.drawImage(videoElem, 0, 0, canvasElem.width, canvasElem.height);          
+   context.drawImage(videoElem, 0, 0, videoElem.width, videoElem.height);          
 }
