@@ -26,22 +26,23 @@ works for all browsers.*/
 // Attaches webcam to an element so it can be accessed.
 // Uses getUserMedia() to access
 
-function attachCam(video, width, height)       
+function attachCam(videoElem)       
 {
-   // Set up webcam video dimnesions
+   
+   // Set up webcam video dimensions
    var dimensions =
    {
       video:
       {
          mandatory:
          {
-            maxWidth: width,
-            maxHeight: height
+            maxWidth: videoElem.width,
+            maxHeight: videoElem.height
          }
       }
    }; 
    
-   // Get getUserMedia for particular browser (in order of engine)
+   // Get getUserMedia API for particular browser (in order of engine)
    navigator.getUserMedia = navigator.getUserMedia ||
                             navigator.webkitGetUserMedia ||
                             navigator.mozGetUserMedia ||    // Firefox has new

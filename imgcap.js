@@ -18,14 +18,11 @@
 // Capture image
 // Grabs an image from the webcam
 
-function captureImage(width, height) 
-{     
-   // Create canvas
-   var outCanvas = document.getElementById("outCanvas");     
-   
-   // Create 2D context of canvas
-   var outContext = outCanvas.getContext('2d');             
+function captureImage(outCanvasElem) 
+{  
+   // Get 2D context of canvas
+   var outContext = outCanvasElem.getContext('2d');             
    
    // Draw webcam image on canvas
-   outContext.drawImage(video, 0, 0, width, height);          
+   outContext.drawImage(video, 0, 0, outCanvasElem.width, outCanvasElem.height);          
 }
