@@ -24,12 +24,16 @@ function main()
       // Notify developer of compatibility
       console.log("Webcam image capture supported by browser");
       
-      // Attach camera
-      var videoElem = document.getElementById('video');         // Video
+      // Get video element
+      var videoElem = document.getElementById('video');
+      
+      // Get output canvas element
+      var outCanvasElem = document.getElementById("outCanvas"); 
+      
+      // Attach camera       
       attachCam(videoElem);
       
       // Draw image (onto out canvas for now)
-      var outCanvasElem = document.getElementById("outCanvas"); // Canvas
       drawImg(videoElem, outCanvasElem);
       // Note: Part of box content. Capture video can be done 
       // seperate?
