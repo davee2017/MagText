@@ -25,14 +25,14 @@ function main()
       console.log("Webcam image capture supported by browser");
       
       // Get video element
-      var video = document.getElementById('video');
+      var videoElem = document.getElementById('video');
       
       // Set webcam capture dimensions
       //var width = 100;
       //var height = 100;
       
       // Attach camera
-      attachCam(video);
+      attachCam(videoElem);
       
       // Capture image
       captureImage(width, height);
