@@ -28,9 +28,9 @@ function main()
       var videoElem = document.getElementById('video');         // Video
       attachCam(videoElem);
       
-      // Capture image
+      // Draw image (onto out canvas for now)
       var outCanvasElem = document.getElementById("outCanvas"); // Canvas
-      captureImage(outCanvasElem);
+      drawImg(videoElem, outCanvasElem);
       // Note: Part of box content. Capture video can be done 
       // seperate?
    }
