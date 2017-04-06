@@ -23,9 +23,22 @@
 
 function chkCapCompat()
 {
+   // Log process
+   console.log("Checking for webcam image capture support....");        
+   
    // Check compatibility by engine
    var compatible = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia ||
    navigator.msGetUserMedia );
+   
+   // Notify developer of compatibility
+   if (compatible)               // Compatible
+   {
+      console.log("Webcam image capture supported by browser");
+   }
+   else                          // Not compatible
+   {
+      alert("Webcam image capture not supported by your web browser");  
+   }
    
    // Return compatibility status
    return compatible;

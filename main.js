@@ -18,12 +18,8 @@
 function main()
 {
    // Check compatibility
-   console.log("Checking for webcam image capture support....");        // Log process
    if (chkCapCompat())
    {   
-      // Notify developer of compatibility
-      console.log("Webcam image capture supported by browser");
-      
       // Get video element
       var videoElem = document.getElementById('video');
       
@@ -36,7 +32,7 @@ function main()
       // Start the webcam video stream
       startCamStream();
       
-      // Take a picture of the current video
+      // Take a picture of the current video after 5 seconds
       window.setTimeout
       (
             function()           // Can call other functions
@@ -56,10 +52,5 @@ function main()
       // seperate?
       
       
-   }
-   else
-   {
-      // Notify user of incompatibility
-      alert("Webcam image capture not supported by your web browser");
    }
 }
