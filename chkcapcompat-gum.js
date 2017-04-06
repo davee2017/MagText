@@ -21,7 +21,7 @@
 // Returns true if compatible
 // Returns false if incompatible
 
-function chkImgCapCompat()
+function chkCapCompat()
 {
    // Check compatibility by engine
    var compatible = ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia ||

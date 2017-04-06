@@ -19,7 +19,7 @@ function main()
 {
    // Check compatibility
    console.log("Checking for webcam image capture support....");        // Log process
-   if (chkImgCapCompat())
+   if (chkCapCompat())
    {   
       // Notify developer of compatibility
       console.log("Webcam image capture supported by browser");
