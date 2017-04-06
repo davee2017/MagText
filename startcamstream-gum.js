@@ -15,15 +15,11 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Draw image
-// Inputs a video and canvas element. 
-// Draws video's current image on canvas.
 
-function takeVidPic(videoElem, canvasElem) 
-{  
-   // Get 2D context of canvas
-   var context = canvasElem.getContext('2d');             
-   
-   // Draw webcam image on canvas
-   context.drawImage(videoElem, 0, 0, videoElem.width, videoElem.height); 
+// Start camera stream
+// Starts the webcam video stream. Works with getUserMedia API.
+
+function startCamStream()
+{
+   video.play();
 }

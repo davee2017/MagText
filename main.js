@@ -27,11 +27,14 @@ function main()
       // Get video element
       var videoElem = document.getElementById('video');
       
-      // Get output canvas element
+      // Get output canvas
       var outCanvasElem = document.getElementById('outCanvas'); 
-      
-      // Show camera via video element     
+           
+      // Attach webcam to video element
       attachCam(videoElem);
+      
+      // Start the webcam video stream
+      startCamStream();
       
       // Take a picture of the current video
       window.setTimeout

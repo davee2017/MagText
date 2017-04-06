@@ -22,8 +22,9 @@ be needed (containing compatiblity check, camera attach and image capture
 functions. Update to cross-browser code at a later stage. Test whether this
 works for all browsers.*/
 
-// Attach live camera.
-// Attaches webcam to an element so it can be accessed. Displays the webcam on the screen. Asks the user for permission to use the webcam. Uses getUserMedia() to access
+// Attach camera.
+// Inputs a video element with associated width and height.
+// Attaches webcam to a video element so it can be accessed. Uses getUserMedia API to access.
 
 function attachCam(videoElem)       
 {
@@ -55,7 +56,6 @@ function attachCam(videoElem)
       {
          // Connect webcam stream
          video.src = window.URL.createObjectURL(stream);
-         video.play();
       }, 
       function()        // Failure
       {
