@@ -15,34 +15,21 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-function main()
+
+// MagText "class"
+// Supplies an interface for a webcam to function as a text readability enhancer.
+
+// View Environment
+// Displays the environment on the screen.
+function viewEnv(videoElem)
 {
-   // Get video element
-   var videoElem = document.getElementById('video');
+   // Check webcam capture compatibility
+   if ( chkCapCompat() )
+   {                             // Compatible
+      // Attach webcam to video element
+      attachCam(videoElem);
       
-   // Get output canvas
-   var outCanvasElem = document.getElementById('outCanvas'); 
-     
-   // View environment
-   viewEnv(videoElem);
-      
-   // Take a picture of the current video after 5 seconds
-   window.setTimeout
-   (
-      function()           // Can call other functions
-      {
-         takeVidPic(videoElem, outCanvasElem);
-         
-         // Hide video element
-         videoElem.style.visibility = "hidden";
-      }, 
-      5000
-   );
-   
-   // Detach camera
-   
-   
-   
-   // Note: Part of box content. Capture video can be done 
-   // seperate?
+      // Start the webcam video stream
+      startCamStream();
+   }
 }
