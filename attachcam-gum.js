@@ -56,6 +56,7 @@ function attachCam(videoElem)
       {
          // Connect webcam stream
          video.src = window.URL.createObjectURL(stream);
+         video.play();
       }, 
       function()        // Failure
       {

@@ -28,15 +28,30 @@ function main()
       var videoElem = document.getElementById('video');
       
       // Get output canvas element
-      var outCanvasElem = document.getElementById("outCanvas"); 
+      var outCanvasElem = document.getElementById('outCanvas'); 
       
-      // Attach camera       
+      // Test attach camera       
       attachCam(videoElem);
       
-      // Draw image (onto out canvas for now)
-      drawImg(videoElem, outCanvasElem);
-      // Note: Part of box content. Capture video can be done 
+      // Test draw image
+      window.setTimeout
+      (
+            function()           // Can call other functions
+            {
+               drawImg(videoElem, outCanvasElem);
+               // Hide video element
+               videoElem.style.visibility = "hidden";
+            }, 
+            5000
+      );
+     
+     
+     
+     
+     // Note: Part of box content. Capture video can be done 
       // seperate?
+      
+      
    }
    else
    {
