@@ -19,7 +19,7 @@
 // Takes a video and canvas element. 
 // Draws video's current image on canvas.
 
-function drawImg(videoElem, canvasElem) 
+function takeVidPic(videoElem, canvasElem) 
 {  
    // Get 2D context of canvas
    var context = canvasElem.getContext('2d');             

@@ -33,12 +33,12 @@ function main()
       // Show camera via video element     
       attachCam(videoElem);
       
-      // Draw image
+      // Take a picture of the current video
       window.setTimeout
       (
             function()           // Can call other functions
             {
-               drawImg(videoElem, outCanvasElem);
+               takeVidPic(videoElem, outCanvasElem);
                // Hide video element
                videoElem.style.visibility = "hidden";
             }, 
