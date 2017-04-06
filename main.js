@@ -30,10 +30,10 @@ function main()
       // Get output canvas element
       var outCanvasElem = document.getElementById('outCanvas'); 
       
-      // Test attach camera       
+      // Show camera via video element     
       attachCam(videoElem);
       
-      // Test draw image
+      // Draw image
       window.setTimeout
       (
             function()           // Can call other functions
@@ -45,6 +45,7 @@ function main()
             5000
       );
      
+     // Detach camera
      
      
      

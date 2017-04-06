@@ -22,9 +22,8 @@ be needed (containing compatiblity check, camera attach and image capture
 functions. Update to cross-browser code at a later stage. Test whether this
 works for all browsers.*/
 
-// Attach camera
-// Attaches webcam to an element so it can be accessed.
-// Uses getUserMedia() to access
+// Attach live camera.
+// Attaches webcam to an element so it can be accessed. Displays the webcam on the screen. Asks the user for permission to use the webcam. Uses getUserMedia() to access
 
 function attachCam(videoElem)       
 {
