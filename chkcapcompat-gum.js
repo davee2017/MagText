@@ -23,6 +23,8 @@
 
 function chkCapCompat()
 {
+   // Note: Change this to chkGumCompat?
+   
    // Log process
    console.log("Checking for webcam image capture support....");        
    
@@ -37,7 +39,7 @@ function chkCapCompat()
    }
    else                          // Not compatible
    {
-      alert("Webcam image capture not supported by your web browser");  
+      alert("Webcam image capture not supported by browser");  
    }
    
    // Return compatibility status

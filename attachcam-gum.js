@@ -28,6 +28,8 @@ works for all browsers.*/
 
 function attachCam(videoElem)       
 {
+   // Assume that attachment is successful initially
+   //var attached = true;
    
    // Set up webcam video dimensions
    var dimensions =
@@ -48,7 +50,7 @@ function attachCam(videoElem)
                             navigator.mozGetUserMedia ||    // Firefox has new
                             navigator.msGetUserMedia;
    
-   // Ask permission and connect webcam
+   // Connect webcam
    navigator.getUserMedia
    (
       dimensions,    
@@ -57,10 +59,26 @@ function attachCam(videoElem)
          // Connect webcam stream
          video.src = window.URL.createObjectURL(stream);
       }, 
-      function()        // Failure
+      function(error)   // Failure
       {
-         // Notify user
-         console.log("Permission denied");
+         // Update attachment status
+         //attached = false;
+         
+         // Notify user of error
+         switch(error.name)
+         {
+         case 'PermissionDeniedError':             // Permission denied
+            alert("Permission to access webcam denied");
+            break;
+         case 'NotFoundError':
+            alert("Webcam not found");
+            break;
+         default:                                  // All other errors
+            alert("Unknown error");
+         }
       }
    )
+   
+   // Return attachment status
+   //return attached;
 }

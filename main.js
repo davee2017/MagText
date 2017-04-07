@@ -25,8 +25,8 @@ function main()
      
    // View environment
    viewEnv(videoElem);
-      
-   // Take a picture of the current video after 5 seconds
+   
+   // Take a picture of the current video after 10 seconds
    window.setTimeout
    (
       function()           // Can call other functions
@@ -36,8 +36,11 @@ function main()
          // Hide video element
          videoElem.style.visibility = "hidden";
       }, 
-      5000
+      10000
    );
+   
+   
+   
    
    // Detach camera
    
