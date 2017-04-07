@@ -32,7 +32,7 @@ function attachCam(videoElem)
    var attached = true;
    
    // Set up webcam video dimensions
-   var dimensions =
+   var settings =
    {
       video:
       {
@@ -53,7 +53,7 @@ function attachCam(videoElem)
    // Connect webcam
    navigator.getUserMedia
    (
-      dimensions,    
+      settings,    
       function(stream)  // Success
       {
          // Connect webcam stream

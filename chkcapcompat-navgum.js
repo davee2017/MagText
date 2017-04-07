@@ -23,6 +23,11 @@
 
 function chkCapCompat()
 {
+   // Note: this could eventually return what type of compatible gum as an 
+   // integer. 0 could be not compatible at all. 1 could be
+   // navigator.getUserMedia(). 2 could be mediaDevices.getUserMedia(). Should
+   // do this in another file chkcapcompat.js once others work
+   
    // Log process
    console.log("Checking for webcam capture support....");        
    
