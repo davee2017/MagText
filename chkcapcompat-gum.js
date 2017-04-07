@@ -23,7 +23,7 @@
 
 function chkCapCompat()
 {
-   // Note: Change this to chkGumCompat?
+   // Note: Change this to chkGumCompat? Think modular
    
    // Log process
    console.log("Checking for webcam image capture support....");        

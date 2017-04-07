@@ -29,7 +29,7 @@ works for all browsers.*/
 function attachCam(videoElem)       
 {
    // Assume that attachment is successful initially
-   //var attached = true;
+   var attached = true;
    
    // Set up webcam video dimensions
    var dimensions =
@@ -61,24 +61,25 @@ function attachCam(videoElem)
       }, 
       function(error)   // Failure
       {
-         // Update attachment status
-         //attached = false;
+         // Webcam wasn't attached
+         attached = false;
          
          // Notify user of error
          switch(error.name)
          {
-         case 'PermissionDeniedError':             // Permission denied
+         case 'PermissionDeniedError':
             alert("Permission to access webcam denied");
             break;
          case 'NotFoundError':
             alert("Webcam not found");
             break;
-         default:                                  // All other errors
-            alert("Unknown error");
+         default:
+            alert("Technical error. Please see log");
+            console.log(error.name);
          }
       }
    )
    
    // Return attachment status
-   //return attached;
+   return attached;
 }

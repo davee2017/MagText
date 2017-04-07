@@ -16,20 +16,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// MagText "class"
+// MagText "Class"
 // Supplies an interface for a webcam to function as a text readability enhancer.
 
 // View Environment
 // Displays the environment on the screen.
 function viewEnv(videoElem)
 {
-   // Check webcam capture compatibility
-   if ( chkCapCompat() )
-   {                             // Compatible
-      // Attach webcam to video element
-      attachCam(videoElem);
-      
-      // Start the webcam video stream
+   if ( chkCapCompat() && attachCam(videoElem) )
+   {                             // Browser compatible and webcam attached
       startCamStream();
    }
 }
