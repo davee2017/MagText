@@ -23,8 +23,6 @@
 
 function chkCapCompat()
 {
-   // Note: Change this to chkGumCompat? Think modular
-   
    // Log process
    console.log("Checking for webcam capture support....");        
    
@@ -35,11 +33,11 @@ function chkCapCompat()
    // Notify developer of compatibility
    if (compatible)               // Compatible
    {
-      console.log("navigator.getUserMedia() webcam capture supported by browser");
+      console.log("Navigator.getUserMedia() webcam capture supported by browser");
    }
    else                          // Not compatible
    {
-      alert("navigator.getUserMedia() webcam capture not supported by browser");  
+      alert("Navigator.getUserMedia() webcam capture not supported by browser");  
    }
    
    // Return compatibility status
