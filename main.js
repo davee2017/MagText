@@ -26,6 +26,16 @@ function main()
    // View environment
    viewEnv(videoElem);
    
+   // Stop cam stream after 5 seconds
+   window.setTimeout
+   (
+      function()           // Can call other functions
+      {
+         stopCamStream();
+      }, 
+      5000
+   );
+   
    // Take a picture of the current video after 10 seconds
    window.setTimeout
    (
