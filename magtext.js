@@ -19,7 +19,7 @@
 // MagText "Class"
 // Supplies an interface for a webcam to function as a text readability enhancer.
 
-// View Environment
+// View environment
 // Displays the environment on the screen.
 function viewEnv(videoElem)
 {
@@ -27,4 +27,17 @@ function viewEnv(videoElem)
    {                             // Browser compatible and webcam attached
       startCamStream();
    }
+}
+
+// Capture environment
+// Takes a picture of the current environment
+// Inputs envronment video and a canvas. Draws the 
+// video on the canvas.
+function captureEnv(videoElem, outCanvasElem)
+{
+   // Pause the current video
+   stopCamStream();
+   
+   // Take a picture of the current video
+   takeVidPic(videoElem, outCanvasElem);
 }

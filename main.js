@@ -26,35 +26,16 @@ function main()
    // View environment
    viewEnv(videoElem);
    
-   // Stop cam stream after 5 seconds
+   // Capture environment after 5 seconds
    window.setTimeout
    (
-      function()           // Can call other functions
+      function()
       {
-         stopCamStream();
-      }, 
+         captureEnv(videoElem, outCanvasElem);
+      },
       5000
    );
-   
-   // Take a picture of the current video after 10 seconds
-   window.setTimeout
-   (
-      function()           // Can call other functions
-      {
-         takeVidPic(videoElem, outCanvasElem);
-         
-         // Hide video element
-         videoElem.style.visibility = "hidden";
-      }, 
-      10000
-   );
-   
-   
-   
-   
-   // Detach camera
-   
-   
+      
    
    // Note: Part of box content. Capture video can be done 
    // seperate?
