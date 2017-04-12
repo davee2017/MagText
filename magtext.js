@@ -30,9 +30,9 @@ function viewEnv(videoElem)
 }
 
 // Capture environment
-// Takes a picture of the current environment
-// Inputs envronment video and a canvas. Draws the 
-// video on the canvas.
+// Takes a picture of the current environment.
+// Inputs environment video and a canvas. Draws the 
+// current video image on the canvas.
 function captureEnv(videoElem, outCanvasElem)
 {
    // Pause the current video
