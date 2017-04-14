@@ -45,9 +45,11 @@ function invPic(picCanvas)
       picPixels.data[redPos + 1] = 255 - greenVal; 
       console.log("New green: ", picPixels.data[redPos + 1]);
       
-      // Get pixel blue value
-      //blueVal = picPixels.data[redPos + 2];
-      //picPixels.data[redPos + 2] = 255 - blueVal;
+      // Invert pixel blue value
+      blueVal = picPixels.data[redPos + 2];
+      console.log("Original blue: ", blueVal);
+      picPixels.data[redPos + 2] = 255 - blueVal;
+      console.log("New blue: ", picPixels.data[redPos + 2]);
    //}
    
    // Output pixels to canvas
