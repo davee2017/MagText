@@ -30,28 +30,21 @@ function invPic(picCanvas)
    var redVal = -1;
    var greenVal = -1;
    var blueVal = -1;
-   var redPos = 0;
-   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   //{
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
       // Invert pixel red value
       redVal = picPixels.data[redPos];
-      console.log("Original red: ", redVal);
       picPixels.data[redPos] = 255 - redVal; 
-      console.log("New red: ", picPixels.data[redPos]);
       
       // Invert pixel green value
       greenVal = picPixels.data[redPos + 1];
-      console.log("Original green: ", greenVal);
       picPixels.data[redPos + 1] = 255 - greenVal; 
-      console.log("New green: ", picPixels.data[redPos + 1]);
       
       // Invert pixel blue value
       blueVal = picPixels.data[redPos + 2];
-      console.log("Original blue: ", blueVal);
       picPixels.data[redPos + 2] = 255 - blueVal;
-      console.log("New blue: ", picPixels.data[redPos + 2]);
-   //}
+   }
    
    // Output pixels to canvas
-   //context.putImageData(picPixels, 0, 0);
+   context.putImageData(picPixels, 0, 0);
 }
