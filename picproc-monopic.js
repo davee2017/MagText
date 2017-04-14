@@ -25,8 +25,6 @@ function monoPic(picCanvas)
    var context = picCanvas.getContext('2d');
    
    // Get pixels from canvas
-   console.log("Width: ", picCanvas.width);
-   console.log("Height: ", picCanvas.height);
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
    // Go through pixels
