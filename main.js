@@ -17,6 +17,8 @@
 */
 function main()
 {
+   // Debug mode?
+   
    // Get video element
    var videoElem = document.getElementById('video');
       
@@ -26,17 +28,25 @@ function main()
    // View environment
    viewEnv(videoElem);
    
-   // Capture environment after 5 seconds
+   // Capture environment after 1 second
    window.setTimeout
    (
       function()
       {
          captureEnv(videoElem, outCanvasElem);
       },
-      5000
+      2000
    );
-      
-   
    // Note: Part of box content. Capture video can be done 
    // seperate?
+   
+   // Monochrome picture after 2 seconds
+   window.setTimeout
+   (
+      function()
+      {
+         monoPic(outCanvasElem);
+      },
+      4000
+   );
 }
