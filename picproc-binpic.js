@@ -27,16 +27,16 @@ function binPic(picCanvas)
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
    // Get monochrome pixel values.... 
-   var redVal = -1;
-   var pixelVals = [];
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   {
+   //var redVal = -1;
+   var pixelVals = [20, 20, 20, 100, 100, 2000, 5, 9];
+   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   //{
       // Get pixel red value
-      redVal = picPixels.data[redPos];
-      pixelVals.push(redVal); 
-   }
+      //redVal = picPixels.data[redPos];
+      //pixelVals.push(redVal); 
+   //}
 
-   // Determine unique pixel values.... Helper? Math class
+   // Determine unique pixel values.... Helper? Math class. Call uniqVals(vals)
    var uniqVals = [];                 // Initialise unique value list
    uniqVals[0] = pixelVals[0];        // First always unique
    var unique = true;                 // Assume unique initially
@@ -72,7 +72,7 @@ function binPic(picCanvas)
    }
    
    
-   // Sort pixel values.... Helper in Math.
+   // Sort pixel values.... 
    var pixelVals = pixelVals.sort 
    (
       function (num1, num2)
@@ -82,7 +82,7 @@ function binPic(picCanvas)
       }
    );                          
 
-   // Count the occurrence of each unique value in the pixel values.... Helper in Math
+   // Count the occurrence of each unique value in the pixel values.... Helper in Math. Call countVals(uniqVals, valCounts)
    var valCounts = [];
    var pixelPos = -1;
    for (var uniqPos = 0; uniqPos < uniqVals.length; uniqPos += 1)
