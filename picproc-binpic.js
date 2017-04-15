@@ -27,14 +27,14 @@ function binPic(picCanvas)
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
    // Get monochrome pixel values.... 
-   var redVal = -1;
-   var pixelVals = [];
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   {
+   //var redVal = -1;
+   var pixelVals = [100, 100, 100, 100, 200, 200, 300, 5, 2, 2];
+   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   //{
       // Get pixel red value
-      redVal = picPixels.data[redPos];
-      pixelVals.push(redVal); 
-   }
+      //redVal = picPixels.data[redPos];
+      //pixelVals.push(redVal); 
+   //}
 
    // Determine unique pixel values.... Helper? Math class. Call uniqVals(vals)
    var uniqVals = [];                 // Initialise unique value list
