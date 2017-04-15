@@ -27,14 +27,15 @@ function binPic(picCanvas)
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
    // Get monochrome pixel values.... 
-   //var redVal = -1;
-   var pixelVals = [100, 100, 200, 200, 300, 5, 2, 2];
-   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   //{
+   var redVal = -1;
+   var pixelVals = [];
+   //var pixelVals = [100, 100, 200, 200, 300, 5, 2, 2];
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
       // Get pixel red value
-      //redVal = picPixels.data[redPos];
-      //pixelVals.push(redVal); 
-   //}
+      redVal = picPixels.data[redPos];
+      pixelVals.push(redVal); 
+   }
 
    // Determine unique pixel values.... Helper? Math class. Call uniqVals(vals)
    var uniqVals = [];                 // Initialise unique value list
@@ -79,7 +80,7 @@ function binPic(picCanvas)
       var valCount = 0;
       for (var pixelPos = 0; pixelPos < pixelVals.length; pixelPos += 1)
       {                          // For given pixel value
-         if (uniqVals[uniqPos] == pixelVals[pixelPos])       // Same
+         if (uniqVals[uniqPos] == pixelVals[pixelPos])      // Same
          {
             valCount += 1;                                  // Tally
          }
@@ -88,11 +89,18 @@ function binPic(picCanvas)
       // Add value count to value counts
       valCounts.push(valCount);
    }
+   for (var pos = 0; pos < uniqVals.length; pos += 1)
+   {
+      console.log("Pos ", pos, "Val ", uniqVals[pos], "Cnt ", valCounts[pos]);
+   }
    
    // Determine maximum count
    var maxCount = Math.max.apply(null, valCounts);
+   console.log("Max count: ", maxCount);
 
-   // 
+   // Determine maximum count position
+   var maxCountPos = valCounts.indexOf(maxCount);
+   console.log("Max count position: ", maxCountPos);
    
    // Output pixels to canvas
    // context.putImageData(picPixels, 0, 0);
