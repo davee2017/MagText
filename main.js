@@ -59,4 +59,14 @@ function main()
       },
       6000
    );
+   
+   // Binary picture after 8 seconds
+   window.setTimeout
+   (
+      function()
+      {
+         binPic(outCanvasElem);
+      },
+      8000
+   );
 }
