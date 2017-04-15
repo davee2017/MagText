@@ -81,20 +81,35 @@ function binPic(picCanvas)
                                 // Positive result places num1 after
       }
    );                          
-   for (var pos = 0; pos < pixelVals.length; pos += 1)
+
+   // Count the occurrence of each unique value in the pixel values.... Helper in Math
+   var valCounts = [];
+   var pixelPos = -1;
+   for (var uniqPos = 0; uniqPos < uniqVals.length; uniqPos += 1)
+   {                             // For given unique value
+      var valCount = 0;
+      for (var pixelPos = 0; pixelPos < pixelVals.length; pixelPos += 1)
+      {                          // For given pixel value
+         if (uniqVals[uniqPos] == pixelVals[pixelPos])       // Same
+         {
+            valCount += 1;                                  // Tally
+         }
+      }
+      
+      // Add value count to value counts
+      valCounts.push(valCount);
+   }
+   console.log("Values & Counts: ");
+   for (var pos = 0; pos < valCounts.length; pos += 1)
    {
-      console.log("Position ", pos, "Value ", pixelVals[pos]);
+      console.log("Pos ", pos, "Val ", uniqVals[pos], "Cnt ", valCounts[pos]);
    }
    
-   // Count the occurrence of each unique value in the pixel values.... Helper in Math
+   // Determine maximum count
+   
+   // 
    
    
-   //console.log("Values & Counts: ");
-   //for (var pos = 0; pos < valCounts.length; pos += 1)
-   //{
-    //  console.log("Position ", pos, " ", "Value ", 
-                 //uniqVals[pos], "Count ", valCounts[pos]);
-   //}
    // Output pixels to canvas
    // context.putImageData(picPixels, 0, 0);
 }
