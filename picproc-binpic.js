@@ -102,6 +102,10 @@ function binPic(picCanvas)
    var maxCountPos = valCounts.indexOf(maxCount);
    console.log("Max count position: ", maxCountPos);
    
+   // Determine unique value whose position is the maximum count position
+   var maxCountVal = uniqVals[maxCountPos];
+   console.log("Max count value: ", maxCountVal);
+   
    // Output pixels to canvas
    // context.putImageData(picPixels, 0, 0);
 }
