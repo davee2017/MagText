@@ -71,11 +71,11 @@ function binPic(picCanvas)
       unique = true;
    }
    
-   //console.log("Unique values: ");
-   //for (var pos = 0; pos < uniqVals.length; pos += 1)
-   //{
-      //console.log(uniqVals[pos]);
-   //}
+   console.log("Unique values: ");
+   for (var pos = 0; pos < uniqVals.length; pos += 1)
+   {
+      console.log(uniqVals[pos]);
+   }
    
    // Output pixels to canvas
    // context.putImageData(picPixels, 0, 0);
