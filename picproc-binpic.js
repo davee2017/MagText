@@ -28,7 +28,7 @@ function binPic(picCanvas)
    
    // Get monochrome pixel values.... 
    //var redVal = -1;
-   var pixelVals = [100, 100, 100, 100, 200, 200, 300, 5, 2, 2];
+   var pixelVals = [100, 100, 200, 200, 300, 5, 2, 2];
    //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    //{
       // Get pixel red value
@@ -88,16 +88,12 @@ function binPic(picCanvas)
       // Add value count to value counts
       valCounts.push(valCount);
    }
-   console.log("Values & Counts: ");
-   for (var pos = 0; pos < valCounts.length; pos += 1)
-   {
-      console.log("Pos ", pos, "Val ", uniqVals[pos], "Cnt ", valCounts[pos]);
-   }
    
    // Determine maximum count
+   var maxCount = Math.max.apply(null, valCounts);
+   console.log("Maximum count: ", maxCount);
    
    // 
-   
    
    // Output pixels to canvas
    // context.putImageData(picPixels, 0, 0);
