@@ -57,7 +57,7 @@ function binPic(picCanvas)
             unique = false;                                 // Not unique
          }
       } 
-      while ( unique && (uniqPos < uniqVals.length) );       // Unique and 
+      while ( unique && (uniqPos < uniqVals.length) );      // Unique and 
                                                             // and not at unique
                                                             // list end
                                                             
@@ -71,8 +71,9 @@ function binPic(picCanvas)
       unique = true;
    }
    
-   // Count the occurrence of each unique value in the pixel values
-   var uniqVals = uniqVals.sort // Sort unique values
+   
+   // Sort pixel values.... Helper in Math.
+   var pixelVals = pixelVals.sort 
    (
       function (num1, num2)
       {
@@ -80,12 +81,20 @@ function binPic(picCanvas)
                                 // Positive result places num1 after
       }
    );                          
-   console.log("Unique values: ");
-   for (var pos = 0; pos < uniqVals.length; pos += 1)
+   for (var pos = 0; pos < pixelVals.length; pos += 1)
    {
-      console.log("Position ", pos, " ", uniqVals[pos]);
+      console.log("Position ", pos, "Value ", pixelVals[pos]);
    }
    
+   // Count the occurrence of each unique value in the pixel values.... Helper in Math
+   
+   
+   //console.log("Values & Counts: ");
+   //for (var pos = 0; pos < valCounts.length; pos += 1)
+   //{
+    //  console.log("Position ", pos, " ", "Value ", 
+                 //uniqVals[pos], "Count ", valCounts[pos]);
+   //}
    // Output pixels to canvas
    // context.putImageData(picPixels, 0, 0);
 }
