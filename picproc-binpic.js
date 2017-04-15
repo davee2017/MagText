@@ -91,8 +91,7 @@ function binPic(picCanvas)
    
    // Determine maximum count
    var maxCount = Math.max.apply(null, valCounts);
-   console.log("Maximum count: ", maxCount);
-   
+
    // 
    
    // Output pixels to canvas
