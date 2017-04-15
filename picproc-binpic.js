@@ -69,18 +69,7 @@ function binPic(picCanvas)
       
       // Reset unique indicator for next pixel value
       unique = true;
-   }
-   
-   
-   // Sort pixel values.... 
-   var pixelVals = pixelVals.sort 
-   (
-      function (num1, num2)
-      {
-         return num1 - num2;    // Negative result places num1 before
-                                // Positive result places num1 after
-      }
-   );                          
+   }                  
 
    // Count the occurrence of each unique value in the pixel values.... Helper in Math. Call countVals(uniqVals, valCounts)
    var valCounts = [];
