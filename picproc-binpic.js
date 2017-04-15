@@ -35,12 +35,47 @@ function binPic(picCanvas)
       redVal = picPixels.data[redPos];
       pixelVals.push(redVal); 
    }
-   console.log("Red values: ");
-   for (var pos = 0; pos < pixelVals.length; pos += 1)
-   { 
-      console.log("Value: ", pixelVals[pos]);
-   }   
+
+   // Determine unique pixel values
+   var uniqVals = [];                 // Initialise unique value list
+   uniqVals[0] = pixelVals[0];        // First always unique
+   var unique = true;                 // Assume unique initially
+   // For each pixel value
+   for (var pixelPos = 1; pixelPos < pixelVals.length; pixelPos += 1)
+   {
+      // Compare value to all values in unique list
+      var uniqPos = -1;
+      do 
+      {
+         // Go to next value in unique list
+         uniqPos++;                       
+         
+         if ( pixelVals[pixelPos] == uniqVals[uniqPos] )    // Pixel value same 
+                                                            // as unique list 
+                                                            // value
+         {
+            unique = false;                                 // Not unique
+         }
+      } 
+      while (unique && (uniqPos < uniqVals.length) );       // Unique and 
+                                                            // and not at unique
+                                                            // list end
+                                                            
+      if (unique)                                           // Different to all
+      {
+         // Add to unique list
+         uniqVals.push(pixelVals[pixelPos]);
+      }
+      
+      // Reset unique indicator for next pixel value
+      unique = true;
+   }
    
+   //console.log("Unique values: ");
+   //for (var pos = 0; pos < uniqVals.length; pos += 1)
+   //{
+      //console.log(uniqVals[pos]);
+   //}
    
    // Output pixels to canvas
    // context.putImageData(picPixels, 0, 0);
