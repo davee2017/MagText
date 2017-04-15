@@ -57,24 +57,33 @@ function binPic(picCanvas)
             unique = false;                                 // Not unique
          }
       } 
-      while (unique && (uniqPos < uniqVals.length) );       // Unique and 
+      while ( unique && (uniqPos < uniqVals.length) );       // Unique and 
                                                             // and not at unique
                                                             // list end
                                                             
       if (unique)                                           // Different to all
       {
          // Add to unique list
-         uniqVals.push(pixelVals[pixelPos]);
+         uniqVals.push( pixelVals[pixelPos] );
       }
       
       // Reset unique indicator for next pixel value
       unique = true;
    }
    
+   // Count the occurrence of each unique value in the pixel values
+   var uniqVals = uniqVals.sort // Sort unique values
+   (
+      function (num1, num2)
+      {
+         return num1 - num2;    // Negative result places num1 before
+                                // Positive result places num1 after
+      }
+   );                          
    console.log("Unique values: ");
    for (var pos = 0; pos < uniqVals.length; pos += 1)
    {
-      console.log(uniqVals[pos]);
+      console.log("Position ", pos, " ", uniqVals[pos]);
    }
    
    // Output pixels to canvas
