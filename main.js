@@ -28,45 +28,45 @@ function main()
    // View environment
    viewEnv(videoElem);
    
-   // Capture environment after 2 seconds
+   // Capture environment after 6 seconds
    window.setTimeout
    (
       function()
       {
          captureEnv(videoElem, outCanvasElem);
       },
-      2000
+      7000
    );
    // Note: Part of box content. Capture video can be done 
    // seperate?
    
-   // Monochrome picture after 4 seconds
+   // Monochrome picture after 8 seconds
    window.setTimeout
    (
       function()
       {
          monoPic(outCanvasElem);
       },
-      4000
+      8000
    );
 
-   // Invert picture after 6 seconds
+   // Invert picture after 12 seconds
    window.setTimeout
    (
       function()
       {
          invPic(outCanvasElem);
       },
-      6000
+      12000
    );
    
-   // Binary picture after 8 seconds
+   // Binary picture after 16 seconds
    window.setTimeout
    (
       function()
       {
          binPic(outCanvasElem);
       },
-      8000
+      16000
    );
 }

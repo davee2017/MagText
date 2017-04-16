@@ -37,7 +37,7 @@ function binPic(picCanvas)
       pixelVals.push(redVal); 
    }
 
-   // Determine unique pixel values.... Helper? Math class. Call uniqVals(vals)
+   // Determine unique pixel values.... Helper? Statistics class. Call uniqVals(vals)
    var uniqVals = [];                 // Initialise unique value list
    uniqVals[0] = pixelVals[0];        // First always unique
    var unique = true;                 // Assume unique initially
@@ -72,7 +72,7 @@ function binPic(picCanvas)
       unique = true;
    }                  
 
-   // Count the occurrence of each unique value in the pixel values.... Helper in Math. Call countVals(uniqVals, valCounts)
+   // Count the occurrence of each unique value in the pixel values.... Helper in Statistics (type of Math class). Call countVals(uniqVals, valCounts)
    var valCounts = [];
    var pixelPos = -1;
    for (var uniqPos = 0; uniqPos < uniqVals.length; uniqPos += 1)
@@ -103,9 +103,29 @@ function binPic(picCanvas)
    console.log("Max count position: ", maxCountPos);
    
    // Determine unique value whose position is the maximum count position
-   var maxCountVal = uniqVals[maxCountPos];
-   console.log("Max count value: ", maxCountVal);
+   var threshold = uniqVals[maxCountPos];
+   console.log("Max count value: ", threshold);
+   
+   // Set pixel colour values based on threshold
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
+      redVal = picPixels.data[redPos];
+      if ( redVal >= (threshold + 30) )           //  threshold
+      {
+         // Set pixel to white
+         picPixels.data[redPos] = 255;             
+         picPixels.data[redPos + 1] = 255;
+         picPixels.data[redPos + 2] = 255;
+      }
+      else                                        // threshold
+      {
+         // Set pixel to black
+         picPixels.data[redPos] = 0;             
+         picPixels.data[redPos + 1] = 0;
+         picPixels.data[redPos + 2] = 0;
+      }
+   }
    
    // Output pixels to canvas
-   // context.putImageData(picPixels, 0, 0);
+   context.putImageData(picPixels, 0, 0);
 }
