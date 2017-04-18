@@ -110,7 +110,7 @@ function binPic(picCanvas)
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
       redVal = picPixels.data[redPos];
-      if ( redVal >= (threshold + 30) )           //  threshold
+      if ( redVal >= (threshold + 30) )       //  threshold
       {
          // Set pixel to white
          picPixels.data[redPos] = 255;             
