@@ -27,50 +27,23 @@ function binPic(picCanvas)
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
    // Get monochrome pixel values.... 
-   var redVal = -1;
-   var pixelVals = [];
-   //var pixelVals = [100, 100, 200, 200, 300, 5, 2, 2];
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   {
+   //var redVal = -1;
+   //var pixelVals = [];
+   var pixelVals = [100, 100, 200, 200, 300, 5, 2, 2];
+   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   //{
       // Get pixel red value
-      redVal = picPixels.data[redPos];
-      pixelVals.push(redVal); 
-   }
+      //redVal = picPixels.data[redPos];
+      //pixelVals.push(redVal); 
+   //}
 
-   // Determine unique pixel values.... Helper? Statistics class. Call uniqVals(vals)
-   var uniqVals = [];                 // Initialise unique value list
-   uniqVals[0] = pixelVals[0];        // First always unique
-   var unique = true;                 // Assume unique initially
-   // For each pixel value
-   for (var pixelPos = 1; pixelPos < pixelVals.length; pixelPos += 1)
+   // Compile histogram
+   var uniqPxVals = uniqVals(pixelVals);     // Unique pixel values
+   console.log("Unique values: ");
+   for (var pos = 0; pos < uniqPxVals.length; pos += 1)
    {
-      // Compare value to all values in unique list
-      var uniqPos = -1;
-      do 
-      {
-         // Go to next value in unique list
-         uniqPos++;                       
-         
-         if ( pixelVals[pixelPos] == uniqVals[uniqPos] )    // Pixel value same 
-                                                            // as unique list 
-                                                            // value
-         {
-            unique = false;                                 // Not unique
-         }
-      } 
-      while ( unique && (uniqPos < uniqVals.length) );      // Unique and 
-                                                            // and not at unique
-                                                            // list end
-                                                            
-      if (unique)                                           // Different to all
-      {
-         // Add to unique list
-         uniqVals.push( pixelVals[pixelPos] );
-      }
-      
-      // Reset unique indicator for next pixel value
-      unique = true;
-   }                  
+      console.log(uniqPxVals[pos]);
+   }
 
    // Count the occurrence of each unique value in the pixel values.... Helper in Statistics (type of Math class). Call countVals(uniqVals, valCounts)
    var valCounts = [];
