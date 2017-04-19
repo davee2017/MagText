@@ -61,7 +61,7 @@ function binPic(picCanvas)
    console.log("Max count position: ", maxCountPos);
    
    // Determine unique value whose position is the maximum count position
-   var threshold = uniqVals[maxCountPos];
+   var threshold = uniqPxVals[maxCountPos];
    console.log("Max count value: ", threshold);
    
    // Set pixel colour values based on threshold
@@ -84,9 +84,6 @@ function binPic(picCanvas)
       }
    }
    
-   // Output pixels to canvas
+   // Draw pixels on canvas
    context.putImageData(picPixels, 0, 0);
-   // NOTE: this should be put into ebApp. Strictly, the image processing functions are associated with image processing, not the display of canvas.
-   //This serves as a test.
-   // Maybe the programmer wants to do more than just display it
 }
