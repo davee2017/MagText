@@ -38,33 +38,18 @@ function binPic(picCanvas)
    //}
 
    // Compile histogram
-   var uniqPxVals = uniqVals(pixelVals);     // Unique pixel values
+   var uniqPxVals = -1;                      // Unique pixel values
+   uniqPxVals = uniqVals(pixelVals);         
    console.log("Unique values: ");
    for (var pos = 0; pos < uniqPxVals.length; pos += 1)
    {
       console.log(uniqPxVals[pos]);
    }
-
-   // Count the occurrence of each unique value in the pixel values.... Helper in Statistics (type of Math class). Call countVals(uniqVals, valCounts)
-   var valCounts = [];
-   var pixelPos = -1;
-   for (var uniqPos = 0; uniqPos < uniqVals.length; uniqPos += 1)
-   {                             // For given unique value
-      var valCount = 0;
-      for (var pixelPos = 0; pixelPos < pixelVals.length; pixelPos += 1)
-      {                          // For given pixel value
-         if (uniqVals[uniqPos] == pixelVals[pixelPos])      // Same
-         {
-            valCount += 1;                                  // Tally
-         }
-      }
-      
-      // Add value count to value counts
-      valCounts.push(valCount);
-   }
-   for (var pos = 0; pos < uniqVals.length; pos += 1)
+   var valCounts = -1;                       // Unique pixel value amounts
+   valCounts = cntVals(pixelVals, uniqPxVals);
+   for (var pos = 0; pos < uniqPxVals.length; pos += 1)
    {
-      console.log("Pos ", pos, "Val ", uniqVals[pos], "Cnt ", valCounts[pos]);
+      console.log("Pos ", pos, "Val ", uniqPxVals[pos], "Cnt ", valCounts[pos]);
    }
    
    // Determine maximum count
@@ -83,14 +68,14 @@ function binPic(picCanvas)
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
       redVal = picPixels.data[redPos];
-      if ( redVal >= (threshold + 30) )       //  threshold
+      if ( redVal >= (threshold + 30) )       //  Above/= threshold + offset
       {
          // Set pixel to white
          picPixels.data[redPos] = 255;             
          picPixels.data[redPos + 1] = 255;
          picPixels.data[redPos + 2] = 255;
       }
-      else                                        // threshold
+      else                                    // Below theshold + offset
       {
          // Set pixel to black
          picPixels.data[redPos] = 0;             
@@ -101,4 +86,7 @@ function binPic(picCanvas)
    
    // Output pixels to canvas
    context.putImageData(picPixels, 0, 0);
+   // NOTE: this should be put into ebApp. Strictly, the image processing functions are associated with image processing, not the display of canvas.
+   //This serves as a test.
+   // Maybe the programmer wants to do more than just display it
 }
