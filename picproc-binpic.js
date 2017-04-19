@@ -26,43 +26,26 @@ function binPic(picCanvas)
    // Get pixels from canvas
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
-   // Get monochrome pixel values.... 
-   //var redVal = -1;
-   //var pixelVals = [];
-   var pixelVals = [100, 100, 200, 200, 300, 5, 2, 2];
-   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   //{
+   // Get monochrome pixel values 
+   var redVal = -1;
+   var pixelVals = [];
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
       // Get pixel red value
-      //redVal = picPixels.data[redPos];
-      //pixelVals.push(redVal); 
-   //}
+      redVal = picPixels.data[redPos];
+      pixelVals.push(redVal); 
+   }
 
    // Compile histogram
    var uniqPxVals = -1;                      // Unique pixel values
    uniqPxVals = uniqVals(pixelVals);         
-   console.log("Unique values: ");
-   for (var pos = 0; pos < uniqPxVals.length; pos += 1)
-   {
-      console.log(uniqPxVals[pos]);
-   }
    var valCounts = -1;                       // Unique pixel value amounts
    valCounts = cntVals(pixelVals, uniqPxVals);
-   for (var pos = 0; pos < uniqPxVals.length; pos += 1)
-   {
-      console.log("Pos ", pos, "Val ", uniqPxVals[pos], "Cnt ", valCounts[pos]);
-   }
    
-   // Determine maximum count
+   // Determine threshold
    var maxCount = Math.max.apply(null, valCounts);
-   console.log("Max count: ", maxCount);
-
-   // Determine maximum count position
    var maxCountPos = valCounts.indexOf(maxCount);
-   console.log("Max count position: ", maxCountPos);
-   
-   // Determine unique value whose position is the maximum count position
    var threshold = uniqPxVals[maxCountPos];
-   console.log("Max count value: ", threshold);
    
    // Set pixel colour values based on threshold
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
