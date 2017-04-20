@@ -60,13 +60,27 @@ function main()
       12000
    );
    
+   // Calculate threshold
+   
+   var bwThreshold = -1;
    // Binary picture after 16 seconds
    window.setTimeout
    (
       function()
       {
-         binPic(outCanvasElem);
+         bwThreshold = calcBWThresh(outCanvasElem);
       },
       16000
+   );
+   
+   // Binary picture after 20 seconds
+   window.setTimeout
+   (
+      function()
+      {
+         console.log("Threshold: ", bwThreshold);
+         binPic(outCanvasElem, bwThreshold, 30);
+      },
+      20000
    );
 }

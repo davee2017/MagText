@@ -16,39 +16,39 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Binary picture
-// Quantises the picture into black and white.
-// Accepts a picture canvas, a black/white threshold colour 
-// value and an offset value.
-//
-function binPic(picCanvas, threshold, offset)
-{  
+// Calculate black/white threshold
+// Determines the colour value for making pixels white 
+// or black.
+// Accepts a picture canvas.
+
+function calcBWThresh(picCanvas)
+{
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    
    // Get pixels from canvas
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
-   // Set pixel colour values based on threshold
+   // Get monochrome pixel values 
+   var redVal = -1;
+   var pixelVals = [];
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
+      // Get pixel red value
       redVal = picPixels.data[redPos];
-      if ( redVal >= (threshold + offset) )   //  Above/= threshold + offset
-      {
-         // Set pixel to white
-         picPixels.data[redPos] = 255;             
-         picPixels.data[redPos + 1] = 255;
-         picPixels.data[redPos + 2] = 255;
-      }
-      else                                    // Below theshold + offset
-      {
-         // Set pixel to black
-         picPixels.data[redPos] = 0;             
-         picPixels.data[redPos + 1] = 0;
-         picPixels.data[redPos + 2] = 0;
-      }
+      pixelVals.push(redVal); 
    }
+
+   // Compile histogram
+   var uniqPxVals = -1;                      // Unique pixel values
+   uniqPxVals = uniqVals(pixelVals);         
+   var valCounts = -1;                       // Unique pixel value amounts
+   valCounts = cntVals(pixelVals, uniqPxVals);
    
-   // Draw pixels on canvas
-   context.putImageData(picPixels, 0, 0);
+   // Determine threshold
+   var maxCount = Math.max.apply(null, valCounts);
+   var maxCountPos = valCounts.indexOf(maxCount);
+   var threshold = uniqPxVals[maxCountPos];
+   
+   return threshold;
 }
