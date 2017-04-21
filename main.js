@@ -78,19 +78,19 @@ function main()
       function()
       {
          console.log("Threshold into uni bright: ", bwThreshold);
-         uniBright(outCanvasElem, bwThreshold, 30, 0, 0);
+         uniBright(outCanvasElem, bwThreshold, 30, 5, 0);
       },
       20000
    );
    
    // Binary picture after 24 seconds
-   //window.setTimeout
-   //(
-      //function()
-      //{
-      //   console.log("Threshold into bin pic: ", bwThreshold);
-      //   binPic(outCanvasElem, bwThreshold, 30);
-      //},
-      //24000
-   //);
+   window.setTimeout
+   (
+      function()
+      {
+         console.log("Threshold into bin pic: ", bwThreshold);
+         binPic(outCanvasElem, bwThreshold, 30);
+      },
+      24000
+   );
 }
