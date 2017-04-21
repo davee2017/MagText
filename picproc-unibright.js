@@ -27,11 +27,6 @@
 
 function uniBright(picCanvas, threshold, offset, darkInc, lightDec)
 {
-   console.log("Uni bright threshold: ", threshold);
-   console.log("Offset: ", offset);
-   console.log("Brighten by: ", darkInc);
-   console.log("Darken by: ", lightDec);
-   
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    

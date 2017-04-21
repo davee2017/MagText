@@ -77,7 +77,6 @@ function main()
    (
       function()
       {
-         console.log("Threshold into uni bright: ", bwThreshold);
          uniBright(outCanvasElem, bwThreshold, 30, 5, 0);
       },
       20000
@@ -88,7 +87,6 @@ function main()
    (
       function()
       {
-         console.log("Threshold into bin pic: ", bwThreshold);
          binPic(outCanvasElem, bwThreshold, 30);
       },
       24000
