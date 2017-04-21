@@ -88,7 +88,6 @@ function main()
    (
       function()
       {
-         console.log("Threshold offset into uni bright: ", bwThreshOffset);
          uniBright(outCanvasElem, bwThreshold, bwThreshOffset, 5, 0);
       },
       21000
@@ -99,7 +98,6 @@ function main()
    (
       function()
       {
-         console.log("Threshold offset into bin pic: ", bwThreshOffset);
          binPic(outCanvasElem, bwThreshold, bwThreshOffset);
       },
       26000
