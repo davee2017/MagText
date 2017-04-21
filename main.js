@@ -61,7 +61,7 @@ function main()
       12000
    );
    
-   // Calculate threshold after 16 seconds
+   // Calculate black/white threshold after 16 seconds
    var bwThreshold = -1;
    window.setTimeout
    (
@@ -72,14 +72,26 @@ function main()
       16000
    );
    
-   // Unify brightness after 20 seconds
+   // Set threshold offset after 20 seconds
+   var bwThreshOffset = -1;
    window.setTimeout
    (
       function()
       {
-         uniBright(outCanvasElem, bwThreshold, 30, 5, 0);
+         bwThreshOffset = 30;
       },
       20000
+   )
+   
+   // Unify brightness after 21 seconds
+   window.setTimeout
+   (
+      function()
+      {
+         console.log("Threshold offset into uni bright: ", bwThreshOffset);
+         uniBright(outCanvasElem, bwThreshold, bwThreshOffset, 5, 0);
+      },
+      21000
    );
    
    // Binary picture after 24 seconds
@@ -87,8 +99,9 @@ function main()
    (
       function()
       {
-         binPic(outCanvasElem, bwThreshold, 30);
+         console.log("Threshold offset into bin pic: ", bwThreshOffset);
+         binPic(outCanvasElem, bwThreshold, bwThreshOffset);
       },
-      24000
+      26000
    );
 }
