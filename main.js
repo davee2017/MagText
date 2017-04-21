@@ -67,6 +67,13 @@ function main()
    (
       function()
       {
+         // What is the most often occuring colour value anyway? It seems to be
+         // a grey. Is it the spaces in-between the text? I would have thought
+         // that because the colour values vary, that it would possibly be 
+         // the text itself?
+         // Will need to institute objective tests using numbers.
+         // Possibly output the most colour value then enter it into a website
+         // that shows what it looks like.
          bwThreshold = mostColVal(outCanvasElem);
       },
       16000
@@ -88,7 +95,20 @@ function main()
    (
       function()
       {
-         uniBright(outCanvasElem, bwThreshold, bwThreshOffset, 5, 0);
+         // Note: may need to use different values to
+         // unify the brightness for different lighting conditions
+         // Note: the midpoint between the maximum and minimum colour values
+         // could be a good threshold. 
+         // Note: probably going to need to test all the different values.
+         // Arrange them in a table of some sort.
+         // Note: midpoint/median? would represent the middle of the black/white 
+         // transition. Useful for unifying the brightness when light is on
+         // one side of the paper
+         var brightThresh = 200;
+         var brightThreshOffset = 0;
+         var incBy = 5;
+         var decBy = 0;
+         uniBright(outCanvasElem, brightThresh, brightThreshOffset, incBy, decBy);
       },
       21000
    );
