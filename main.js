@@ -15,6 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 function main()
 {
    // Debug mode?
@@ -60,10 +61,8 @@ function main()
       12000
    );
    
-   // Calculate threshold
-   
+   // Calculate threshold after 16 seconds
    var bwThreshold = -1;
-   // Binary picture after 16 seconds
    window.setTimeout
    (
       function()
@@ -73,14 +72,25 @@ function main()
       16000
    );
    
-   // Binary picture after 20 seconds
+   // Unify brightness after 20 seconds
    window.setTimeout
    (
       function()
       {
-         console.log("Threshold: ", bwThreshold);
-         binPic(outCanvasElem, bwThreshold, 30);
+         console.log("Threshold into uni bright: ", bwThreshold);
+         uniBright(outCanvasElem, bwThreshold, 30, 0, 0);
       },
       20000
    );
+   
+   // Binary picture after 24 seconds
+   //window.setTimeout
+   //(
+      //function()
+      //{
+      //   console.log("Threshold into bin pic: ", bwThreshold);
+      //   binPic(outCanvasElem, bwThreshold, 30);
+      //},
+      //24000
+   //);
 }
