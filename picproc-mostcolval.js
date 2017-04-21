@@ -16,12 +16,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Calculate black/white threshold
-// Determines the colour value for making pixels white 
-// or black.
+// Most colour value
+// Determines the most occurring colour in a picture.
 // Accepts a picture canvas.
 
-function calcBWThresh(picCanvas)
+function mostColVal(picCanvas)
 {
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
@@ -29,7 +28,7 @@ function calcBWThresh(picCanvas)
    // Get pixels from canvas
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
-   // Get monochrome pixel values 
+   // Get pixel values 
    var redVal = -1;
    var pixelVals = [];
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
@@ -45,10 +44,10 @@ function calcBWThresh(picCanvas)
    var valCounts = -1;                       // Unique pixel value amounts
    valCounts = cntVals(pixelVals, uniqPxVals);
    
-   // Determine threshold
+   // Determine most occurring colour value
    var maxCount = Math.max.apply(null, valCounts);
    var maxCountPos = valCounts.indexOf(maxCount);
-   var threshold = uniqPxVals[maxCountPos];
+   var mostVal = uniqPxVals[maxCountPos];
    
-   return threshold;
+   return mostVal;
 }

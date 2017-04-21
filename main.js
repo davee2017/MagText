@@ -67,7 +67,8 @@ function main()
    (
       function()
       {
-         bwThreshold = calcBWThresh(outCanvasElem);
+         bwThreshold = mostColVal(outCanvasElem);
+         console.log("Most colour value (bw threshold): ", bwThreshold);
       },
       16000
    );
