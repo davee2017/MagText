@@ -22,10 +22,7 @@
 // value and an offset value.
 //
 function binPic(picCanvas, threshold, offset)
-{  
-   console.log("Threshold: ", threshold);
-   console.log("Offset: ", offset);
-   
+{
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    
