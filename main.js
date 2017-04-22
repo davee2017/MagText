@@ -68,7 +68,6 @@ function main()
       function()
       {
          bgMostColVal = mostColVal(outCanvasElem);
-         console.log("Most common bg colour value: ", bgMostColVal);
       },
       16000
    );
