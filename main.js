@@ -61,65 +61,36 @@ function main()
       12000
    );
    
-   // Calculate black/white threshold after 16 seconds
-   var bwThreshold = -1;
+   // Determine the most colour value in the background after 16 seconds
+   var bgMostColVal = -1;
    window.setTimeout
    (
       function()
       {
-         // What is the most often occuring colour value anyway? It seems to be
-         // a grey. Is it the spaces in-between the text? I would have thought
-         // that because the colour values vary, that it would possibly be 
-         // the text itself?
-         // Will need to institute objective tests using numbers.
-         // Possibly output the most colour value then enter it into a website
-         // that shows what it looks like.
-         bwThreshold = mostColVal(outCanvasElem);
+         bgMostColVal = mostColVal(outCanvasElem);
+         console.log("Most common bg colour value: ", bgMostColVal);
       },
       16000
    );
    
    // Set threshold offset after 20 seconds
-   var bwThreshOffset = -1;
+   var txtColValDist = -1;
    window.setTimeout
    (
       function()
       {
-         bwThreshOffset = 30;
+         txtColValDist = 30;
       },
       20000
    )
-   
-   // Unify brightness after 21 seconds
-   window.setTimeout
-   (
-      function()
-      {
-         // Note: may need to use different values to
-         // unify the brightness for different lighting conditions
-         // Note: the midpoint between the maximum and minimum colour values
-         // could be a good threshold. 
-         // Note: probably going to need to test all the different values.
-         // Arrange them in a table of some sort.
-         // Note: midpoint/median? would represent the middle of the black/white 
-         // transition. Useful for unifying the brightness when light is on
-         // one side of the paper
-         var brightThresh = 200;
-         var brightThreshOffset = 0;
-         var incBy = 5;
-         var decBy = 0;
-         uniBright(outCanvasElem, brightThresh, brightThreshOffset, incBy, decBy);
-      },
-      21000
-   );
    
    // Binary picture after 24 seconds
    window.setTimeout
    (
       function()
       {
-         binPic(outCanvasElem, bwThreshold, bwThreshOffset);
+         binPic(outCanvasElem, bgMostColVal, txtColValDist);
       },
-      26000
+      24000
    );
 }
