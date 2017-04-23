@@ -62,44 +62,39 @@ function main()
    );
    
    // Determine the most colour value in the background after 16 seconds
-   //var bgMostColVal = -1;
-   //window.setTimeout
-   //(
-   //   function()
-   //   {
-   //      bgMostColVal = mostColVal(outCanvasElem);
-   //   },
-   //   16000
-   //);
-   
-   // Set text colour value distance after 20 seconds
-   //var txtColValDist = -1;
-   //window.setTimeout
-   //(
-   //   function()
-   //   {
-   //      txtColValDist = 30;
-   //   },
-   //   20000
-   //)
-   
-   // Determine text/background boundary value after 14 seconds
-   var txtBgBndColVal = -1;
+   var bgMostColVal = -1;
    window.setTimeout
    (
       function()
       {
-         var txtBgBndColVal = lightBndColVal(outCanvasElem);
+         bgMostColVal = mostColVal(outCanvasElem);
       },
-      14000
+      16000
+   );
+   
+   // Set text colour value distance after 20 seconds
+   var txtColValDist = -1;
+   window.setTimeout
+   (
+      function()
+      {
+         txtColValDist = 30;
+      },
+      20000
    )
+   
+   // Sharpen picture after 22 seconds
+   // Draw it
+   // Listen to Quietude
+   // Use colour picker to help
+   // Talk it over
    
    // Adjust contrast after 24 seconds
    //window.setTimeout
    //(
    //   function()
    //   {
-   //      adjContrast(outCanvasElem, bgMostColVal, txtColValDist, 50, 80);
+   //      adjContrast(outCanvasElem, bgMostColVal, txtColValDist, 50, 50);
    //   },
    //   24000
    //)
@@ -109,7 +104,7 @@ function main()
    //(
    //   function()
    //   {
-   //      binPic(outCanvasElem, txtBgBndColVal, 0);
+   //      binPic(outCanvasElem, bgMostColVal, txtColValDist);
    //   },
    //   26000
    //);
