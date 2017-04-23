@@ -68,7 +68,6 @@ function main()
       function()
       {
          bgMostColVal = mostColVal(outCanvasElem);
-         console.log("Most bg col val: ", bgMostColVal);
       },
       16000
    );
@@ -89,18 +88,18 @@ function main()
    (
       function()
       {
-         adjContrast(outCanvasElem, bgMostColVal, txtColValDist, -1, -1);
+         adjContrast(outCanvasElem, bgMostColVal, txtColValDist, 50, 80);
       },
       22000
    )
    
    // Binary picture after 24 seconds
-   window.setTimeout
-   (
-      function()
-      {
-         binPic(outCanvasElem, bgMostColVal, txtColValDist);
-      },
-      24000
-   );
+   //window.setTimeout
+   //(
+   //   function()
+   //   {
+   //      binPic(outCanvasElem, bgMostColVal, txtColValDist);
+   //   },
+   //   24000
+   //);
 }
