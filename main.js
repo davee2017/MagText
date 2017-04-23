@@ -62,44 +62,55 @@ function main()
    );
    
    // Determine the most colour value in the background after 16 seconds
-   var bgMostColVal = -1;
-   window.setTimeout
-   (
-      function()
-      {
-         bgMostColVal = mostColVal(outCanvasElem);
-      },
-      16000
-   );
-   
-   // Set threshold offset after 20 seconds
-   var txtColValDist = -1;
-   window.setTimeout
-   (
-      function()
-      {
-         txtColValDist = 30;
-      },
-      20000
-   )
-   
-   // Adjust contrast after 22 seconds
-   window.setTimeout
-   (
-      function()
-      {
-         adjContrast(outCanvasElem, bgMostColVal, txtColValDist, 50, 80);
-      },
-      22000
-   )
-   
-   // Binary picture after 24 seconds
+   //var bgMostColVal = -1;
    //window.setTimeout
    //(
    //   function()
    //   {
-   //      binPic(outCanvasElem, bgMostColVal, txtColValDist);
+   //      bgMostColVal = mostColVal(outCanvasElem);
+   //   },
+   //   16000
+   //);
+   
+   // Set text colour value distance after 20 seconds
+   //var txtColValDist = -1;
+   //window.setTimeout
+   //(
+   //   function()
+   //   {
+   //      txtColValDist = 30;
+   //   },
+   //   20000
+   //)
+   
+   // Determine text/background boundary value after 14 seconds
+   var txtBgBndColVal = -1;
+   window.setTimeout
+   (
+      function()
+      {
+         var txtBgBndColVal = lightBndColVal(outCanvasElem);
+      },
+      14000
+   )
+   
+   // Adjust contrast after 24 seconds
+   //window.setTimeout
+   //(
+   //   function()
+   //   {
+   //      adjContrast(outCanvasElem, bgMostColVal, txtColValDist, 50, 80);
    //   },
    //   24000
+   //)
+   
+   // Binary picture after 26 seconds
+   //window.setTimeout
+   //(
+   //   function()
+   //   {
+   //      binPic(outCanvasElem, txtBgBndColVal, 0);
+   //   },
+   //   26000
    //);
 }
