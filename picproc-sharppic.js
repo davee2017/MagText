@@ -21,29 +21,32 @@ function sharpPic(picCanvas, factor)
    console.log("Arguments:");
    console.log("Factor ", factor);
    
-   // Copy canvas
-   var workCanvas = picCanvas;
+   // Copy original canvas
+   var cpyCanvas = picCanvas;
    
-   // Get canvas 2D context
-   var context = workCanvas.getContext('2d');
+   // Get copy canvas 2D context
+   var cpyContext = cpyCanvas.getContext('2d');
    
-   // Get pixels from canvas
-   var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
+   // Get pixels from copy canvas
+   var cpyPixels = cpyContext.getImageData(0, 0, cpyCanvas.width, cpyCanvas.height);
    
-   // Get pixel values 
+   // Extract monochrome pixel values from copy canvas
    var redVal = -1;
-   var pixelVals = [];
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   var cpyPxVals = [];
+   for (var redPos = 0; redPos < cpyPixels.data.length; redPos += 4)
    {
       // Get pixel red value
-      redVal = picPixels.data[redPos];
-      pixelVals.push(redVal); 
+      redVal = cpyPixels.data[redPos];
+      cpyPxVals.push(redVal); 
    }
    console.log("Pixel values: ");
-   for (var pos = 0; pos < pixelVals.length; pos += 1)     // Debug
+   for (var pos = 0; pos < cpyPxVals.length; pos += 1)     // Debug
    {
-      console.log("Pos ", pos, "Val ", pixelVals[pos]);
+      console.log("Pos ", pos, "Val ", cpyPxVals[pos]);
    }
    
-   // Set first row of pixels to black
+   // Set first row of copy canvas pixels to black
+   //for (var pos = 0; pos <= (workCanvas.width - 1); pos += 1)
+   //{
+      
 }
