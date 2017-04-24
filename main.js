@@ -83,12 +83,22 @@ function main()
       20000
    )
    
-   // Sharpen picture after 22 seconds
-   // Draw it
-   // Listen to Quietude
-   // Use colour picker to help
-   // Talk it over
+   // May just need to adjust brightness for each lighting condition to bring up
+   // to standard when coding: pixelVals + difference (stdMostColVal - 
+   // actualMostColVal)
+   // See
    
+   // Sharpen picture after 22 seconds
+   var shpFactor = 1;
+   window.setTimeout
+   (
+      function()
+      {
+         sharpPic(outCanvasElem, shpFactor);
+      },
+      22000
+   )
+
    // Adjust contrast after 24 seconds
    //window.setTimeout
    //(
