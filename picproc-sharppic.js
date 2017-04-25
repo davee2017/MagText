@@ -40,13 +40,29 @@ function sharpPic(picCanvas, factor)
       cpyPxVals.push(redVal); 
    }
    console.log("Pixel values: ");
+   var row = -1;
+   var col = -1;
    for (var pos = 0; pos < cpyPxVals.length; pos += 1)     // Debug
    {
-      console.log("Pos ", pos, "Val ", cpyPxVals[pos]);
+      row = Math.floor( (pos / cpyCanvas.width) + 1);
+      col = (pos % cpyCanvas.width) + 1;
+      console.log("Pos ", pos, " Row ", row, "Col ", col, "Val ", 
+                 cpyPxVals[pos]);
    }
    
    // Set first row of copy canvas pixels to black
-   //for (var pos = 0; pos <= (workCanvas.width - 1); pos += 1)
-   //{
-      
+   for (var pos = 0; pos <= (cpyCanvas.width - 1); pos += 1)
+   {
+      cpyPxVals[pos] = 0;
+   }
+   console.log("After row 1 black: ");
+   var row = -1;
+   var col = -1;
+   for (var pos = 0; pos < cpyPxVals.length; pos += 1)     // Debug
+   {
+      row = Math.floor( (pos / cpyCanvas.width) + 1);
+      col = (pos % cpyCanvas.width) + 1;
+      console.log("Pos ", pos, " Row ", row, "Col ", col, "Val ", 
+                 cpyPxVals[pos]);
+   }
 }
