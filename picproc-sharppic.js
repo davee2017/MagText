@@ -16,53 +16,78 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-function sharpPic(picCanvas, factor)
+function sharpPic(origCanvas, factor)
 {
    console.log("Arguments:");
    console.log("Factor ", factor);
    
-   // Copy original canvas
-   var cpyCanvas = picCanvas;
+   // Get original canvas 2D context
+   var origContext = origCanvas.getContext('2d');
    
-   // Get copy canvas 2D context
-   var cpyContext = cpyCanvas.getContext('2d');
+   // Get pixels from original canvas
+   var origPixels = origContext.getImageData(0, 0, origCanvas.width, origCanvas.height);
    
-   // Get pixels from copy canvas
-   var cpyPixels = cpyContext.getImageData(0, 0, cpyCanvas.width, cpyCanvas.height);
-   
-   // Extract monochrome pixel values from copy canvas
+   // Extract monochrome pixel values from original canvas
    var redVal = -1;
-   var cpyPxVals = [];
-   for (var redPos = 0; redPos < cpyPixels.data.length; redPos += 4)
+   var origPxVals = [];
+   for (var redPos = 0; redPos < origPixels.data.length; redPos += 4)
    {
       // Get pixel red value
-      redVal = cpyPixels.data[redPos];
-      cpyPxVals.push(redVal); 
+      redVal = origPixels.data[redPos];
+      origPxVals.push(redVal); 
    }
-   console.log("Pixel values: ");
+   console.log("Original pixel values: ");
    var row = -1;
    var col = -1;
-   for (var pos = 0; pos < cpyPxVals.length; pos += 1)     // Debug
+   for (var pos = 0; pos < origPxVals.length; pos += 1)     // Debug
    {
-      row = Math.floor( (pos / cpyCanvas.width) + 1);
-      col = (pos % cpyCanvas.width) + 1;
+      row = Math.floor( (pos / origCanvas.width) + 1);
+      col = (pos % origCanvas.width) + 1;
       console.log("Pos ", pos, " Row ", row, "Col ", col, "Val ", 
-                 cpyPxVals[pos]);
+                 origPxVals[pos]);
    }
    
-   // Set first row of copy canvas pixels to black
-   for (var pos = 0; pos <= (cpyCanvas.width - 1); pos += 1)
+   // Set first row of original canvas pixels to black
+   for (var pos = 0; pos <= (origCanvas.width - 1); pos += 1)
    {
-      cpyPxVals[pos] = 0;
+      origPxVals[pos] = 0;
    }
    console.log("After row 1 black: ");
    var row = -1;
    var col = -1;
-   for (var pos = 0; pos < cpyPxVals.length; pos += 1)     // Debug
+   for (var pos = 0; pos < origPxVals.length; pos += 1)     // Debug
    {
-      row = Math.floor( (pos / cpyCanvas.width) + 1);
-      col = (pos % cpyCanvas.width) + 1;
+      row = Math.floor( (pos / origCanvas.width) + 1);
+      col = (pos % origCanvas.width) + 1;
       console.log("Pos ", pos, " Row ", row, "Col ", col, "Val ", 
-                 cpyPxVals[pos]);
+                 origPxVals[pos]);
    }
+   
+   // Set last row of original canvas pixels to black
+   //var endInd = (cpyCanvas.width - 1);                     // End index
+   //var startPos = endInd;                                  // Start at end index
+   //var endPos = endInd - (cpyCanvas.width - 1);            // End at end index -
+                                                           // ( width - 1 )
+   //for (var pos = startPos; endPos; pos -= 1)              // Going backwards
+   //{
+   //   cpyPxVals[pos] = 0;
+   //}
+   //console.log("After last row black: ");
+   //var row = -1;
+   //var col = -1;
+   //for (var pos = 0; pos < cpyPxVals.length; pos += 1)     // Debug
+   //{
+   //   row = Math.floor( (pos / cpyCanvas.width) + 1);
+   //   col = (pos % cpyCanvas.width) + 1;
+   //   console.log("Pos ", pos, " Row ", row, "Col ", col, "Val ", 
+   //              cpyPxVals[pos]);
+   //}
+   // Note: could be abstracted to drawHPxLine(picCanvas, row, colour) & 
+   // drawVPxLine(picCanvas, col, colour) later. These would be called by
+   // adjContent() (means sharpPic() can exist/ be called on own).
+   
+   // Copy original canvas
+   // var cpyCanvas = origCanvas;
+   
+   
 }
