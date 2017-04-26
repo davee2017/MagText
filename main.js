@@ -83,8 +83,8 @@ function main()
       20000
    )
    
-   // May just need to adjust brightness for each lighting condition to bring up
-   // to standard when coding: pixelVals + difference (stdMostColVal - 
+   // May just need to adjust brightness for each lighting condition to bring up/down
+   // to optimal when coding: pixelVals + difference (optiMostColVal - 
    // actualMostColVal)
    // See
    
@@ -94,7 +94,7 @@ function main()
    (
       function()
       {
-         sharpPic(outCanvasElem, shpFactor);
+         sharpPic(outCanvasElem, 1);
       },
       22000
    )
