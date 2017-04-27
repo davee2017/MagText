@@ -68,6 +68,7 @@ function main()
       function()
       {
          bgMostColVal = mostColVal(outCanvasElem);
+         console.log("Most bg col val: ", bgMostColVal);
       },
       16000
    );
@@ -78,7 +79,8 @@ function main()
    (
       function()
       {
-         txtColValDist = 30;
+         txtColValDist = 50;
+         console.log("Min txt col val dist: ", txtColValDist);
       },
       20000
    )
@@ -89,15 +91,15 @@ function main()
    // See
    
    // Sharpen picture after 22 seconds
-   var shpFactor = 1;
-   window.setTimeout
-   (
-      function()
-      {
-         sharpPic(outCanvasElem, 1);
-      },
-      22000
-   )
+   //var shpFactor = 1;
+   //window.setTimeout
+   //(
+   //   function()
+   //   {
+   //      sharpPic(outCanvasElem, 1);
+   //   },
+   //   22000
+   //)
 
    // Adjust contrast after 24 seconds
    //window.setTimeout
@@ -110,12 +112,12 @@ function main()
    //)
    
    // Binary picture after 26 seconds
-   //window.setTimeout
-   //(
-   //   function()
-   //   {
-   //      binPic(outCanvasElem, bgMostColVal, txtColValDist);
-   //   },
-   //   26000
-   //);
+   window.setTimeout
+   (
+      function()
+      {
+         binPic(outCanvasElem, bgMostColVal, txtColValDist);
+      },
+      24000
+   );
 }
