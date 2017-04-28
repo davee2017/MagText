@@ -41,3 +41,31 @@ function captureEnv(videoElem, outCanvasElem)
    // Take a picture of the current video
    takeVidPic(videoElem, outCanvasElem);
 }
+
+// Adjust content
+// Adjusts the content for optimal reading with naked eye
+// and for optimal post-processing.
+function adjContent(outCanvasElem)
+{
+   // Use variations of black and white for colours (grayscale content)
+   monoPic(outCanvasElem);
+   
+   // Make black white, white black (invert content)
+   invPic(outCanvasElem);
+   
+   // Set quantising parameters based on pre-processed inverted content
+   var bgMostColVal = mostColVal(outCanvasElem);            // Background colour
+   console.log("Most bg col val: ", bgMostColVal);
+   var minTxtColValDist = 50;                               // Min Distance text
+                                                            // is from
+                                                            // background colour
+   console.log("Min txt col val dist: ", minTxtColValDist);
+   
+   // Make colour transitions between text and background distinct (sharpen 
+   // content)
+   //var shpFactor = 1;
+   //sharpPic(outCanvasElem, shpFactor);
+   
+   // Make text white, background black (quantise content)
+   binPic(outCanvasElem, bgMostColVal, minTxtColValDist);
+}

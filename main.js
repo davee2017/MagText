@@ -41,83 +41,14 @@ function main()
    // Note: Part of box content. Capture video can be done 
    // seperate?
    
-   // Monochrome picture after 8 seconds
+   // Adjust content after 8 seconds
+   // Note: this needs testing when next session comes around
    window.setTimeout
    (
       function()
       {
-         monoPic(outCanvasElem);
+         adjContent(outCanvasElem);
       },
       8000
-   );
-
-   // Invert picture after 12 seconds
-   window.setTimeout
-   (
-      function()
-      {
-         invPic(outCanvasElem);
-      },
-      12000
-   );
-   
-   // Determine the most colour value in the background after 16 seconds
-   var bgMostColVal = -1;
-   window.setTimeout
-   (
-      function()
-      {
-         bgMostColVal = mostColVal(outCanvasElem);
-         console.log("Most bg col val: ", bgMostColVal);
-      },
-      16000
-   );
-   
-   // Set text colour value distance after 20 seconds
-   var txtColValDist = -1;
-   window.setTimeout
-   (
-      function()
-      {
-         minTxtColValDist = 50;
-         console.log("Min txt col val dist: ", minTxtColValDist);
-      },
-      20000
-   )
-   
-   // May just need to adjust brightness for each lighting condition to bring up/down
-   // to optimal when coding: pixelVals + difference (optiMostColVal - 
-   // actualMostColVal)
-   // See
-   
-   // Sharpen picture after 22 seconds
-   //var shpFactor = 1;
-   //window.setTimeout
-   //(
-   //   function()
-   //   {
-   //      sharpPic(outCanvasElem, 1);
-   //   },
-   //   22000
-   //)
-
-   // Adjust contrast after 24 seconds
-   //window.setTimeout
-   //(
-   //   function()
-   //   {
-   //      adjContrast(outCanvasElem, bgMostColVal, txtColValDist, 50, 50);
-   //   },
-   //   24000
-   //)
-   
-   // Binary picture after 26 seconds
-   window.setTimeout
-   (
-      function()
-      {
-         binPic(outCanvasElem, bgMostColVal, minTxtColValDist);
-      },
-      24000
    );
 }
