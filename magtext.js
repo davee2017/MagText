@@ -54,12 +54,17 @@ function adjContent(outCanvasElem)
    invPic(outCanvasElem);
    
    // Set quantising parameters based on pre-processed inverted content
-   var bgMostColVal = mostColVal(outCanvasElem);            // Background colour
-   console.log("Most bg col val: ", bgMostColVal);
-   var minTxtColValDist = 50;                               // Min Distance text
+   // Note: Using the maximum colour value (max text colour value) might offer
+   // a wider range of good results since it is has a smaller range of values
+   // under different lighting conditions. Then just determine optimal text
+   // distance from there (will be negative and a max distance).
+   //var bgMostColVal = mostColVal(outCanvasElem);            // Background colour
+   var maxTxtColVal = maxColVal(outCanvasElem);
+   console.log("Max text col val: ", maxTxtColVal);
+   //var minTxtColValDist = 50;                               // Min Distance text
                                                             // is from
                                                             // background colour
-   console.log("Min txt col val dist: ", minTxtColValDist);
+   //console.log("Min txt col val dist: ", minTxtColValDist);
    
    // Make colour transitions between text and background distinct (sharpen 
    // content)
@@ -67,5 +72,5 @@ function adjContent(outCanvasElem)
    //sharpPic(outCanvasElem, shpFactor);
    
    // Make text white, background black (quantise content)
-   binPic(outCanvasElem, bgMostColVal, minTxtColValDist);
+   //binPic(outCanvasElem, bgMostColVal, minTxtColValDist);
 }
