@@ -37,12 +37,7 @@ function maxColVal(picCanvas)
    // Find maximum colour value
    var uniqPxVals = -1;                                  // Unique pixel values
    uniqPxVals = uniqVals(pixelVals);         
-   for (var pos = 0; pos < uniqPxVals.length; pos += 1)  // Debug
-   {
-      console.log("Pos ", pos, " Val ", uniqPxVals[pos]);
-   }
    var maxColVal = Math.max.apply(null, uniqPxVals);
-   console.log("Max colour value: ", maxColVal);
    
    // Give maximum colour value back to calling function
    return maxColVal;
