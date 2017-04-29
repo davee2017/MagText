@@ -59,12 +59,13 @@ function adjContent(outCanvasElem)
    // under different lighting conditions. Then just determine optimal text
    // distance from there (will be negative and a max distance).
    //var bgMostColVal = mostColVal(outCanvasElem);            // Background colour
-   //var maxTxtColVal = maxColVal(outCanvasElem);
-   //console.log("Max text col val: ", maxTxtColVal);
-   //var minBgColValDist = -50;                             // Min Distance bg
+   var maxTxtColVal = -1;
+   maxTxtColVal = maxColVal(outCanvasElem);
+   console.log("Max text col val: ", maxTxtColVal);
+   var minBgColValDist = -91;                             // Min Distance bg
                                                           // is from max
                                                           // text colour
-   //console.log("Min bg col val dist: ", minTxtColValDist);
+   console.log("Min bg col val dist: ", minBgColValDist);
    
    // Make colour transitions between text and background distinct (sharpen 
    // content)
@@ -72,5 +73,5 @@ function adjContent(outCanvasElem)
    //sharpPic(outCanvasElem, shpFactor);
    
    // Make text white, background black (quantise content)
-   //binPic(outCanvasElem, maxTxtColVal, minBgColValDist);
+   binPic(outCanvasElem, maxTxtColVal, minBgColValDist);
 }
