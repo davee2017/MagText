@@ -15,42 +15,44 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-// Adjust contrast
+// Unify brightness
+// Attempts to unify the brightness across an entire monochrome picture.
 // Accepts:
-// 1. A picture canvas.
-// 2. A light/dark threshold colour value.
-// 3. A threshold offset value for dynamic threshold colour values. Range of
-// pixel values at and above this threshold are classified as light pixels.
-// Range of pixel values below this threshold are classified as dark pixels.
-// 4. A colour value to decrease dark pixels by.
-// 5. A colour value to increase light pixels by.
+// 1. A canvas containing a monochrome picture.
+// 2. A colour value threshold for determining too light and dark pixels.
+// Every value at and over it is darkened. Every value below it is lightened.
+// 3. A colour value to increase by when a pixel is too dark.
+// 4. A colour value to decrease by when a pixel is too bright.
 
-function adjContrast(picCanvas, threshold, offset, darkDec, lightInc)
-{  
+function uniBright(picCanvas, threshold, darkInc, lightDec)
+{
+   console.log("Uni bright threshold: ", threshold);
+   console.log("Brightening by: ", darkInc);
+   console.log("Darkening by: ", lightDec);
+   
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    
    // Get pixels from canvas
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
-   // Darken or lighten based on threshold and offset
+   // Adjust pixel values
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   {                                          // For each pixel
+   {
       redVal = picPixels.data[redPos];
-      if ( redVal >= (threshold + offset) )   // In light range
+      if ( redVal >= threshold )  // Too bright
       {
-         // Make lighter
-         picPixels.data[redPos] = picPixels.data[redPos] + lightInc;
-         picPixels.data[redPos + 1] = picPixels.data[redPos + 1] + lightInc;
-         picPixels.data[redPos + 2] = picPixels.data[redPos + 2] + lightInc;
+         // Darken pixel
+         picPixels.data[redPos] = redVal - lightDec;             
+         picPixels.data[redPos + 1] = redVal - lightDec;
+         picPixels.data[redPos + 2] = redVal - lightDec;
       }
-      else                                    // In dark range
+      else                        // Too dark
       {
-         // Make darker
-         picPixels.data[redPos] = picPixels.data[redPos] - darkDec;
-         picPixels.data[redPos + 1] = picPixels.data[redPos + 1] - darkDec;
-         picPixels.data[redPos + 2] = picPixels.data[redPos + 2] - darkDec;
+         // Lighten pixel
+         picPixels.data[redPos] = redVal + darkInc;             
+         picPixels.data[redPos + 1] = redVal + darkInc;
+         picPixels.data[redPos + 2] = redVal + darkInc;
       }
    }
    

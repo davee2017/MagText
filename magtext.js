@@ -53,23 +53,35 @@ function adjContent(outCanvasElem)
    // Make black white, white black (invert content)
    invPic(outCanvasElem);
    
-   // Set quantising parameters based on pre-processed inverted content
-   // Note: Using the maximum colour value (max text colour value) might offer
-   // a wider range of good results since it is has a smaller range of values
-   // under different lighting conditions. Then just determine optimal text
-   // distance from there (will be negative and a max distance).
-   //var bgMostColVal = mostColVal(outCanvasElem);        // Background colour
-   var maxTxtColVal = -1;
-   maxTxtColVal = maxColVal(outCanvasElem);
-   var minBgColValDist = -91;                             // Min Distance bg
-                                                          // is from max
-                                                          // text colour
-   
    // Make colour transitions between text and background distinct (sharpen 
    // content)
-   //var shpFactor = 1;
-   //sharpPic(outCanvasElem, shpFactor);
+   var shpFactor = 1;
+   sharpPic(outCanvasElem, shpFactor);
    
-   // Make text white, background black (quantise content)
-   binPic(outCanvasElem, maxTxtColVal, minBgColValDist);
+   // Make inverted picture text white, background black (quantise content)
+   //var mostBgColVal = mostColVal(outCanvasElem);    // Background colour
+   //var alertTxt = "Most bg col val: " + mostBgColVal;
+   //alert(alertTxt);
+   //var minTxtColValDist = 70;                       // Min distance
+                                                      // text is from
+                                                      // bg colour
+   //alertTxt = "Min txt distance: " + minTxtColValDist;
+   //alert(alertTxt);
+   //alertTxt = "Min light col val: " + (mostBgColVal + minTxtColValDist);
+   //alert(alertTxt);
+   
+   // Set minimum text colour value in lightest invert, darkest straight
+   var minTxtColVal = 210;
+   
+   // Bring inverted dark areas up
+   var brightBy = 50;
+   var darkBy = 0;
+   var alertTxt = "Brightening by " + brightBy;
+   alert(alertTxt);
+   uniBright(outCanvasElem, minTxtColVal, brightBy, darkBy);
+   
+   // Make text white, background black
+   //alertTxt = "Min txt col val: " + minTxtColVal;
+   //alert(alertTxt);
+   //binPic(outCanvasElem, minTxtColVal, 0);
 }
