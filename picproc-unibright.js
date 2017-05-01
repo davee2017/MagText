@@ -25,11 +25,7 @@
 // 4. A colour value to decrease by when a pixel is too bright.
 
 function uniBright(picCanvas, threshold, darkInc, lightDec)
-{
-   console.log("Uni bright threshold: ", threshold);
-   console.log("Brightening by: ", darkInc);
-   console.log("Darkening by: ", lightDec);
-   
+{  
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    

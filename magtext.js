@@ -70,18 +70,20 @@ function adjContent(outCanvasElem)
    //alertTxt = "Min light col val: " + (mostBgColVal + minTxtColValDist);
    //alert(alertTxt);
    
-   // Set minimum text colour value in lightest invert, darkest straight
-   var minTxtColVal = 210;
-   
-   // Bring inverted dark areas up
-   var brightBy = 50;
-   var darkBy = 0;
-   var alertTxt = "Brightening by " + brightBy;
+   // Darken content
+   var brightThresh = 210;
+   var darkBy = 110;
+   var brightBy = 0;
+   var alertTxt = "Darkening by " + darkBy;
    alert(alertTxt);
-   uniBright(outCanvasElem, minTxtColVal, brightBy, darkBy);
+   uniBright(outCanvasElem, brightThresh, brightBy, darkBy);
    
    // Make text white, background black
-   //alertTxt = "Min txt col val: " + minTxtColVal;
-   //alert(alertTxt);
-   //binPic(outCanvasElem, minTxtColVal, 0);
+   var minTxtColVal = 90;
+   alertTxt = "Min txt col val: " + minTxtColVal;
+   alert(alertTxt);
+   var maxTxtColVal = 150;
+   alertTxt = "Max txt col val: " + maxTxtColVal;
+   alert(alertTxt);
+   binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
 }

@@ -18,10 +18,12 @@
 
 // Binary picture
 // Quantises the picture into black and white.
-// Accepts a picture canvas, a black/white threshold colour 
-// value and an offset value.
+// Accepts:
+// 1. A picture canvas. 
+// 2. A colour value representing the minimum colour value made white.
+// 3. A colour value representing the maximum colour value made black
 //
-function binPic(picCanvas, threshold, offset)
+function binPic(picCanvas, minWhite, maxWhite)
 {
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
@@ -29,18 +31,18 @@ function binPic(picCanvas, threshold, offset)
    // Get pixels from canvas
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
-   // Set pixel colour values based on threshold
+   // Set pixel colour values based on white range
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
       redVal = picPixels.data[redPos];
-      if ( redVal >= (threshold + offset) )   //  Above/= threshold + offset
+      if ( (redVal >= minWhite) && (redVal <= maxWhite) ) // White range
       {
          // Set pixel to white
          picPixels.data[redPos] = 255;             
          picPixels.data[redPos + 1] = 255;
          picPixels.data[redPos + 2] = 255;
       }
-      else                                    // Below theshold + offset
+      else                                               // Black range
       {
          // Set pixel to black
          picPixels.data[redPos] = 0;             
