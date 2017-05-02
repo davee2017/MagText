@@ -53,37 +53,70 @@ function adjContent(outCanvasElem)
    // Make black white, white black (invert content)
    invPic(outCanvasElem);
    
-   // Make colour transitions between text and background distinct (sharpen 
-   // content)
-   var shpFactor = 1;
-   sharpPic(outCanvasElem, shpFactor);
-   
    // Make inverted picture text white, background black (quantise content)
    //var mostBgColVal = mostColVal(outCanvasElem);    // Background colour
    //var alertTxt = "Most bg col val: " + mostBgColVal;
    //alert(alertTxt);
-   //var minTxtColValDist = 70;                       // Min distance
+   //var minTxtColValDist = 40;                       // Min distance
                                                       // text is from
                                                       // bg colour
-   //alertTxt = "Min txt distance: " + minTxtColValDist;
+   //console.log("Min txt distance: " + minTxtColValDist);
    //alert(alertTxt);
    //alertTxt = "Min light col val: " + (mostBgColVal + minTxtColValDist);
    //alert(alertTxt);
    
    // Darken content
-   var brightThresh = 210;
-   var darkBy = 110;
-   var brightBy = 0;
-   var alertTxt = "Darkening by " + darkBy;
-   alert(alertTxt);
-   uniBright(outCanvasElem, brightThresh, brightBy, darkBy);
+   //var brightThresh = 160;
+   //var darkBy = 40;
+   //var brightBy = 0;
+   //var alertTxt = "Darkening by " + darkBy;
+   //alert(alertTxt);
+   //uniBright(outCanvasElem, brightThresh, brightBy, darkBy);
+   
    
    // Make text white, background black
-   var minTxtColVal = 90;
-   alertTxt = "Min txt col val: " + minTxtColVal;
-   alert(alertTxt);
-   var maxTxtColVal = 150;
-   alertTxt = "Max txt col val: " + maxTxtColVal;
-   alert(alertTxt);
+   // Note: adjust minimum background distance based on what max colour value is
+   // Note: can tell when the brightness is uneven when 
+   // max - min is a certain amount. Can apply different 
+   // minimum background distances there. THIS WOULD WORK BEST
+   // for uneven light coverage. Could leave logic the same then
+   // alter the number of pixels picked up for when the light is
+   // uneven only
+   // Note: going to try to see which statistical values are
+   // closest to the required best min and max text colour
+   // values. And if not close, off by how much.
+   //var maxTxtColVal = -1;
+   //maxTxtColVal = maxColVal(outCanvasElem);
+   //var minBgColValDist = 100;                         // Min Distance bg
+                                                        // is from max
+                                                        // text colour
+   //console.log("Min Bg col val dist: " + minBgColValDist);
+   //var minTxtColVal = maxTxtColVal - minBgColValDist;
+   //alertTxt = "Min txt col val: " + minTxtColVal;
+   //alert(alertTxt);
+   //console.log("Min txt col val: " + minTxtColVal);
+   //alertTxt = "Max txt col val: " + maxTxtColVal;
+   //alert(alertTxt);
+   //console.log("Max txt col val: " + maxTxtColVal);
+  
+   console.log("");
+   var minColValue = -1;
+   minColValue = minColVal(outCanvasElem);
+   console.log("Min col val: ", minColValue);
+   var maxColValue = -1;
+   maxColValue = maxColVal(outCanvasElem);               // Stats
+   console.log("Max col val: ", maxColValue);
+   console.log("");
+   
+   var minTxtColVal = 150;                               // Ideals
+   console.log("Min txt col val: ", minTxtColVal);
+   var maxTxtColVal = 249;
+   console.log("Max txt col val: ", maxTxtColVal);
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
+   
+   // Make colour transitions between text and background distinct (sharpen 
+   // content)
+   //var shpFactor = 1;
+   //console.log("Sharpening factor: ", shpFactor);
+   //sharpPic(outCanvasElem, shpFactor);
 }

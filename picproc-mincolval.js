@@ -16,10 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Maximum colour value
-// Determines the maximum colour value in a monochrome picture.
+// Minimum colour value
+// Determines the minimum colour value in a monochrome picture.
 
-function maxColVal(picCanvas)
+function minColVal(picCanvas)
 {
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
@@ -37,11 +37,18 @@ function maxColVal(picCanvas)
       pixelVals.push(redVal); 
    }
 
-   // Find maximum colour value
+   // Find minimum colour value
    var uniqPxVals = -1;                                  // Unique pixel values
    uniqPxVals = uniqVals(pixelVals);         
-   var maxColVal = Math.max.apply(null, uniqPxVals);
+   console.log("Unique values: ");
+   for (var pos = 0; pos < uniqPxVals.length; pos += 1)
+   {
+      console.log("Pos ", pos, "Val ", uniqPxVals[pos]);
+   }
+   var minColVal = Math.min.apply(null, uniqPxVals);
+   console.log("Min col val in function: ");
+   console.log(minColVal);
    
-   // Give maximum colour value back to calling function
-   return maxColVal;
+   // Give minimum colour value back to calling function
+   return minColVal;
 }
