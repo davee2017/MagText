@@ -40,15 +40,8 @@ function minColVal(picCanvas)
    // Find minimum colour value
    var uniqPxVals = -1;                                  // Unique pixel values
    uniqPxVals = uniqVals(pixelVals);         
-   console.log("Unique values: ");
-   for (var pos = 0; pos < uniqPxVals.length; pos += 1)
-   {
-      console.log("Pos ", pos, "Val ", uniqPxVals[pos]);
-   }
    var minColVal = Math.min.apply(null, uniqPxVals);
-   console.log("Min col val in function: ");
-   console.log(minColVal);
-   
+
    // Give minimum colour value back to calling function
    return minColVal;
 }
