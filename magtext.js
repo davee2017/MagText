@@ -105,23 +105,23 @@ function adjContent(outCanvasElem)
    // Display statistics
    //var minColValue = -1;                                 // Min col val
    //minColValue = minColVal(outCanvasElem);       
-   //console.log("Min col val: ", minColValue);            // Test for macOS
-   //var alertTxt = "Min col val: " + minColValue;         // Test for Android
+   //console.log("Min col val: ", minColValue);            // View for macOS
+   //var alertTxt = "Min col val: " + minColValue;         // View for Android
    //alert(alertTxt);
    
    //var maxColValue = -1;                                 // Max col val
    //maxColValue = maxColVal(outCanvasElem);              
-   //console.log("Max col val: ", maxColValue);            // Test for macOS
-   //alertTxt = "Max col val: " + maxColValue;             // Test for Android
+   //console.log("Max col val: ", maxColValue);            // View for macOS
+   //alertTxt = "Max col val: " + maxColValue;             // View for Android
    //alert(alertTxt);
    
-   var leastColValue = -1;
-   leastColValue = leastColVal(outCanvasElem);
-   console.log("Least col val: ", leastColValue);          // Test for macOS
-   //var alertTxt = "Least col val: " + leastColValue;
+   //var leastColValue = -1;
+   //leastColValue = leastColVal(outCanvasElem);
+   //console.log("Least col val: ", leastColValue);          // View for macOS
+   //var alertTxt = "Least col val: " + leastColValue;       // View for Android
    //alert(alertTxt);
    
-   // Code average
+   avgColVal(outCanvasElem);
    // Code median - mid point?
    
    
