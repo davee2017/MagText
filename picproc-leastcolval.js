@@ -43,17 +43,11 @@ function leastColVal(picCanvas)
    uniqPxVals = uniqVals(pixelVals);         
    var valCounts = -1;                       // Unique pixel value amounts
    valCounts = cntVals(pixelVals, uniqPxVals);
-   console.log("Counts of colour values: "); // Debug
-   for (var pos = 0; pos < uniqPxVals.length; pos += 1)
-   {
-      console.log("Pos ", pos, "Val ", uniqPxVals[pos], "Cnt ", valCounts[pos]);
-   }
    
    // Determine least occurring colour value
    var minCount = Math.min.apply(null, valCounts);
    var minCountPos = valCounts.indexOf(minCount);
    var leastVal = uniqPxVals[minCountPos];
-   console.log("Least col val in leastColVal(): ", leastVal);
    
    return leastVal;
 }

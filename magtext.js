@@ -117,8 +117,9 @@ function adjContent(outCanvasElem)
    
    var leastColValue = -1;
    leastColValue = leastColVal(outCanvasElem);
-   console.log("Least col val: ", leastColValue);        // Test for macOS
-   
+   console.log("Least col val: ", leastColValue);          // Test for macOS
+   //var alertTxt = "Least col val: " + leastColValue;
+   //alert(alertTxt);
    
    // Code average
    // Code median - mid point?
