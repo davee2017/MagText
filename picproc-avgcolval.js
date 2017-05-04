@@ -29,15 +29,15 @@ function avgColVal(picCanvas)
    var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
    // Get pixel values 
-   //var redVal = -1;
-   //var pixelVals = [];
-   var pixelVals = [2, 3, 5, 4, 9];
-   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   //{
+   var redVal = -1;
+   var pixelVals = [];
+   //var pixelVals = [2, 3, 5, 4, 9];
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
       // Get pixel red value
-      //redVal = picPixels.data[redPos];
-      //pixelVals.push(redVal); 
-   //}
+      redVal = picPixels.data[redPos];
+      pixelVals.push(redVal); 
+   }
    
    // Sum pixel values
    var pxValSum = pixelVals.reduce                 
