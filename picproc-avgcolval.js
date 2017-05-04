@@ -16,8 +16,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Least colour value
-// Determines the least occurring colour in a picture.
+// Average colour value
+// Determines the average colour value in a picture.
 // Accepts a picture canvas.
 
 function avgColVal(picCanvas)
@@ -52,7 +52,8 @@ function avgColVal(picCanvas)
    console.log("Sum: ", pxValSum);
    var pxValAmt = pixelVals.length;                // Pixel values
    console.log("Value amt: ", pxValAmt);
-   //var pxValAvg = pxValSum/pxValAmt;               // Average
+   var pxValAvg = pxValSum/pxValAmt;               // Average
+   console.log("Avg: ", pxValAvg);
    
    //return pxValAvg;
 }
