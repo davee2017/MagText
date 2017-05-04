@@ -62,17 +62,27 @@ function medVal(vals)
    else                                // Even number of values
    {
       console.log("Even number of values");
+      // Determine central no. positions
+      var centNoPos1 = -1;             // Central no. position 1
+      var centNoPos2 = -1;             // Central no. position 2
+      centNoPos2 = vals.length / 2;    // Amt of values / 2
+      centNoPos1 = centNoPos2 - 1;     // In front of second central no.
+      console.log("Central no. 1 pos: ", centNoPos1);
+      console.log("Central no. 2 pos: ", centNoPos2);
+      
       // Determine central no.s
-      //var centNoPos1 = -1;             // Central no. position 1
-      //var centNoPos2 = -1;             // Central no. position 2
-      //centNoPos2 = vals.length / 2;    // Amt of values / 2
-      //centNoPos1 = centNoPos2 - 1;     // In front of second central no.
+      var centNo1 = vals[centNoPos1];
+      var centNo2 = vals[centNoPos2];
+      console.log("Central no. 1: ", centNo1);
+      console.log("Central no. 2: ", centNo2);
       
       // Calculate raw median value
-      //var rawMedValue = (centNoPos1 + centNoPos2) / 2;
+      var rawMedValue = (centNo1 + centNo2) / 2;
+      console.log("Raw median: ", rawMedValue);
                         
-      // Truncate raw median value
-      //medValue = Math.floor(medValue);
+      // Round to nearest whole number
+      medValue = Math.round(rawMedValue);
+      console.log("Median val: ", medValue);
    }
    
    //return medValue;
