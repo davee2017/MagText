@@ -45,4 +45,33 @@ function medVal(vals)
       console.log("Pos ", pos, "Val ", vals[pos]);
    }
    
+   // Determine median   
+   var medValue = -1;                  // Initialise median value
+   if (vals.length % 2 == 1)           // Odd number of values
+   {
+      console.log("Odd number of values");
+      // Determine median position
+      //var medPos = -1;
+      //medPos = (vals.length - 1) / 2;  // Largest index / 2
+      
+      // Determine median value
+      //medValue = vals[medPos];
+   }
+   else                                // Even number of values
+   {
+      console.log("Even number of values");
+      // Determine central no.s
+      //var centNoPos1 = -1;             // Central no. position 1
+      //var centNoPos2 = -1;             // Central no. position 2
+      //centNoPos2 = vals.length / 2;    // Amt of values / 2
+      //centNoPos1 = centNoPos2 - 1;     // In front of second central no.
+      
+      // Calculate raw median value
+      //var rawMedValue = (centNoPos1 + centNoPos2) / 2;
+                        
+      // Truncate raw median value
+      //medValue = Math.floor(medValue);
+   }
+   
+   //return medValue;
 }
