@@ -122,7 +122,7 @@ function adjContent(outCanvasElem)
    //alert(alertTxt);
    
    var avgColValue = avgColVal(outCanvasElem);
-   //console.log("Avg col val: ", avgColValue);
+   console.log("Avg col val: ", avgColValue);
    //var alertTxt = "Avg col val: " + avgColValue;       // View for Android
    //alert(alertTxt);
    

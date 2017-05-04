@@ -39,8 +39,8 @@ function avgColVal(picCanvas)
       pixelVals.push(redVal); 
    }
    
-   // Sum pixel values
-   var pxValSum = pixelVals.reduce                 
+   // Calculate average pixel value
+   var pxValSum = pixelVals.reduce                 // Sum
    (
       function(total, curVal)                      // Running total
                                                    // Current value
@@ -49,19 +49,9 @@ function avgColVal(picCanvas)
          return total + curVal;
       }
    )
-   console.log("Sum: ", pxValSum);
-   
-   // Determine number of pixel values
-   var pxValAmt = pixelVals.length;                // Pixel values
-   console.log("Value amt: ", pxValAmt);
-   
-   // Calculate average
-   var pxValAvg = pxValSum/pxValAmt;               // Average
-   console.log("Raw avg: ", pxValAvg);
-   
-   // Truncate result (with or without decimal places)
-   pxValAvg = Math.floor(pxValAvg);
-   console.log("Avg in avg col val: ", pxValAvg);
+   var pxValAmt = pixelVals.length;                // Raw amount
+   var pxValAvg = pxValSum/pxValAmt;
+   pxValAvg = Math.floor(pxValAvg);                // Truncated
    
    return pxValAvg;
 }
