@@ -126,7 +126,7 @@ function adjContent(outCanvasElem)
    //var alertTxt = "Avg col val: " + avgColValue;       // View for Android
    //alert(alertTxt);
    
-   var testOddVals = [2, 3, 5, 4, 9];
+   //var testOddVals = [2, 3, 5, 4, 9];
    var testEvenVals = [1 ,3, 4, 5];
    var medValue = -1;
    var medValue = medVal(testEvenVals);
