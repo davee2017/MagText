@@ -121,12 +121,14 @@ function adjContent(outCanvasElem)
    //var alertTxt = "Least col val: " + leastColValue;       // View for Android
    //alert(alertTxt);
    
-   var avgColValue = avgColVal(outCanvasElem);
-   console.log("Avg col val: ", avgColValue);
+   //var avgColValue = avgColVal(outCanvasElem);
+   //console.log("Avg col val: ", avgColValue);
    //var alertTxt = "Avg col val: " + avgColValue;       // View for Android
    //alert(alertTxt);
    
-   // Code median - mid point?
+   var testOddVals = [2, 3, 5, 4, 9];
+   var testEvenVals = [1 ,3, 4, 5];
+   medVal(testOddVals);
    
    
    // Line break
