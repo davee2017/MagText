@@ -128,7 +128,7 @@ function adjContent(outCanvasElem)
    
    var testOddVals = [2, 3, 5, 4, 9];
    var testEvenVals = [1 ,3, 4, 5];
-   medVal(testEvenVals);
+   medVal(testOddVals);
    
    
    // Line break

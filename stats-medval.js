@@ -51,11 +51,13 @@ function medVal(vals)
    {
       console.log("Odd number of values");
       // Determine median position
-      //var medPos = -1;
-      //medPos = (vals.length - 1) / 2;  // Largest index / 2
+      var medPos = -1;
+      medPos = (vals.length - 1) / 2;  // Largest index / 2
+      console.log("Median pos: ", medPos);
       
       // Determine median value
-      //medValue = vals[medPos];
+      medValue = vals[medPos];
+      console.log("Median val: ", medValue);
    }
    else                                // Even number of values
    {
