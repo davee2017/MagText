@@ -121,14 +121,14 @@ function adjContent(outCanvasElem)
    //var alertTxt = "Least col val: " + leastColValue;       // View for Android
    //alert(alertTxt);
    
-   //var avgColValue = avgColVal(outCanvasElem);
-   //console.log("Avg col val: ", avgColValue);
+   var avgColValue = avgColVal(outCanvasElem);
+   console.log("Avg col val: ", avgColValue);
    //var alertTxt = "Avg col val: " + avgColValue;       // View for Android
    //alert(alertTxt);
    
-   var medValue = -1;
-   var medValue = medColVal(outCanvasElem);
-   console.log("Median col val: ", medValue);
+   //var medValue = -1;
+   //var medValue = medColVal(outCanvasElem);
+   //console.log("Median col val: ", medValue);
    
    // Line break
    //console.log("");

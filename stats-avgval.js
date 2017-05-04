@@ -16,30 +16,30 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Average colour value
-// Determines the average colour value in a picture.
-// Accepts a picture canvas.
+// Average value
+// Calculates the average of a list of values.
 
-function avgColVal(picCanvas)
+function avgVal(vals)
 {
-   // Get canvas 2D context
-   var context = picCanvas.getContext('2d');
+   // Sum values
+   var valSum = vals.reduce                 // Sum
+   (
+      function(total, curVal)                      // Running total
+                                                   // Current value
+      {
+         // Tally current value to running total
+         return total + curVal;
+      }
+   )
    
-   // Get pixels from canvas
-   var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
+   // Determine amount of values
+   var valAmt = vals.length;
    
-   // Get pixel values 
-   var redVal = -1;
-   var pixelVals = [];
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   {
-      // Get pixel red value
-      redVal = picPixels.data[redPos];
-      pixelVals.push(redVal); 
-   }
+   // Calculate average
+   var avgVal = valSum/valAmt;               // Raw
    
-   // Determine average pixel value
-   var pxValAvg = avgVal(pixelVals);
+   // Round result to nearest whole number
+   avgVal = Math.round(avgVal);
    
-   return pxValAvg;
+   return avgVal;
 }
