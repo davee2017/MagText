@@ -22,7 +22,7 @@
 function avgVal(vals)
 {
    // Sum values
-   var valSum = vals.reduce                 // Sum
+   var valSum = vals.reduce
    (
       function(total, curVal)                      // Running total
                                                    // Current value
@@ -35,8 +35,8 @@ function avgVal(vals)
    // Determine amount of values
    var valAmt = vals.length;
    
-   // Calculate average
-   var avgVal = valSum/valAmt;               // Raw
+   // Calculate raw average
+   var avgVal = valSum/valAmt;
    
    // Round result to nearest whole number
    avgVal = Math.round(avgVal);

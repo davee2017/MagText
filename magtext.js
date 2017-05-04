@@ -100,50 +100,70 @@ function adjContent(outCanvasElem)
    //console.log("Max txt col val: " + maxTxtColVal);
   
    // Line break
-   //console.log("");
+   console.log("");
    
-   // Display statistics
-   //var minColValue = -1;                                 // Min col val
-   //minColValue = minColVal(outCanvasElem);       
-   //console.log("Min col val: ", minColValue);            // View for macOS
+   // Display min colour value
+   var minColValue = -1;                                 // Min col val
+   minColValue = minColVal(outCanvasElem);       
+   console.log("Min col val: ", minColValue);            // View for macOS
    //var alertTxt = "Min col val: " + minColValue;         // View for Android
    //alert(alertTxt);
    
-   //var maxColValue = -1;                                 // Max col val
-   //maxColValue = maxColVal(outCanvasElem);              
-   //console.log("Max col val: ", maxColValue);            // View for macOS
+   // Display max colour value
+   var maxColValue = -1;                                 // Max col val
+   maxColValue = maxColVal(outCanvasElem);              
+   console.log("Max col val: ", maxColValue);            // View for macOS
    //alertTxt = "Max col val: " + maxColValue;             // View for Android
    //alert(alertTxt);
    
-   //var leastColValue = -1;
-   //leastColValue = leastColVal(outCanvasElem);
-   //console.log("Least col val: ", leastColValue);          // View for macOS
+   // Display least colour value
+   var leastColValue = -1;
+   leastColValue = leastColVal(outCanvasElem);
+   console.log("Least col val: ", leastColValue);          // View for macOS
    //var alertTxt = "Least col val: " + leastColValue;       // View for Android
    //alert(alertTxt);
    
-   var avgColValue = avgColVal(outCanvasElem);
+   // Display most colour value
+   var mostColValue = -1;
+   mostColValue = mostColVal(outCanvasElem);
+   console.log("Most col val: ", mostColValue);
+   
+   // Display average colour value
+   var avgColValue = -1;
+   avgColValue = avgColVal(outCanvasElem);
    console.log("Avg col val: ", avgColValue);
    //var alertTxt = "Avg col val: " + avgColValue;       // View for Android
    //alert(alertTxt);
    
-   //var medValue = -1;
-   //var medValue = medColVal(outCanvasElem);
-   //console.log("Median col val: ", medValue);
+   // Display median colour value
+   var medColValue = -1;
+   var medColValue = medColVal(outCanvasElem);
+   console.log("Median col val: ", medColValue);
+   //var alertTxt = "Med col val: " + medValue;       // View for Android
+   //alert(alertTxt);
    
    // Line break
-   //console.log("");
+   console.log("");
    
    // Display ideal min/max txt colour values
-   //var minTxtColVal = 150;                               
-   //console.log("Ideal min txt col val: ", minTxtColVal);
-   //var maxTxtColVal = 249;
-   //console.log("Ideal max txt col val: ", maxTxtColVal);
-   //binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
+   var minTxtColVal = 150;                               
+   console.log("Ideal min txt col val: ", minTxtColVal);
+   var maxTxtColVal = 249;
+   console.log("Ideal max txt col val: ", maxTxtColVal);
    
-   // Note: put distances here:
-   // Distance ideal min text col val is from min: etc.
-   // Then compare across multiple lighting conditions
-   // Display distances ideals are from statistics
+   // Line break
+   console.log("");
+   
+   // Display distances from ideal minimum
+   console.log("Ideal min distance from min: ", (minTxtColVal - minColValue));
+   console.log("Ideal min distance from max: ", (minTxtColVal - maxColValue));
+   console.log("Ideal min distance from least: ", (minTxtColVal - leastColValue));
+   console.log("Ideal min distance from most: ", (minTxtColVal - mostColValue));
+   console.log("Ideal min distance from avg: ", (minTxtColVal - avgColValue));
+   console.log("Ideal min distance from med: ", (minTxtColVal - medColValue));
+   
+   // Quantise picture
+   binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
    // content)
