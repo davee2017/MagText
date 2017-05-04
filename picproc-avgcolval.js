@@ -23,23 +23,24 @@
 function avgColVal(picCanvas)
 {
    // Get canvas 2D context
-   var context = picCanvas.getContext('2d');
+   //var context = picCanvas.getContext('2d');
    
    // Get pixels from canvas
-   var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
+   //var picPixels = context.getImageData(0, 0, picCanvas.width, picCanvas.height);
    
    // Get pixel values 
-   var redVal = -1;
-   var pixelVals = [];
-   //var pixelVals = [2, 3, 5, 4, 9];
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   {
+   //var redVal = -1;
+   //var pixelVals = [];
+   var pixelVals = [2, 3, 5, 4, 9];
+   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   //{
       // Get pixel red value
-      redVal = picPixels.data[redPos];
-      pixelVals.push(redVal); 
-   }
+      //redVal = picPixels.data[redPos];
+      //pixelVals.push(redVal); 
+   //}
    
    // Calculate average pixel value
+   // Note: this should be abstracted at a later time into stats-avgVal()..
    var pxValSum = pixelVals.reduce                 // Sum
    (
       function(total, curVal)                      // Running total
@@ -51,7 +52,7 @@ function avgColVal(picCanvas)
    )
    var pxValAmt = pixelVals.length;                // Raw amount
    var pxValAvg = pxValSum/pxValAmt;
-   pxValAvg = Math.floor(pxValAvg);                // Truncated
+   pxValAvg = Math.round(pxValAvg);                // Nearest whole number
    
    return pxValAvg;
 }
