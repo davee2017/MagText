@@ -82,8 +82,8 @@ function medVal(vals)
                         
       // Round to nearest whole number
       medValue = Math.round(rawMedValue);
-      console.log("Median val: ", medValue);
+      console.log("Median val in medVal: ", medValue);
    }
    
-   //return medValue;
+   return medValue;
 }
