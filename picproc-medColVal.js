@@ -39,7 +39,8 @@ function medColVal(picCanvas)
    }
 
    // Calculate median pixel value
-   //var medPxVal = medVal(pixelVals);
+   var medPxVal = medVal(pixelVals);
+   console.log("Median px val in medColVal: ", medPxVal);
    
-   //return medPxVal;
+   return medPxVal;
 }
