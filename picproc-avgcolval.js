@@ -61,7 +61,7 @@ function avgColVal(picCanvas)
    
    // Truncate result (with or without decimal places)
    pxValAvg = Math.floor(pxValAvg);
-   console.log("Avg: ", pxValAvg);
+   console.log("Avg in avg col val: ", pxValAvg);
    
-   //return pxValAvg;
+   return pxValAvg;
 }
