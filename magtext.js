@@ -53,121 +53,16 @@ function adjContent(outCanvasElem)
    // Make black white, white black (invert content)
    invPic(outCanvasElem);
    
-   // Make inverted picture text white, background black (quantise content)
-   //var mostBgColVal = mostColVal(outCanvasElem);    // Background colour
-   //var alertTxt = "Most bg col val: " + mostBgColVal;
-   //alert(alertTxt);
-   //var minTxtColValDist = 40;                       // Min distance
-                                                      // text is from
-                                                      // bg colour
-   //console.log("Min txt distance: " + minTxtColValDist);
-   //alert(alertTxt);
-   //alertTxt = "Min light col val: " + (mostBgColVal + minTxtColValDist);
-   //alert(alertTxt);
-   
-   // Darken content
-   //var brightThresh = 160;
-   //var darkBy = 40;
-   //var brightBy = 0;
-   //var alertTxt = "Darkening by " + darkBy;
-   //alert(alertTxt);
-   //uniBright(outCanvasElem, brightThresh, brightBy, darkBy);
-   
-   
-   // Make text white, background black
-   // Note: adjust minimum background distance based on what max colour value is
-   // Note: can tell when the brightness is uneven when 
-   // max - min is a certain amount. Can apply different 
-   // minimum background distances there. THIS WOULD WORK BEST
-   // for uneven light coverage. Could leave logic the same then
-   // alter the number of pixels picked up for when the light is
-   // uneven only
-   // Note: going to try to see which statistical values are
-   // closest to the required best min and max text colour
-   // values. And if not close, off by how much.
-   //var maxTxtColVal = -1;
-   //maxTxtColVal = maxColVal(outCanvasElem);
-   //var minBgColValDist = 100;                         // Min Distance bg
-                                                        // is from max
-                                                        // text colour
-   //console.log("Min Bg col val dist: " + minBgColValDist);
-   //var minTxtColVal = maxTxtColVal - minBgColValDist;
-   //alertTxt = "Min txt col val: " + minTxtColVal;
-   //alert(alertTxt);
-   //console.log("Min txt col val: " + minTxtColVal);
-   //alertTxt = "Max txt col val: " + maxTxtColVal;
-   //alert(alertTxt);
-   //console.log("Max txt col val: " + maxTxtColVal);
-  
-   // Line break
-   console.log("");
-   
-   // Display min colour value
-   var minColValue = -1;                                 // Min col val
-   minColValue = minColVal(outCanvasElem);       
-   console.log("Min col val: ", minColValue);            // View for macOS
-   //var alertTxt = "Min col val: " + minColValue;         // View for Android
-   //alert(alertTxt);
-   
-   // Display max colour value
-   var maxColValue = -1;                                 // Max col val
-   maxColValue = maxColVal(outCanvasElem);              
-   console.log("Max col val: ", maxColValue);            // View for macOS
-   //alertTxt = "Max col val: " + maxColValue;             // View for Android
-   //alert(alertTxt);
-   
-   // Display least colour value
-   var leastColValue = -1;
-   leastColValue = leastColVal(outCanvasElem);
-   console.log("Least col val: ", leastColValue);          // View for macOS
-   //var alertTxt = "Least col val: " + leastColValue;       // View for Android
-   //alert(alertTxt);
-   
-   // Display most colour value
-   var mostColValue = -1;
-   mostColValue = mostColVal(outCanvasElem);
-   console.log("Most col val: ", mostColValue);
-   
-   // Display average colour value
+   // Make text a foreground colour, background a background colour
    var avgColValue = -1;
-   avgColValue = avgColVal(outCanvasElem);
-   console.log("Avg col val: ", avgColValue);
-   //var alertTxt = "Avg col val: " + avgColValue;       // View for Android
-   //alert(alertTxt);
-   
-   // Display median colour value
-   var medColValue = -1;
-   var medColValue = medColVal(outCanvasElem);
-   console.log("Median col val: ", medColValue);
-   //var alertTxt = "Med col val: " + medValue;       // View for Android
-   //alert(alertTxt);
-   
-   // Line break
-   console.log("");
-   
-   // Display ideal min/max txt colour values
-   var minTxtColVal = 150;                               
-   console.log("Ideal min txt col val: ", minTxtColVal);
-   var maxTxtColVal = 249;
-   console.log("Ideal max txt col val: ", maxTxtColVal);
-   
-   // Line break
-   console.log("");
-   
-   // Display distances from ideal minimum
-   console.log("Ideal min distance from min: ", (minTxtColVal - minColValue));
-   console.log("Ideal min distance from max: ", (minTxtColVal - maxColValue));
-   console.log("Ideal min distance from least: ", (minTxtColVal - leastColValue));
-   console.log("Ideal min distance from most: ", (minTxtColVal - mostColValue));
-   console.log("Ideal min distance from avg: ", (minTxtColVal - avgColValue));
-   console.log("Ideal min distance from med: ", (minTxtColVal - medColValue));
-   
-   // Quantise picture
+   avgColValue = avgColVal(outCanvasElem);            // Rename function if time
+   var txtDist = 20;
+   var minTxtColVal = avgColValue + txtDist; 
+   var maxTxtColVal = 247;
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
    // content)
-   //var shpFactor = 1;
-   //console.log("Sharpening factor: ", shpFactor);
-   //sharpPic(outCanvasElem, shpFactor);
+   var shpFactor = 1;
+   sharpPic(outCanvasElem, shpFactor);
 }
