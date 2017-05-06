@@ -58,12 +58,28 @@ function adjContent(outCanvasElem, txtDist)
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
    console.log("Avg col val: " + avgColValue);
+   var txtOutput = "Avg col val: " + avgColValue;
+   var txtAvgColValElem = document.getElementById("avgColValOut");
+   txtAvgColValElem.innerHTML = txtOutput;
+   
    var txtDistNo = Number(txtDist);
    console.log("Txt dist: " + txtDistNo);
+   txtOutput = "Txt dist: " + txtDistNo;
+   var txtDistNoElem = document.getElementById("txtDistOut");
+   txtDistNoElem.innerHTML = txtOutput;
+   
    var minTxtColVal = avgColValue + txtDistNo;
-   var maxTxtColVal = maxColVal(outCanvasElem);
    console.log("Min txt col val: " + minTxtColVal);
+   txtOutput = "Min txt col val: " + minTxtColVal;
+   var minTxtColValElem = document.getElementById("minTxtOut");
+   minTxtColValElem.innerHTML = txtOutput;
+   
+   var maxTxtColVal = maxColVal(outCanvasElem);
    console.log("Max txt col val: " + maxTxtColVal);
+   txtOutput = "Max txt col val: " + maxTxtColVal;
+   var maxTxtColValElem = document.getElementById("maxTxtOut");
+   maxTxtColValElem.innerHTML = txtOutput;
+   
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
