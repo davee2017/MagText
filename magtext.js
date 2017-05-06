@@ -62,44 +62,69 @@ function adjContent(outCanvasElem)
    
    var maxColValue = -1;                                 // Max col val
    maxColValue = maxColVal(outCanvasElem);       
-   var txtOutput = "Max col val: " + maxColValue;
+   txtOutput = "Max col val: " + maxColValue;
    var txtMaxColValElem = document.getElementById("txtMaxColVal");
    txtMaxColValElem.innerHTML = txtOutput;
    
    var leastColValue = -1;                               // Least col val
    leastColValue = leastColVal(outCanvasElem);       
-   var txtOutput = "Least col val: " + leastColValue;
+   txtOutput = "Least col val: " + leastColValue;
    var txtLeastColValElem = document.getElementById("txtLeastColVal");
    txtLeastColValElem.innerHTML = txtOutput;
    
    var mostColValue = -1;                                // Most col val
    mostColValue = mostColVal(outCanvasElem);       
-   var txtOutput = "Most col val: " + mostColValue;
+   txtOutput = "Most col val: " + mostColValue;
    var txtMostColValElem = document.getElementById("txtMostColVal");
    txtMostColValElem.innerHTML = txtOutput;
    
    var avgColValue = -1;                                // Avg col val
    avgColValue = avgColVal(outCanvasElem);       
-   var txtOutput = "Avg col val: " + avgColValue;
+   txtOutput = "Avg col val: " + avgColValue;
    var txtAvgColValElem = document.getElementById("txtAvgColVal");
    txtAvgColValElem.innerHTML = txtOutput;
    
    var medColValue = -1;                                // Med col val
    medColValue = medColVal(outCanvasElem);       
-   var txtOutput = "Med col val: " + medColValue;
+   txtOutput = "Med col val: " + medColValue;
    var txtMedColValElem = document.getElementById("txtMedColVal");
    txtMedColValElem.innerHTML = txtOutput;
    
    // Display ideal colour values
    var minTxtColVal = 144;                             
-   var txtOutput = "Ideal min txt col val: " + minTxtColVal;
+   txtOutput = "Ideal min txt col val: " + minTxtColVal;
    var txtIdealMinElem = document.getElementById("txtIdealMin");
    txtIdealMinElem.innerHTML = txtOutput;
    
    var maxTxtColVal = 247;                             
-   var txtOutput = "Ideal max txt col val: " + maxTxtColVal;
+   txtOutput = "Ideal max txt col val: " + maxTxtColVal;
    var txtIdealMaxElem = document.getElementById("txtIdealMax");
    txtIdealMaxElem.innerHTML = txtOutput;
+   
+   // Display distances from ideal min
+   txtOutput = "Ideal min distance from min: " + (minTxtColVal - minColValue);
+   var txtIdealMinMinElem = document.getElementById("txtIdealMinMin");
+   txtIdealMinMinElem.innerHTML = txtOutput;
+   
+   txtOutput = "Ideal min distance from max: " + (minTxtColVal - maxColValue);
+   var txtIdealMinMaxElem = document.getElementById("txtIdealMinMax");
+   txtIdealMinMaxElem.innerHTML = txtOutput;
+   
+   txtOutput = "Ideal min distance from least: " + (minTxtColVal - leastColValue);
+   var txtIdealMinLeastElem = document.getElementById("txtIdealMinLeast");
+   txtIdealMinLeastElem.innerHTML = txtOutput;
+   
+   txtOutput = "Ideal min distance from most: " + (minTxtColVal - mostColValue);
+   var txtIdealMinMostElem = document.getElementById("txtIdealMinMost");
+   txtIdealMinMostElem.innerHTML = txtOutput;
+   
+   txtOutput = "Ideal min distance from avg: " + (minTxtColVal - avgColValue);
+   var txtIdealMinAvgElem = document.getElementById("txtIdealMinAvg");
+   txtIdealMinAvgElem.innerHTML = txtOutput;
+   
+   txtOutput = "Ideal min distance from med: " + (minTxtColVal - medColValue);
+   var txtIdealMinMedElem = document.getElementById("txtIdealMinMed");
+   txtIdealMinMedElem.innerHTML = txtOutput;
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
