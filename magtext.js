@@ -91,7 +91,15 @@ function adjContent(outCanvasElem)
    txtMedColValElem.innerHTML = txtOutput;
    
    // Display ideal colour values
+   var minTxtColVal = 144;                             
+   var txtOutput = "Ideal min txt col val: " + minTxtColVal;
+   var txtIdealMinElem = document.getElementById("txtIdealMin");
+   txtIdealMinElem.innerHTML = txtOutput;
    
+   var maxTxtColVal = 247;                             
+   var txtOutput = "Ideal max txt col val: " + maxTxtColVal;
+   var txtIdealMaxElem = document.getElementById("txtIdealMax");
+   txtIdealMaxElem.innerHTML = txtOutput;
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
