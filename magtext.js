@@ -58,9 +58,8 @@ function adjContent(outCanvasElem, txtDist)
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
    console.log("Avg col val: " + avgColValue);
-   console.log("Txt dist: " + txtDist);
-   // Note: need to convert txtDist to a number here?
    var txtDistNo = Number(txtDist);
+   console.log("Txt dist: " + txtDistNo);
    var minTxtColVal = avgColValue + txtDistNo;
    var maxTxtColVal = maxColVal(outCanvasElem);
    console.log("Min txt col val: " + minTxtColVal);
