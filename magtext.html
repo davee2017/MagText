@@ -1,13 +1,14 @@
 <meta charset="UTF-8">
-<!-- Set markup to HTML5 --!>
+<!-- Set markup to HTML5 -->
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- Set title --!>
+      <!-- Set title -->
       <title>MagText Web Application</title>
       
-      <!-- Attach scripts (functions called above) --!>
+      <!-- Attach scripts (functions called above) -->
       <script src="webcam-navgum.js"></script>
+      <script src="slider.js"></script>
       <script src="stats-uniqvals.js"></script>
       <script src="stats-cntvals.js"></script>
       <script src="stats-avgval.js"></script>
@@ -29,34 +30,43 @@
    </head>
    
    <body>  
-      <!-- Specify ideal minimum --!>
+      <!-- Specify ideal minimum -->
       <p>
          Ideal Min
          <input type="text" id="inIdealMin"></input>
       </p>
       
-      <!-- Specify ideal maximum --!>
+      <!-- Specify ideal maximum -->
       <p>
          Ideal Max
          <input type="text" id="inIdealMax"></input>
       </p>
       
-      <!-- Begin processing on button click --!>
+      <!-- Specify text distance -->
+      <p>
+         Text Distance
+         <input id="sclTxtDist" type="range" value="20" min="0" max="100" 
+                steps="5" onInput="showValue(this.id, 'lblTxtDist');">
+         </input>
+         <input id="lblTxtDist" type="text"></input>
+      </p>
+      
+      <!-- Begin processing on button click -->
       <p>
          <button onClick="main();">Capture</button>
       </p>
    
-      <!-- Create video placeholder --!>
-      <!-- Note: dimensions must match out canvas --!>
+      <!-- Create video placeholder -->
+      <!-- Note: dimensions must match out canvas -->
       <video id="video" width="768" height="1024"></video>
       
-      <!-- Create output canvas --!>
-      <!-- Note: dimensions must match video element --!>
+      <!-- Create output canvas -->
+      <!-- Note: dimensions must match video element -->
       <canvas id="outCanvas" width="768" height="1024"></canvas>
       
-      <!-- Put video underneath????? --!>
+      <!-- Put video underneath????? -->
       
-      <!-- Show colour value statistics --!>
+      <!-- Show colour value statistics -->
       <p id="txtMinColVal"></p>
       <p id="txtMaxColVal"></p>
       <p id="txtLeastColVal"></p>
@@ -64,11 +74,11 @@
       <p id="txtAvgColVal"></p>
       <p id="txtMedColVal"></p>
       
-      <!-- Show ideal colour values --!>
+      <!-- Show ideal colour values -->
       <p id="txtIdealMin"></p>
       <p id="txtIdealMax"></p>
       
-      <!-- Show distances from ideal min --!>
+      <!-- Show distances from ideal min -->
       <p id="txtIdealMinMin"></p>
       <p id="txtIdealMinMax"></p>
       <p id="txtIdealMinLeast"></p>

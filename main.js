@@ -21,11 +21,13 @@ function main()
    // Debug mode?
    
    // Get video element
-   var videoElem = document.getElementById('video');
+   var videoElem = document.getElementById('video');     // Can be abstracted to
+                                                         // videoId
       
    // Get output canvas
    var outCanvasElem = document.getElementById('outCanvas'); 
-     
+                                                         // Can be abstracted to
+                                                         // canvasId
    // View environment
    viewEnv(videoElem);
    
@@ -46,8 +48,11 @@ function main()
    window.setTimeout
    (
       function()
-      {
-         adjContent(outCanvasElem);
+      {  
+         var sliderElem = document.getElementById('sclTxtDist'); // Can be
+                                                                 // Abstracted
+         var txtDist = sliderElem.value;
+         adjContent(outCanvasElem, txtDist);
       },
       8000
    );

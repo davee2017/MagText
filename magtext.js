@@ -45,7 +45,7 @@ function captureEnv(videoElem, outCanvasElem)
 // Adjust content
 // Adjusts the content for optimal reading with naked eye
 // and for optimal post-processing.
-function adjContent(outCanvasElem)
+function adjContent(outCanvasElem, txtDist)
 {
    // Use variations of black and white for colours (grayscale content)
    monoPic(outCanvasElem);
@@ -130,11 +130,12 @@ function adjContent(outCanvasElem)
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
-   //var avgColValue = -1;
-   //avgColValue = avgColVal(outCanvasElem);            // Rename function if time
-   //var txtDist = 50;                                  // Abstract out if static
-   //var minTxtColVal = avgColValue + txtDist; 
-   //var maxTxtColVal = 247;
+   var avgColValue = -1;
+   avgColValue = avgColVal(outCanvasElem);            // Rename function if time
+   console.log("Txt dist in adjust content: ");
+   console.log(txtDist);
+   var minTxtColVal = avgColValue + txtDist; 
+   var maxTxtColVal = maxColValue;
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
