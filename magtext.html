@@ -30,26 +30,14 @@
    </head>
    
    <body>  
-      <!-- Specify ideal minimum -->
-      <p>
-         Ideal Min
-         <input type="text" id="inIdealMin"></input>
-      </p>
-      
-      <!-- Specify ideal maximum -->
-      <p>
-         Ideal Max
-         <input type="text" id="inIdealMax"></input>
-      </p>
-      
       <!-- Specify text distance -->
+      Text
       <p>
-         Text Distance
-         <input id="sclTxtDist" type="range" value="20" min="0" max="100" 
-                steps="5" onInput="showValue(this.id, 'lblTxtDist');">
-         </input>
-         <input id="lblTxtDist" type="text"></input>
-      </p>
+         More<input id="sclTxtDist" type="range" value="20" min="0" max="100" 
+                    onInput="showValue(this.id, 'lblTxtDist');">
+             </input>Less
+      </p>        
+      <input id="lblTxtDist" type="text"></input>
       
       <!-- Begin processing on button click -->
       <p>
@@ -65,26 +53,6 @@
       <canvas id="outCanvas" width="768" height="1024"></canvas>
       
       <!-- Put video underneath????? -->
-      
-      <!-- Show colour value statistics -->
-      <p id="txtMinColVal"></p>
-      <p id="txtMaxColVal"></p>
-      <p id="txtLeastColVal"></p>
-      <p id="txtMostColVal"></p>
-      <p id="txtAvgColVal"></p>
-      <p id="txtMedColVal"></p>
-      
-      <!-- Show ideal colour values -->
-      <p id="txtIdealMin"></p>
-      <p id="txtIdealMax"></p>
-      
-      <!-- Show distances from ideal min -->
-      <p id="txtIdealMinMin"></p>
-      <p id="txtIdealMinMax"></p>
-      <p id="txtIdealMinLeast"></p>
-      <p id="txtIdealMinMost"></p>
-      <p id="txtIdealMinAvg"></p>
-      <p id="txtIdealMinMed"></p>
       
    </body>
 </html>

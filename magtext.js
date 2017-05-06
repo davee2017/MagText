@@ -53,89 +53,13 @@ function adjContent(outCanvasElem, txtDist)
    // Make black white, white black (invert content)
    invPic(outCanvasElem);
    
-   // Display colour value statistics on Android
-   var minColValue = -1;                                 // Min col val
-   minColValue = minColVal(outCanvasElem);       
-   var txtOutput = "Min col val: " + minColValue;
-   var txtMinColValElem = document.getElementById("txtMinColVal");
-   txtMinColValElem.innerHTML = txtOutput;
-   
-   var maxColValue = -1;                                 // Max col val
-   maxColValue = maxColVal(outCanvasElem);       
-   txtOutput = "Max col val: " + maxColValue;
-   var txtMaxColValElem = document.getElementById("txtMaxColVal");
-   txtMaxColValElem.innerHTML = txtOutput;
-   
-   var leastColValue = -1;                               // Least col val
-   leastColValue = leastColVal(outCanvasElem);       
-   txtOutput = "Least col val: " + leastColValue;
-   var txtLeastColValElem = document.getElementById("txtLeastColVal");
-   txtLeastColValElem.innerHTML = txtOutput;
-   
-   var mostColValue = -1;                                // Most col val
-   mostColValue = mostColVal(outCanvasElem);       
-   txtOutput = "Most col val: " + mostColValue;
-   var txtMostColValElem = document.getElementById("txtMostColVal");
-   txtMostColValElem.innerHTML = txtOutput;
-   
-   var avgColValue = -1;                                // Avg col val
-   avgColValue = avgColVal(outCanvasElem);       
-   txtOutput = "Avg col val: " + avgColValue;
-   var txtAvgColValElem = document.getElementById("txtAvgColVal");
-   txtAvgColValElem.innerHTML = txtOutput;
-   
-   var medColValue = -1;                                // Med col val
-   medColValue = medColVal(outCanvasElem);       
-   txtOutput = "Med col val: " + medColValue;
-   var txtMedColValElem = document.getElementById("txtMedColVal");
-   txtMedColValElem.innerHTML = txtOutput;
-   
-   // Display ideal colour values
-   var inIdealMinElem = document.getElementById("inIdealMin");
-   var minTxtColVal = inIdealMinElem.value;                             
-   txtOutput = "Ideal min txt col val: " + minTxtColVal;
-   var txtIdealMinElem = document.getElementById("txtIdealMin");
-   txtIdealMinElem.innerHTML = txtOutput;
-   
-   var inIdealMaxElem = document.getElementById("inIdealMax");
-   var maxTxtColVal = inIdealMaxElem.value;                             
-   txtOutput = "Ideal max txt col val: " + maxTxtColVal;
-   var txtIdealMaxElem = document.getElementById("txtIdealMax");
-   txtIdealMaxElem.innerHTML = txtOutput;
-   
-   // Display distances from ideal min
-   txtOutput = "Ideal min distance from min: " + (minTxtColVal - minColValue);
-   var txtIdealMinMinElem = document.getElementById("txtIdealMinMin");
-   txtIdealMinMinElem.innerHTML = txtOutput;
-   
-   txtOutput = "Ideal min distance from max: " + (minTxtColVal - maxColValue);
-   var txtIdealMinMaxElem = document.getElementById("txtIdealMinMax");
-   txtIdealMinMaxElem.innerHTML = txtOutput;
-   
-   txtOutput = "Ideal min distance from least: " + (minTxtColVal - leastColValue);
-   var txtIdealMinLeastElem = document.getElementById("txtIdealMinLeast");
-   txtIdealMinLeastElem.innerHTML = txtOutput;
-   
-   txtOutput = "Ideal min distance from most: " + (minTxtColVal - mostColValue);
-   var txtIdealMinMostElem = document.getElementById("txtIdealMinMost");
-   txtIdealMinMostElem.innerHTML = txtOutput;
-   
-   txtOutput = "Ideal min distance from avg: " + (minTxtColVal - avgColValue);
-   var txtIdealMinAvgElem = document.getElementById("txtIdealMinAvg");
-   txtIdealMinAvgElem.innerHTML = txtOutput;
-   
-   txtOutput = "Ideal min distance from med: " + (minTxtColVal - medColValue);
-   var txtIdealMinMedElem = document.getElementById("txtIdealMinMed");
-   txtIdealMinMedElem.innerHTML = txtOutput;
-   
    // Make text a foreground colour, background a background colour
    // (quantise content)
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
-   console.log("Txt dist in adjust content: ");
-   console.log(txtDist);
+   // Note: need to convert txtDist to a number here
    var minTxtColVal = avgColValue + txtDist; 
-   var maxTxtColVal = maxColValue;
+   var maxTxtColVal = maxColVal(outCanvasElem);
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
