@@ -130,11 +130,11 @@ function adjContent(outCanvasElem)
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
-   var avgColValue = -1;
-   avgColValue = avgColVal(outCanvasElem);            // Rename function if time
-   var txtDist = 50;                                  // Abstract out if static
-   var minTxtColVal = avgColValue + txtDist; 
-   var maxTxtColVal = 247;
+   //var avgColValue = -1;
+   //avgColValue = avgColVal(outCanvasElem);            // Rename function if time
+   //var txtDist = 50;                                  // Abstract out if static
+   //var minTxtColVal = avgColValue + txtDist; 
+   //var maxTxtColVal = 247;
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
