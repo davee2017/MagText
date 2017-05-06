@@ -25,6 +25,9 @@
 //
 function binPic(picCanvas, minWhite, maxWhite)
 {
+   console.log("Minimum white: " + minWhite);
+   console.log("Maximum white: " + maxWhite);
+   
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    

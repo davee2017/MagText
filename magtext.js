@@ -57,9 +57,14 @@ function adjContent(outCanvasElem, txtDist)
    // (quantise content)
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
-   // Note: need to convert txtDist to a number here
-   var minTxtColVal = avgColValue + txtDist; 
+   console.log("Avg col val: " + avgColValue);
+   console.log("Txt dist: " + txtDist);
+   // Note: need to convert txtDist to a number here?
+   var txtDistNo = Number(txtDist);
+   var minTxtColVal = avgColValue + txtDistNo;
    var maxTxtColVal = maxColVal(outCanvasElem);
+   console.log("Min txt col val: " + minTxtColVal);
+   console.log("Max txt col val: " + maxTxtColVal);
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
