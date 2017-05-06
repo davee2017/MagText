@@ -53,10 +53,51 @@ function adjContent(outCanvasElem)
    // Make black white, white black (invert content)
    invPic(outCanvasElem);
    
+   // Display colour value statistics on Android
+   var minColValue = -1;                                 // Min col val
+   minColValue = minColVal(outCanvasElem);       
+   var txtOutput = "Min col val: " + minColValue;
+   var txtMinColValElem = document.getElementById("txtMinColVal");
+   txtMinColValElem.innerHTML = txtOutput;
+   
+   var maxColValue = -1;                                 // Max col val
+   maxColValue = maxColVal(outCanvasElem);       
+   var txtOutput = "Max col val: " + maxColValue;
+   var txtMaxColValElem = document.getElementById("txtMaxColVal");
+   txtMaxColValElem.innerHTML = txtOutput;
+   
+   var leastColValue = -1;                               // Least col val
+   leastColValue = leastColVal(outCanvasElem);       
+   var txtOutput = "Least col val: " + leastColValue;
+   var txtLeastColValElem = document.getElementById("txtLeastColVal");
+   txtLeastColValElem.innerHTML = txtOutput;
+   
+   var mostColValue = -1;                                // Most col val
+   mostColValue = mostColVal(outCanvasElem);       
+   var txtOutput = "Most col val: " + mostColValue;
+   var txtMostColValElem = document.getElementById("txtMostColVal");
+   txtMostColValElem.innerHTML = txtOutput;
+   
+   var avgColValue = -1;                                // Avg col val
+   avgColValue = avgColVal(outCanvasElem);       
+   var txtOutput = "Avg col val: " + avgColValue;
+   var txtAvgColValElem = document.getElementById("txtAvgColVal");
+   txtAvgColValElem.innerHTML = txtOutput;
+   
+   var medColValue = -1;                                // Med col val
+   medColValue = medColVal(outCanvasElem);       
+   var txtOutput = "Med col val: " + medColValue;
+   var txtMedColValElem = document.getElementById("txtMedColVal");
+   txtMedColValElem.innerHTML = txtOutput;
+   
+   // Display ideal colour values
+   
+   
    // Make text a foreground colour, background a background colour
+   // (quantise content)
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
-   var txtDist = 20;
+   var txtDist = 50;                                  // Abstract out if static
    var minTxtColVal = avgColValue + txtDist; 
    var maxTxtColVal = 247;
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);

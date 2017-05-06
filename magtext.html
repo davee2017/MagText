@@ -28,7 +28,7 @@
       <script src="main.js"></script>
    </head>
    
-   <body onLoad="main();">
+   <body onLoad="main();">  
       <!-- Create video placeholder --!>
       <!-- Note: dimensions must match out canvas --!>
       <video id="video" width="768" height="1024"></video>
@@ -38,5 +38,18 @@
       <canvas id="outCanvas" width="768" height="1024"></canvas>
       
       <!-- Put video underneath????? --!>
+      
+      <!-- Show colour value statistics --!>
+      <p id="txtMinColVal"></p>
+      <p id="txtMaxColVal"></p>
+      <p id="txtLeastColVal"></p>
+      <p id="txtMostColVal"></p>
+      <p id="txtAvgColVal"></p>
+      <p id="txtMedColVal"></p>
+      
+      <!-- Show ideal colour values --!>
+      <p id="txtIdealMin"></p>
+      <p id="txtIdealMax"></p>
+      
    </body>
 </html>
