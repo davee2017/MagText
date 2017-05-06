@@ -91,12 +91,14 @@ function adjContent(outCanvasElem)
    txtMedColValElem.innerHTML = txtOutput;
    
    // Display ideal colour values
-   var minTxtColVal = 144;                             
+   var inIdealMinElem = document.getElementById("inIdealMin");
+   var minTxtColVal = inIdealMinElem.value;                             
    txtOutput = "Ideal min txt col val: " + minTxtColVal;
    var txtIdealMinElem = document.getElementById("txtIdealMin");
    txtIdealMinElem.innerHTML = txtOutput;
    
-   var maxTxtColVal = 247;                             
+   var inIdealMaxElem = document.getElementById("inIdealMax");
+   var maxTxtColVal = inIdealMaxElem.value;                             
    txtOutput = "Ideal max txt col val: " + maxTxtColVal;
    var txtIdealMaxElem = document.getElementById("txtIdealMax");
    txtIdealMaxElem.innerHTML = txtOutput;
