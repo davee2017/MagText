@@ -31,29 +31,17 @@ function main()
    // View environment
    viewEnv(videoElem);
    
-   // Capture environment after 6 seconds
+   // Capture environment and adjust after 5 seconds
    window.setTimeout
    (
       function()
       {
          captureEnv(videoElem, outCanvasElem);
-      },
-      7000
-   );
-   // Note: Part of box content. Capture video can be done 
-   // seperate?
-   
-   // Adjust content after 8 seconds
-   // Note: this needs testing when next session comes around
-   window.setTimeout
-   (
-      function()
-      {  
          var sliderElem = document.getElementById('sclTxtDist'); // Can be
                                                                  // Abstracted
          var txtDist = sliderElem.value;
          adjContent(outCanvasElem, txtDist);
       },
-      8000
+      5000
    );
 }
