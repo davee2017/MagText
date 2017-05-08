@@ -62,6 +62,13 @@ function adjContent(outCanvasElem, txtDist)
    var minColValElem = document.getElementById("minColValOut");
    minColValElem.innerHTML = txtOutput;
    
+   var mostColValue = -1;
+   mostColValue = mostColVal(outCanvasElem);          // Rename function if time
+   console.log("Most col val: " + mostColValue);      // (calcMostColVal)
+   var txtOutput = "Most col val: " + mostColValue;
+   var mostColValElem = document.getElementById("mostColValOut");
+   mostColValElem.innerHTML = txtOutput;
+   
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
    console.log("Avg col val: " + avgColValue);
