@@ -55,12 +55,19 @@ function adjContent(outCanvasElem, txtDist)
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
+   var minColValue = -1;
+   minColValue = minColVal(outCanvasElem);            // Rename function if time
+   console.log("Min col val: " + minColValue);        // (calcMinColVal)
+   var txtOutput = "Min col val: " + minColValue;
+   var minColValElem = document.getElementById("minColValOut");
+   minColValElem.innerHTML = txtOutput;
+   
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
    console.log("Avg col val: " + avgColValue);
    var txtOutput = "Avg col val: " + avgColValue;
-   var txtAvgColValElem = document.getElementById("avgColValOut");
-   txtAvgColValElem.innerHTML = txtOutput;
+   var avgColValElem = document.getElementById("avgColValOut");
+   avgColValElem.innerHTML = txtOutput;
    
    var txtDistNo = Number(txtDist);
    console.log("Txt dist: " + txtDistNo);
