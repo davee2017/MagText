@@ -69,6 +69,13 @@ function adjContent(outCanvasElem, txtDist)
    var mostColValElem = document.getElementById("mostColValOut");
    mostColValElem.innerHTML = txtOutput;
    
+   var leastColValue = -1;
+   leastColValue = leastColVal(outCanvasElem);        // Rename function if time
+   console.log("Least col val: " + leastColValue);      // (calcLeastColVal)
+   var txtOutput = "Least col val: " + leastColValue;
+   var leastColValElem = document.getElementById("leastColValOut");
+   leastColValElem.innerHTML = txtOutput;
+   
    var avgColValue = -1;
    avgColValue = avgColVal(outCanvasElem);            // Rename function if time
    console.log("Avg col val: " + avgColValue);
