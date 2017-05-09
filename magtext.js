@@ -83,7 +83,7 @@ function adjContent(outCanvasElem, txtDist)
    var avgColValElem = document.getElementById("avgColValOut");
    avgColValElem.innerHTML = txtOutput;
    
-   var txtDistNo = Number(txtDist);
+   var txtDistNo = Number( Math.floor(61 - 0.539*minColValue) );
    console.log("Txt dist: " + txtDistNo);
    txtOutput = "Txt dist: " + txtDistNo;
    var txtDistNoElem = document.getElementById("txtDistOut");
