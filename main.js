@@ -41,7 +41,6 @@ function main()
          var txtDistField = document.getElementById('txtTxtDist'); // Can be
                                                                  // Abstracted
          var txtDistNo = Number(txtDistField.value);
-         console.log("txtDist outside adjContent(): " + txtDistNo);
          adjContent(outCanvasElem, txtDistNo);
       },
       5000
