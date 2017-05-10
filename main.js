@@ -21,13 +21,13 @@ function main()
    // Debug mode?
    
    // Get video element
-   var videoElem = document.getElementById('video');     // Can be abstracted to
-                                                         // videoId
+   var videoElem = document.getElementById('video');     // Can be abstracted
+                                                         // out?
       
    // Get output canvas
    var outCanvasElem = document.getElementById('outCanvas'); 
                                                          // Can be abstracted to
-                                                         // canvasId
+                                                         // out?
    // View environment
    viewEnv(videoElem);
    
@@ -37,10 +37,12 @@ function main()
       function()
       {
          captureEnv(videoElem, outCanvasElem);
-         var sliderElem = document.getElementById('sclTxtDist'); // Can be
+         
+         var txtDistField = document.getElementById('txtTxtDist'); // Can be
                                                                  // Abstracted
-         var txtDist = sliderElem.value;
-         adjContent(outCanvasElem, txtDist);
+         var txtDistNo = Number(txtDistField.value);
+         console.log("txtDist outside adjContent(): " + txtDistNo);
+         adjContent(outCanvasElem, txtDistNo);
       },
       5000
    );

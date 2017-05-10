@@ -21,7 +21,7 @@
 
 // View environment
 // Displays the environment on the screen.
-function viewEnv(videoElem)
+function viewEnv(videoElem)            
 {
    if ( chkCapCompat() && attachCam(videoElem) )
    {                             // Browser compatible and webcam attached
@@ -45,7 +45,7 @@ function captureEnv(videoElem, outCanvasElem)
 // Adjust content
 // Adjusts the content for optimal reading with naked eye
 // and for optimal post-processing.
-function adjContent(outCanvasElem, txtDist)
+function adjContent(outCanvasElem, txtDistNo)
 {
    // Use variations of black and white for colours (grayscale content)
    monoPic(outCanvasElem);
@@ -83,7 +83,6 @@ function adjContent(outCanvasElem, txtDist)
    var avgColValElem = document.getElementById("avgColValOut");
    avgColValElem.innerHTML = txtOutput;
    
-   var txtDistNo = Number( Math.floor(61 - 0.539*minColValue) );
    console.log("Txt dist: " + txtDistNo);
    txtOutput = "Txt dist: " + txtDistNo;
    var txtDistNoElem = document.getElementById("txtDistOut");
