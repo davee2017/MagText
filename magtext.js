@@ -83,12 +83,19 @@ function adjContent(outCanvasElem, txtDistNo)
    var avgColValElem = document.getElementById("avgColValOut");
    avgColValElem.innerHTML = txtOutput;
    
+   var medColValue = -1;
+   medColValue = medColVal(outCanvasElem);            // Rename function if time
+   console.log("Med col val: " + medColValue);
+   var txtOutput = "Med col val: " + medColValue;
+   var medColValElem = document.getElementById("medColValOut");
+   medColValElem.innerHTML = txtOutput;
+   
    console.log("Txt dist: " + txtDistNo);
    txtOutput = "Txt dist: " + txtDistNo;
    var txtDistNoElem = document.getElementById("txtDistOut");
    txtDistNoElem.innerHTML = txtOutput;
    
-   var minTxtColVal = avgColValue + txtDistNo;
+   var minTxtColVal = medColValue + txtDistNo;
    console.log("Min txt col val: " + minTxtColVal);
    txtOutput = "Min txt col val: " + minTxtColVal;
    var minTxtColValElem = document.getElementById("minTxtOut");
