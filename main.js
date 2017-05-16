@@ -38,15 +38,13 @@ function main()
       {
          captureEnv(videoElem, outCanvasElem);
          
-         var txtDistField = document.getElementById('txtContDist'); // Can be
-                                                                 // Abstracted
+         var ContDistField = document.getElementById('txtContDist'); // Can be
+                                                                  // Abstracted
          
-         console.log("Content distance in field: " + txtDistField.value);
-                                                                     // Change
-                                                                     // var 
-                                                                     // name
-         var txtDistNo = Number(txtDistField.value);
-         binContent(outCanvasElem, txtDistNo);
+        
+         var ContDistNo = Number(ContDistField.value);
+         console.log("Content distance before bin: " + ContDistNo);
+         binContent(outCanvasElem, ContDistNo);
       },
       5000
    );
