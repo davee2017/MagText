@@ -45,8 +45,10 @@ function captureEnv(videoElem, outCanvasElem)
 // Adjust content
 // Adjusts the content for optimal reading with naked eye
 // and for optimal post-processing.
-function binContent(outCanvasElem, txtDistNo)
+function binContent(outCanvasElem, contDistNo)
 {
+   console.log("Content distance within bin: " + contDistNo);
+   
    // Use variations of black and white for colours (grayscale content)
    monoPic(outCanvasElem);
    
