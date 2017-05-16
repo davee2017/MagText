@@ -45,7 +45,7 @@ function captureEnv(videoElem, outCanvasElem)
 // Adjust content
 // Adjusts the content for optimal reading with naked eye
 // and for optimal post-processing.
-function adjContent(outCanvasElem, txtDistNo)
+function binContent(outCanvasElem, txtDistNo)
 {
    // Use variations of black and white for colours (grayscale content)
    monoPic(outCanvasElem);

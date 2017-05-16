@@ -22,12 +22,12 @@ function main()
    
    // Get video element
    var videoElem = document.getElementById('video');     // Can be abstracted
-                                                         // out?
+                                                         // out? As object?
       
    // Get output canvas
    var outCanvasElem = document.getElementById('outCanvas'); 
                                                          // Can be abstracted to
-                                                         // out?
+                                                         // out? As object?
    // View environment
    viewEnv(videoElem);
    
@@ -41,7 +41,7 @@ function main()
          var txtDistField = document.getElementById('txtTxtDist'); // Can be
                                                                  // Abstracted
          var txtDistNo = Number(txtDistField.value);
-         adjContent(outCanvasElem, txtDistNo);
+         binContent(outCanvasElem, txtDistNo);
       },
       5000
    );

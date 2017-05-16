@@ -20,7 +20,7 @@
 // Calculates the median of a list of values.
 // Accepts an array of numbers in any order.
 
-function medVal(vals)
+function medVal(vals) 
 {
    // Sort values
    vals.sort
