@@ -47,8 +47,6 @@ function captureEnv(videoElem, outCanvasElem)
 // and for optimal post-processing.
 function binContent(outCanvasElem, contDistNo)
 {
-   console.log("Content distance within bin: " + contDistNo);
-   
    // Use variations of black and white for colours (grayscale content)
    monoPic(outCanvasElem);
    
@@ -92,12 +90,12 @@ function binContent(outCanvasElem, contDistNo)
    var medColValElem = document.getElementById("medColValOut");
    medColValElem.innerHTML = txtOutput;
    
-   console.log("Txt dist: " + txtDistNo);
-   txtOutput = "Txt dist: " + txtDistNo;
-   var txtDistNoElem = document.getElementById("txtDistOut");
-   txtDistNoElem.innerHTML = txtOutput;
+   console.log("Txt dist: " + contDistNo);
+   txtOutput = "Txt dist: " + contDistNo;
+   var contDistNoElem = document.getElementById("txtDistOut");
+   contDistNoElem.innerHTML = txtOutput;
    
-   var minTxtColVal = medColValue + txtDistNo;
+   var minTxtColVal = medColValue + contDistNo;
    console.log("Min txt col val: " + minTxtColVal);
    txtOutput = "Min txt col val: " + minTxtColVal;
    var minTxtColValElem = document.getElementById("minTxtOut");
