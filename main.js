@@ -39,10 +39,7 @@ function main()
          captureEnv(videoElem, outCanvasElem);
          
          var contDistField = document.getElementById('txtContDist'); // Can be
-                                                                  // Abstracted
-         
-         // Adjust intensity
-         adjIntensity(outCanvasElem, 100, 105, -5);                                                                 
+                                                                  // Abstracted                                                              
                                                                   
          var contDistNo = 34;                                     // Default
          if (contDistField.value != "")                           // Input
@@ -53,5 +50,15 @@ function main()
          //binContent(outCanvasElem, contDistNo);
       },
       5000
+   );
+   
+   // Adjust intensity
+   window.setTimeout
+   (
+      function()
+      {
+         adjIntensity(outCanvasElem, 100, 105, -5);   
+      },
+      8000
    );
 }

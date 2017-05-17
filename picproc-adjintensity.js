@@ -38,10 +38,14 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
                    picCanvas.height);
    
    // Display original single colour values
+   console.log("Pixel values before: ");
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
+      // Show value
+      console.log("Pos " + redPos + " Val " + picPixels.data[redPos]);
+   }
    
-      
    // Adjust pixel values
-   
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
       redVal = picPixels.data[redPos];
