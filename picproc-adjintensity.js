@@ -59,6 +59,12 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
    }
    
    // Display single colour values after change
+   console.log("Pixel values after: ");
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
+      // Show value
+      console.log("Pos " + redPos + " Val " + picPixels.data[redPos]);
+   }
    
    // Draw pixels on canvas
 }

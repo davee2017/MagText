@@ -57,7 +57,7 @@ function main()
    (
       function()
       {
-         adjIntensity(outCanvasElem, 100, 105, -5);   
+         adjIntensity(outCanvasElem, 120, 130, -5);   
       },
       8000
    );
