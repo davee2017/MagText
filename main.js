@@ -42,7 +42,13 @@ function main()
                                                                   // Abstracted
          
         
-         var contDistNo = Number(contDistField.value);
+         var contDistNo = 34;                                     // Default
+         if (contDistField.value != "")                           // Input
+                                                                  // exists
+         {
+            contDistNo = Number(contDistField.value);             // Get it
+         }
+         console.log("Content distance: " + contDistNo);
          binContent(outCanvasElem, contDistNo);
       },
       5000
