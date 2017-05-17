@@ -41,14 +41,16 @@ function main()
          var contDistField = document.getElementById('txtContDist'); // Can be
                                                                   // Abstracted
          
-        
+         // Adjust intensity
+         adjIntensity(outCanvasElem, 100, 105, -5);                                                                 
+                                                                  
          var contDistNo = 34;                                     // Default
          if (contDistField.value != "")                           // Input
                                                                   // exists
          {
             contDistNo = Number(contDistField.value);             // Get it
          }
-         binContent(outCanvasElem, contDistNo);
+         //binContent(outCanvasElem, contDistNo);
       },
       5000
    );

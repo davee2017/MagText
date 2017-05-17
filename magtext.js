@@ -62,6 +62,13 @@ function binContent(outCanvasElem, contDistNo)
    var minColValElem = document.getElementById("minColValOut");
    minColValElem.innerHTML = txtOutput;
    
+   var maxColValue = -1;
+   maxColValue = maxColVal(outCanvasElem);            // Rename function if time
+   console.log("Max col val: " + maxColValue);        // (calcMinColVal)
+   var txtOutput = "Max col val: " + maxColValue;
+   var maxColValElem = document.getElementById("maxColValOut");
+   maxColValElem.innerHTML = txtOutput;
+   
    var mostColValue = -1;
    mostColValue = mostColVal(outCanvasElem);          // Rename function if time
    console.log("Most col val: " + mostColValue);      // (calcMostColVal)
