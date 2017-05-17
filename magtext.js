@@ -90,8 +90,8 @@ function binContent(outCanvasElem, contDistNo)
    var medColValElem = document.getElementById("medColValOut");
    medColValElem.innerHTML = txtOutput;
    
-   console.log("Txt dist: " + contDistNo);
-   txtOutput = "Txt dist: " + contDistNo;
+   console.log("Cont dist: " + contDistNo);
+   txtOutput = "Cont dist: " + contDistNo;
    var contDistNoElem = document.getElementById("txtDistOut");
    contDistNoElem.innerHTML = txtOutput;
    

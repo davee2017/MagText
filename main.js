@@ -48,7 +48,6 @@ function main()
          {
             contDistNo = Number(contDistField.value);             // Get it
          }
-         console.log("Content distance: " + contDistNo);
          binContent(outCanvasElem, contDistNo);
       },
       5000
