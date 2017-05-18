@@ -58,10 +58,8 @@ function main()
       function()
       {
          var medColValue = medColVal(outCanvasElem);
-         console.log("Med col val: " + medColValue);
          var maxColValue = maxColVal(outCanvasElem);
-         console.log("Max col val: " + maxColValue);
-         adjIntensity(outCanvasElem, medColValue, maxColValue , -30);  
+         adjIntensity(outCanvasElem, medColValue, maxColValue, -30);  
                                                                   // Must be
                                                                   // min
                                                                   // followed by

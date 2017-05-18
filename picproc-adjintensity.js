@@ -26,24 +26,12 @@
 
 function adjIntensity(picCanvas, minColVal, maxColVal, amt)
 {
-   //console.log("Amount: " + amt);
-   //console.log("Min col val: " + minColVal);
-   //console.log("Max col val: " + maxColVal);
-   
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    
    // Get pixels from canvas
    var picPixels = context.getImageData(0, 0, picCanvas.width,
                    picCanvas.height);
-   
-   // Display original single colour values
-   //console.log("Pixel values before: ");
-   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   //{
-      // Show value
-      //console.log("Pos " + redPos + " Val " + picPixels.data[redPos]);
-   //}
    
    // Adjust pixel values
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
@@ -57,14 +45,6 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
          picPixels.data[redPos + 2] = redVal + amt;
       }
    }
-   
-   // Display single colour values after change
-   //console.log("Pixel values after: ");
-   //for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   //{
-      // Show value
-      //console.log("Pos " + redPos + " Val " + picPixels.data[redPos]);
-   //}
    
    // Draw pixels on canvas
    context.putImageData(picPixels, 0, 0);
