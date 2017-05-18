@@ -52,19 +52,31 @@ function main()
       5000
    );
    
-   // Adjust intensity
+   // Display greyscale image
    window.setTimeout
    (
       function()
-      {
-         var medColValue = medColVal(outCanvasElem);
-         var maxColValue = maxColVal(outCanvasElem);
-         adjIntensity(outCanvasElem, medColValue, maxColValue, -30);  
+      {   
+         monoPic(outCanvasElem);
+      },
+      8000
+   );
+   
+   // Adjust intensity
+   //window.setTimeout
+   //(
+    //  function()
+    //  {
+         
+    //     var medColValue = medColVal(outCanvasElem);
+    //     var maxColValue = maxColVal(outCanvasElem);
+    //     adjIntensity(outCanvasElem, medColValue, maxColValue, -30);  
                                                                   // Must be
                                                                   // min
                                                                   // followed by
                                                                   // max
-      },
-      8000
-   );
+    //  },
+    //  10000
+  // );
+   
 }
