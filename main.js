@@ -67,10 +67,10 @@ function main()
    (
       function()
       {
-         var spotDistNo = 20;
-         var minSpotColVal = medColVal(outCanvasElem) + spotDistNo;
-         var maxSpotColVal = maxColVal(outCanvasElem);
-         adjIntensity(outCanvasElem, minSpotColVal, maxSpotColVal, -30);  
+         //var spotDistNo = 20;
+         //var minSpotColVal = medColVal(outCanvasElem) + spotDistNo;
+         //var maxSpotColVal = maxColVal(outCanvasElem);
+         adjIntensity(outCanvasElem, 200, 230, -30);  
                                                                   // Must be
                                                                   // min
                                                                   // followed by

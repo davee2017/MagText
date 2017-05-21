@@ -33,10 +33,11 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
    var picPixels = context.getImageData(0, 0, picCanvas.width,
                    picCanvas.height);
    
+   console.log("Before alteration");
    // Adjust pixel values
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
-      // Determine colour values
+      // Determine average colour values
       console.log("Pixel pos " + (redPos / 4) );
       var redVal = picPixels.data[redPos];
       console.log("Red val: " + redVal);
@@ -44,19 +45,32 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
       console.log("Green val: " + greenVal);
       var blueVal = picPixels.data[redPos + 2];
       console.log("Blue val: " + blueVal);
-      
-      // Determine average colour value
       var pxColVals = [redVal, greenVal, blueVal];
       var avg = avgVal(pxColVals);
       console.log("Average col val: " + avg);
       
-      //if ( (avg >= minColVal) && (avg <= maxColVal) )  
-      //{                                             // In colour value range
+      if ( (avg >= minColVal) && (avg <= maxColVal) )  
+      {                                             // In pixel range
          // Adjust by specified amount
-         //picPixels.data[redPos] = redVal + amt;             
-         //picPixels.data[redPos + 1] = redVal + amt;
-         //picPixels.data[redPos + 2] = redVal + amt;
-      //}
+         picPixels.data[redPos] = picPixels.data[redPos] + amt;             
+         picPixels.data[redPos + 1] = picPixels.data[redPos + 1] + amt;
+         picPixels.data[redPos + 2] = picPixels.data[redPos + 2] + amt;
+      }
+   }
+   
+   // Display altered pixel colour values
+   console.log("After alteration");
+   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   {
+      // Determine average colour values
+      console.log("Pixel pos " + (redPos / 4) );
+      var redVal = picPixels.data[redPos];
+      console.log("Red val: " + redVal);
+      var greenVal = picPixels.data[redPos + 1];
+      console.log("Green val: " + greenVal);
+      var blueVal = picPixels.data[redPos + 2];
+      console.log("Blue val: " + blueVal);
+      var pxColVals = [redVal, greenVal, blueVal];
    }
    
    // Draw pixels on canvas
