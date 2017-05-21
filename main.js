@@ -52,7 +52,7 @@ function main()
       5000
    );
    
-   // Display greyscale image
+   // Display greyscale content
    window.setTimeout
    (
       function()
@@ -63,20 +63,19 @@ function main()
    );
    
    // Adjust intensity
-   //window.setTimeout
-   //(
-    //  function()
-    //  {
-         
-    //     var medColValue = medColVal(outCanvasElem);
-    //     var maxColValue = maxColVal(outCanvasElem);
-    //     adjIntensity(outCanvasElem, medColValue, maxColValue, -30);  
+   window.setTimeout
+   (
+      function()
+      {
+         var spotDistNo = 20;
+         var minSpotColVal = medColVal(outCanvasElem) + spotDistNo;
+         var maxSpotColVal = maxColVal(outCanvasElem);
+         adjIntensity(outCanvasElem, minSpotColVal, maxSpotColVal, -30);  
                                                                   // Must be
                                                                   // min
                                                                   // followed by
                                                                   // max
-    //  },
-    //  10000
-  // );
-   
+      },
+      10000
+   ); 
 }

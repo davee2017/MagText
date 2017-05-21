@@ -36,16 +36,29 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
    // Adjust pixel values
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
-      redVal = picPixels.data[redPos];
-      if ( (redVal >= minColVal) && (redVal <= maxColVal) )  
-      {                                             // In colour value range
+      // Determine colour values
+      console.log("Pixel pos " + (redPos / 4) );
+      var redVal = picPixels.data[redPos];
+      console.log("Red val: " + redVal);
+      var greenVal = picPixels.data[redPos + 1];
+      console.log("Green val: " + greenVal);
+      var blueVal = picPixels.data[redPos + 2];
+      console.log("Blue val: " + blueVal);
+      
+      // Determine average colour value
+      //var avg = avgVal([redVal, greenVal, blueVal]);
+      
+      
+      
+      //if ( (avg >= minColVal) && (avg <= maxColVal) )  
+      //{                                             // In colour value range
          // Adjust by specified amount
-         picPixels.data[redPos] = redVal + amt;             
-         picPixels.data[redPos + 1] = redVal + amt;
-         picPixels.data[redPos + 2] = redVal + amt;
-      }
+         //picPixels.data[redPos] = redVal + amt;             
+         //picPixels.data[redPos + 1] = redVal + amt;
+         //picPixels.data[redPos + 2] = redVal + amt;
+      //}
    }
    
    // Draw pixels on canvas
-   context.putImageData(picPixels, 0, 0);
+   //context.putImageData(picPixels, 0, 0);
 }
