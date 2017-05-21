@@ -46,9 +46,9 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
       console.log("Blue val: " + blueVal);
       
       // Determine average colour value
-      //var avg = avgVal([redVal, greenVal, blueVal]);
-      
-      
+      var pxColVals = [redVal, greenVal, blueVal];
+      var avg = avgVal(pxColVals);
+      console.log("Average col val: " + avg);
       
       //if ( (avg >= minColVal) && (avg <= maxColVal) )  
       //{                                             // In colour value range
