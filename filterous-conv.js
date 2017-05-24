@@ -28,9 +28,14 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-// Note: could have values for kernel matrix input - so can experiment. 
-// Set to weights
-function sharpPic(origCanvas, factor)
+// Convolute
+// Convolutes a canvas using a 3x3 matrix
+// Accepts:
+// 1. A list of values.
+// 2. A matrix to convolue using.
+// 3. A boolean specifying whether or not the result should be transparent
+
+function convPic(origCanvas, weights, opaque)
 {
    // Get canvas 2D context
    var origContext = origCanvas.getContext('2d');
@@ -39,15 +44,9 @@ function sharpPic(origCanvas, factor)
    var pixels = origContext.getImageData(0, 0, origCanvas.width, 
                                          origCanvas.height);
    
-   // Set weights
-   var weights = [ 0, -1 *factor, 0,                  // Sharpening kernel
-                   -1*factor, 5*factor, -1*factor,
-                   0, -1*factor, 0 ];
+                       
    
-   // Set transparency
-   var opaque = false;                                // No transparency
-   
-   // Perform sharpening convolution
+   // Perform convolution
    var side = Math.round(Math.sqrt(weights.length));
    var halfSide = (side/2) >>> 0;
    

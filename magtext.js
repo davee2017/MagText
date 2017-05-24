@@ -48,6 +48,9 @@ function captureEnv(videoElem, outCanvasElem)
 // the features another colour.
 function binContent(outCanvasElem, contDistNo)
 {
+   // Redraw canvas from video
+   // takeVidPic(videoElem, outCanvasElem);
+   
    // Get out canvas element based on ID
    // var outCanvasElem = null;
    // outCanvasElem = document.getElementById(canvasId);
@@ -82,5 +85,9 @@ function binContent(outCanvasElem, contDistNo)
    // Make colour transitions between text and background distinct (sharpen 
    // content)
    var shpFactor = 1;
-   sharpPic(outCanvasElem, shpFactor);
+   var weights = [ 0, -1 *shpFactor, 0,                  // Sharpening kernel
+                   -1*shpFactor, 5*shpFactor, -1*shpFactor,
+                   0, -1*shpFactor, 0 ];
+   var opaque = false;                
+   convPic(outCanvasElem, weights, opaque);
 }
