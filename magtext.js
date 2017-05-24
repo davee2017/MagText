@@ -23,8 +23,16 @@
 // Displays the environment on the screen.
 function viewEnv(videoElem)            
 {
-   if ( chkCapCompat() && attachCam(videoElem) )
-   {                             // Browser compatible and webcam attached
+   console.log("Video elem src: " + videoElem.src);
+   if (videoElem.src == "")         // Not already attached
+   {
+      if ( chkCapCompat() && attachCam(videoElem) )
+      {                             // Browser compatible and webcam attached
+         startCamStream();
+      }
+   }
+   else                             // Already attached
+   {
       startCamStream();
    }
 }
@@ -46,32 +54,40 @@ function captureEnv(videoElem, outCanvasElem)
 // Adjusts the content for optimal reading with naked eye
 // by making desired features one colour and the rest of 
 // the features another colour.
-function binContent(outCanvasElem, contDistNo)
-{
+function binContent(videoId, canvasId, txtContDistId)
+{  
+   // Get out canvas element
+   var outCanvasElem = null;
+   outCanvasElem = document.getElementById(canvasId);
+   
+   // Get video element
+   var videoElem = null;
+   videoElem = document.getElementById('video');     
+   
    // Redraw canvas from video
-   // takeVidPic(videoElem, outCanvasElem);
-   
-   // Get out canvas element based on ID
-   // var outCanvasElem = null;
-   // outCanvasElem = document.getElementById(canvasId);
-   
-   // Get content distance based on ID
-   // var contDistField = null;
-   //    whatever is happening in main should go here
+   takeVidPic(videoElem, outCanvasElem);
    
    // Use variations of black and white for colours (grayscale content)
    monoPic(outCanvasElem);
    
-   // Make black white, white black (invert content)
+   // Invert content
    invPic(outCanvasElem);
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
-   var medColValue = -1;                                 // Median
+   var contDistField = null;
+   var contDistField = document.getElementById(txtContDistId);
+   var contDistNo = 34;                               // Dynamic
+   if (contDistField.value != "")                     // distance input
+                                                      // exists
+   {
+      contDistNo = Number(contDistField.value);       // Get it
+   }
+   var medColValue = -1;                              // Median
    medColValue = medColVal(outCanvasElem);             
-   var minTxtColVal = -1;                                // Min text distance
+   var minTxtColVal = -1;                             // Min text distance
    minTxtColVal = medColValue + contDistNo;
-   var maxTxtColVal = -1;                                // Max text distance
+   var maxTxtColVal = -1;                             // Max text distance
    maxTxtColVal = maxColVal(outCanvasElem);
    var dispTxtColVal = -1;
    dispTxtColVal = 255;

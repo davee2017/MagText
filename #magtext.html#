@@ -29,7 +29,7 @@
       Content Distance
       <input id="txtContDist" type="text"></input>     
       
-      <!-- Begin processing on button click -->
+      <!-- Begin main capture on button click -->
       <p>
          <button onClick="main();">Capture</button>
       </p>

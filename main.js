@@ -21,13 +21,17 @@ function main()
    // Debug mode?
    
    // Get video element
-   var videoElem = document.getElementById('video');     // Can be abstracted
+   var videoElem = null;
+   videoElem = document.getElementById('video');     
+                                                         // Can be abstracted
                                                          // out? As object?
-      
-   // Get output canvas
+   
+   // Get canvas element                                                      
+   var outCanvasElem = null;
    var outCanvasElem = document.getElementById('outCanvas'); 
                                                          // Can be abstracted to
                                                          // out? As object?
+   
    // View environment
    viewEnv(videoElem);
    
@@ -37,17 +41,10 @@ function main()
       function()
       {
          captureEnv(videoElem, outCanvasElem);
-         
-         var contDistField = document.getElementById('txtContDist'); // Can be
-                                                                  // Abstracted                                                              
-                                                                  
-         var contDistNo = 34;                                     // Dynamic
-         if (contDistField.value != "")                           // input
-                                                                  // exists
-         {
-            contDistNo = Number(contDistField.value);             // Get it
-         }
-         binContent(outCanvasElem, contDistNo);
+                                                                        
+         //binContent('video', 'outCanvas', 'txtContDist');
+      
+         invPic(outCanvasElem);
       },
       5000
    );
