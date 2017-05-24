@@ -55,65 +55,12 @@ function binContent(outCanvasElem, contDistNo)
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
-   var minColValue = -1;
-   minColValue = minColVal(outCanvasElem);            // Rename function if time
-   console.log("Min col val: " + minColValue);        // (calcMinColVal)
-   var txtOutput = "Min col val: " + minColValue;
-   var minColValElem = document.getElementById("minColValOut");
-   minColValElem.innerHTML = txtOutput;
-   
-   var maxColValue = -1;
-   maxColValue = maxColVal(outCanvasElem);            // Rename function if time
-   console.log("Max col val: " + maxColValue);        // (calcMinColVal)
-   var txtOutput = "Max col val: " + maxColValue;
-   var maxColValElem = document.getElementById("maxColValOut");
-   maxColValElem.innerHTML = txtOutput;
-   
-   var mostColValue = -1;
-   mostColValue = mostColVal(outCanvasElem);          // Rename function if time
-   console.log("Most col val: " + mostColValue);      // (calcMostColVal)
-   var txtOutput = "Most col val: " + mostColValue;
-   var mostColValElem = document.getElementById("mostColValOut");
-   mostColValElem.innerHTML = txtOutput;
-   
-   var leastColValue = -1;
-   leastColValue = leastColVal(outCanvasElem);        // Rename function if time
-   console.log("Least col val: " + leastColValue);      // (calcLeastColVal)
-   var txtOutput = "Least col val: " + leastColValue;
-   var leastColValElem = document.getElementById("leastColValOut");
-   leastColValElem.innerHTML = txtOutput;
-   
-   var avgColValue = -1;
-   avgColValue = avgColVal(outCanvasElem);            // Rename function if time
-   console.log("Avg col val: " + avgColValue);
-   var txtOutput = "Avg col val: " + avgColValue;
-   var avgColValElem = document.getElementById("avgColValOut");
-   avgColValElem.innerHTML = txtOutput;
-   
-   var medColValue = -1;
-   medColValue = medColVal(outCanvasElem);            // Rename function if time
-   console.log("Med col val: " + medColValue);
-   var txtOutput = "Med col val: " + medColValue;
-   var medColValElem = document.getElementById("medColValOut");
-   medColValElem.innerHTML = txtOutput;
-   
-   console.log("Cont dist: " + contDistNo);
-   txtOutput = "Cont dist: " + contDistNo;
-   var contDistNoElem = document.getElementById("txtDistOut");
-   contDistNoElem.innerHTML = txtOutput;
-   
-   var minTxtColVal = medColValue + contDistNo;
-   console.log("Min txt col val: " + minTxtColVal);
-   txtOutput = "Min txt col val: " + minTxtColVal;
-   var minTxtColValElem = document.getElementById("minTxtOut");
-   minTxtColValElem.innerHTML = txtOutput;
-   
-   var maxTxtColVal = maxColVal(outCanvasElem);
-   console.log("Max txt col val: " + maxTxtColVal);
-   txtOutput = "Max txt col val: " + maxTxtColVal;
-   var maxTxtColValElem = document.getElementById("maxTxtOut");
-   maxTxtColValElem.innerHTML = txtOutput;
-   
+   var medColValue = -1;                                 // Median
+   medColValue = medColVal(outCanvasElem);             
+   var minTxtColVal = -1;                                // Min text distance
+   minTxtColVal = medColValue + contDistNo;
+   var maxTxtColVal = -1;                                // Max text distance
+   maxTxtColVal = maxColVal(outCanvasElem);
    binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
    
    // Make colour transitions between text and background distinct (sharpen 

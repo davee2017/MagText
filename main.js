@@ -41,41 +41,14 @@ function main()
          var contDistField = document.getElementById('txtContDist'); // Can be
                                                                   // Abstracted                                                              
                                                                   
-         var contDistNo = 34;                                     // Default
-         if (contDistField.value != "")                           // Input
+         var contDistNo = 34;                                     // Dynamic
+         if (contDistField.value != "")                           // input
                                                                   // exists
          {
             contDistNo = Number(contDistField.value);             // Get it
          }
-         //binContent(outCanvasElem, contDistNo);
+         binContent(outCanvasElem, contDistNo);
       },
       5000
    );
-   
-   // Display greyscale content
-   window.setTimeout
-   (
-      function()
-      {   
-         monoPic(outCanvasElem);
-      },
-      8000
-   );
-   
-   // Adjust intensity
-   window.setTimeout
-   (
-      function()
-      {
-         //var spotDistNo = 20;
-         //var minSpotColVal = medColVal(outCanvasElem) + spotDistNo;
-         //var maxSpotColVal = maxColVal(outCanvasElem);
-         adjIntensity(outCanvasElem, 200, 230, -30);  
-                                                                  // Must be
-                                                                  // min
-                                                                  // followed by
-                                                                  // max
-      },
-      10000
-   ); 
 }
