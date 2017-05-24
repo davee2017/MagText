@@ -33,24 +33,19 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
    var picPixels = context.getImageData(0, 0, picCanvas.width,
                    picCanvas.height);
    
-   console.log("Before alteration");
    // Adjust pixel values
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
-      // Determine average colour values
-      console.log("Pixel pos " + (redPos / 4) );
+      // Determine average colour value
       var redVal = picPixels.data[redPos];
-      console.log("Red val: " + redVal);
       var greenVal = picPixels.data[redPos + 1];
-      console.log("Green val: " + greenVal);
       var blueVal = picPixels.data[redPos + 2];
-      console.log("Blue val: " + blueVal);
       var pxColVals = [redVal, greenVal, blueVal];
       var avg = avgVal(pxColVals);
-      console.log("Average col val: " + avg);
       
+      // Adjust pixel value
       if ( (avg >= minColVal) && (avg <= maxColVal) )  
-      {                                             // In pixel range
+      {                                             // In colour range
          // Adjust by specified amount
          picPixels.data[redPos] = picPixels.data[redPos] + amt;             
          picPixels.data[redPos + 1] = picPixels.data[redPos + 1] + amt;
@@ -59,17 +54,12 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
    }
    
    // Display altered pixel colour values
-   console.log("After alteration");
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
       // Determine average colour values
-      console.log("Pixel pos " + (redPos / 4) );
       var redVal = picPixels.data[redPos];
-      console.log("Red val: " + redVal);
       var greenVal = picPixels.data[redPos + 1];
-      console.log("Green val: " + greenVal);
       var blueVal = picPixels.data[redPos + 2];
-      console.log("Blue val: " + blueVal);
       var pxColVals = [redVal, greenVal, blueVal];
    }
    
