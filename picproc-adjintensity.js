@@ -74,5 +74,5 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
    }
    
    // Draw pixels on canvas
-   //context.putImageData(picPixels, 0, 0);
+   context.putImageData(picPixels, 0, 0);
 }
