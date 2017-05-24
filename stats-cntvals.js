@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Count values
+// Count unique values
 // Counts the unique values in a list.
 // Accepts three arguments:
 // 1. List of random numeric values
@@ -24,9 +24,7 @@
 // Returns an array of numeric values representing the 
 // amount of each value in the list of unique values.
 
-// Note: might rename this to cntUniqVals since cntVals could imply
-// counting all of the values in the list.
-function cntVals(vals, uniqVals)
+function cntUniqVals(vals, uniqVals)
 {
    var valCnts = [];
    var pos = -1;
