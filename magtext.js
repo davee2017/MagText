@@ -42,11 +42,20 @@ function captureEnv(videoElem, outCanvasElem)
    takeVidPic(videoElem, outCanvasElem);
 }
 
-// Adjust content
+// Binary content
 // Adjusts the content for optimal reading with naked eye
-// and for optimal post-processing.
+// by making desired features one colour and the rest of 
+// the features another colour.
 function binContent(outCanvasElem, contDistNo)
 {
+   // Get out canvas element based on ID
+   // var outCanvasElem = null;
+   // outCanvasElem = document.getElementById(canvasId);
+   
+   // Get content distance based on ID
+   // var contDistField = null;
+   //    whatever is happening in main should go here
+   
    // Use variations of black and white for colours (grayscale content)
    monoPic(outCanvasElem);
    
@@ -61,7 +70,14 @@ function binContent(outCanvasElem, contDistNo)
    minTxtColVal = medColValue + contDistNo;
    var maxTxtColVal = -1;                                // Max text distance
    maxTxtColVal = maxColVal(outCanvasElem);
-   binPic(outCanvasElem, minTxtColVal, maxTxtColVal);
+   var dispTxtColVal = -1;
+   dispTxtColVal = 255;
+   //dispTxtColVal = txtColValField.value;
+   var dispBgColVal = -1;
+   dispBgColVal = 0;
+   //dispBgColVal = bgColValField.value;
+   binPic(outCanvasElem, minTxtColVal, maxTxtColVal, dispTxtColVal, 
+          dispBgColVal);
    
    // Make colour transitions between text and background distinct (sharpen 
    // content)

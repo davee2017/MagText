@@ -17,13 +17,15 @@
 */
 
 // Binary picture
-// Quantises the picture into black and white.
+// Quantises the picture into a forground and background colour.
 // Accepts:
 // 1. A picture canvas. 
-// 2. A colour value representing the minimum colour value made white.
-// 3. A colour value representing the maximum colour value made black
-//
-function binPic(picCanvas, minWhite, maxWhite)
+// 2. Minimum foreground colour value
+// 3. Maximum foreground colour value
+// 4. Foreground colour value
+// 5. Background colour value
+
+function binPic(picCanvas, fgMin, fgMax, fgColVal, bgColVal)
 {
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
@@ -35,19 +37,19 @@ function binPic(picCanvas, minWhite, maxWhite)
    for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
    {
       redVal = picPixels.data[redPos];
-      if ( (redVal >= minWhite) && (redVal <= maxWhite) ) // White range
+      if ( (redVal >= fgMin) && (redVal <= fgMax) )      // Foreground range
       {
-         // Set pixel to white
-         picPixels.data[redPos] = 255;             
-         picPixels.data[redPos + 1] = 255;
-         picPixels.data[redPos + 2] = 255;
+         // Set pixel to foreground colour
+         picPixels.data[redPos] = fgColVal;             
+         picPixels.data[redPos + 1] = fgColVal;
+         picPixels.data[redPos + 2] = fgColVal;
       }
-      else                                               // Black range
+      else                                               // Background range
       {
-         // Set pixel to black
-         picPixels.data[redPos] = 0;             
-         picPixels.data[redPos + 1] = 0;
-         picPixels.data[redPos + 2] = 0;
+         // Set pixel to background colour
+         picPixels.data[redPos] = bgColVal;             
+         picPixels.data[redPos + 1] = bgColVal;
+         picPixels.data[redPos + 2] = bgColVal;
       }
    }
    
