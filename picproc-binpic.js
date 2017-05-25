@@ -25,7 +25,7 @@
 // 4. Foreground colour value
 // 5. Background colour value
 
-function binPic(picCanvas, fgMin, fgMax, fgColVal, bgColVal)
+function binPic(picCanvas, fgMin, fgMax, fgR, fgG, fgB, bgR, bgG, bgB)
 {
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
@@ -40,16 +40,16 @@ function binPic(picCanvas, fgMin, fgMax, fgColVal, bgColVal)
       if ( (redVal >= fgMin) && (redVal <= fgMax) )      // Foreground range
       {
          // Set pixel to foreground colour
-         picPixels.data[redPos] = fgColVal;             
-         picPixels.data[redPos + 1] = fgColVal;
-         picPixels.data[redPos + 2] = fgColVal;
+         picPixels.data[redPos] = fgR;             
+         picPixels.data[redPos + 1] = fgG;
+         picPixels.data[redPos + 2] = fgB;
       }
       else                                               // Background range
       {
          // Set pixel to background colour
-         picPixels.data[redPos] = bgColVal;             
-         picPixels.data[redPos + 1] = bgColVal;
-         picPixels.data[redPos + 2] = bgColVal;
+         picPixels.data[redPos] = bgR;             
+         picPixels.data[redPos + 1] = bgG;
+         picPixels.data[redPos + 2] = bgB;
       }
    }
    

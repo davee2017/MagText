@@ -23,7 +23,6 @@
 // Displays the environment on the screen.
 function viewEnv(videoElem)            
 {
-   console.log("Video elem src: " + videoElem.src);
    if (videoElem.src == "")         // Not already attached
    {
       if ( chkCapCompat() && attachCam(videoElem) )
@@ -50,6 +49,60 @@ function captureEnv(videoElem, outCanvasElem)
    takeVidPic(videoElem, outCanvasElem);
 }
 
+// Colour content
+function colContent(videoId, canvasId)
+{  
+   // Get out canvas element
+   var outCanvasElem = null;
+   outCanvasElem = document.getElementById(canvasId);
+   
+   // Get video element
+   var videoElem = null;
+   videoElem = document.getElementById(videoId);
+   
+   // Redraw canvas from video
+   takeVidPic(videoElem, outCanvasElem);
+}
+
+// Mono content
+function monoContent(videoId, canvasId)
+{  
+   // Get out canvas element
+   var outCanvasElem = null;
+   outCanvasElem = document.getElementById(canvasId);
+   
+   // Get video element
+   var videoElem = null;
+   videoElem = document.getElementById(videoId);
+   
+   // Redraw canvas from video
+   takeVidPic(videoElem, outCanvasElem);
+   
+   // Use variations of black and white for colours (grayscale content)
+   monoPic(outCanvasElem);
+}
+
+// Invert content
+function invContent(videoId, canvasId)
+{  
+   // Get out canvas element
+   var outCanvasElem = null;
+   outCanvasElem = document.getElementById(canvasId);
+   
+   // Get video element
+   var videoElem = null;
+   videoElem = document.getElementById(videoId);
+   
+   // Redraw canvas from video
+   takeVidPic(videoElem, outCanvasElem);
+   
+   // Use variations of black and white for colours (grayscale content)
+   monoPic(outCanvasElem);
+   
+   // Invert content
+   invPic(outCanvasElem);
+}
+
 // Binary content
 // Adjusts the content for optimal reading with naked eye
 // by making desired features one colour and the rest of 
@@ -62,7 +115,7 @@ function binContent(videoId, canvasId, txtContDistId)
    
    // Get video element
    var videoElem = null;
-   videoElem = document.getElementById('video');     
+   videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video
    takeVidPic(videoElem, outCanvasElem);
@@ -89,14 +142,26 @@ function binContent(videoId, canvasId, txtContDistId)
    minTxtColVal = medColValue + contDistNo;
    var maxTxtColVal = -1;                             // Max text distance
    maxTxtColVal = maxColVal(outCanvasElem);
-   var dispTxtColVal = -1;
-   dispTxtColVal = 255;
-   //dispTxtColVal = txtColValField.value;
-   var dispBgColVal = -1;
-   dispBgColVal = 0;
-   //dispBgColVal = bgColValField.value;
-   binPic(outCanvasElem, minTxtColVal, maxTxtColVal, dispTxtColVal, 
-          dispBgColVal);
+   var dispTxtR = -1;
+   var txtRField = document.getElementById('txtR');
+   dispTxtR = Number(txtRField.value);
+   var dispTxtG = -1;
+   var txtGField = document.getElementById('txtG');
+   dispTxtG = Number(txtGField.value);
+   var dispTxtB = -1;
+   var txtBField = document.getElementById('txtB');
+   dispTxtB = Number(txtBField.value);
+   var dispBgR = -1;
+   var bgRField = document.getElementById('bgR');
+   dispBgR = Number(bgRField.value);
+   var dispBgG = -1;
+   var bgGField = document.getElementById('bgG');
+   dispBgG = Number(bgGField.value);
+   var dispBgB = -1;
+   var bgBField = document.getElementById('bgB');
+   dispBgB = Number(bgBField.value);
+   binPic(outCanvasElem, minTxtColVal, maxTxtColVal, dispTxtR, dispTxtG, 
+          dispTxtB, dispBgR, dispBgG, dispBgB);
    
    // Make colour transitions between text and background distinct (sharpen 
    // content)

@@ -35,17 +35,15 @@ function main()
    // View environment
    viewEnv(videoElem);
    
-   // Capture environment and adjust after 5 seconds
+   // After 5 seconds
    window.setTimeout
    (
       function()
       {
          captureEnv(videoElem, outCanvasElem);
-                                                                        
-         //binContent('video', 'outCanvas', 'txtContDist');
-      
-         invPic(outCanvasElem);
+         
+         binContent('video', 'outCanvas', 'txtContDist');
       },
       5000
-   );
+   );    
 }

@@ -25,25 +25,39 @@
    </head>
    
    <body>  
-      <!-- Specify content distance -->
-      Content Distance
-      <input id="txtContDist" type="text"></input>     
       
-      <!-- Begin processing on button click -->
+      <!-- Begin main capture on button click -->
       <p>
          <button onClick="main();">Capture</button>
       </p>
-   
+
       <!-- Create video placeholder -->
       <!-- Note: dimensions must match out canvas -->
       <video id="video" width="640" height="480"></video>
       
+      <!-- Specify content distance -->
+      <p>
+         Content Distance<input id="txtContDist" type="text"></input>     
+      </p>
+      
+      <!-- Specify text R, G, B -->
+      <p>Text R<input id="txtR" type="text" value="255"></input></p>
+      <p>Text G<input id="txtG" type="text" value="255"></input></p>
+      <p>Text B<input id="txtB" type="text" value="255"></input></p>
+      
+      <p>Background R<input id="bgR" type="text" value="0"></input></p> 
+      <p>Background G<input id="bgG" type="text" value="0"></input></p>
+      <p>Background B<input id="bgB" type="text" value="0"></input></p>
+      
       <!-- Create output canvas -->
       <!-- Note: dimensions must match video element -->
       <canvas id="outCanvas" width="640" height="480"></canvas>
-      
+             
       <!-- Create adjust content buttons -->
       <p>
+         <button onClick="colContent('video', 'outCanvas');">Colour</button>
+         <button onClick="monoContent('video', 'outCanvas');">Monochrome</button>
+         <button onClick="invContent('video', 'outCanvas');">Inverted</button>
          <button onClick="binContent('video', 'outCanvas', 'txtContDist');">Binary</button>
       </p>
       

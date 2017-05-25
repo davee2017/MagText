@@ -24,8 +24,15 @@
 // 3. Maximum colour value of pixels.
 // 4. A number to increase (positive) or decrease (negative) by.
 
-function adjIntensity(picCanvas, minColVal, maxColVal, amt)
+function adjIntensity(picCanvasId, minColVal, maxColVal, amt)
 {
+   console.log("min col val: " + minColVal);
+   console.log("max col val: " + maxColVal);
+   console.log("amt" + amt);
+   
+   // Get picture canvas
+   var picCanvas = document.getElementById(picCanvasId);
+   
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    
@@ -47,7 +54,7 @@ function adjIntensity(picCanvas, minColVal, maxColVal, amt)
       if ( (avg >= minColVal) && (avg <= maxColVal) )  
       {                                             // In colour range
          // Adjust by specified amount
-         picPixels.data[redPos] = picPixels.data[redPos] + amt;             
+         picPixels.data[redPos] = picPixels.data[redPos] + amt;
          picPixels.data[redPos + 1] = picPixels.data[redPos + 1] + amt;
          picPixels.data[redPos + 2] = picPixels.data[redPos + 2] + amt;
       }
