@@ -40,13 +40,17 @@ function viewEnv(videoElem)
 // Takes a picture of the current environment.
 // Inputs environment video and a canvas. Draws the 
 // current video image on the canvas.
-function captureEnv(videoElem, outCanvasElem)
+function captureEnv(videoId, canvasId)
 {
    // Pause the current video
    stopCamStream();
    
    // Take a picture of the current video
-   takeVidPic(videoElem, outCanvasElem);
+   var videoElem = null; 
+   videoElem = document.getElementById(videoId);
+   var canvasElem = null;
+   canvasElem = document.getElementById(canvasId);
+   takeVidPic(videoElem, canvasElem);
 }
 
 // Colour content

@@ -40,11 +40,11 @@ function main()
    (
       function()
       {
-         captureEnv(videoElem, outCanvasElem);
+         captureEnv('video', 'rendCanvas');
          
          //binContent('video', 'outCanvas', 'txtContDist');
          
-         adjIntensity('outCanvas', 0, 255, 100);
+         //adjIntensity('rendCanvas', 'outCanvas', 0, 255, 100);
          
       },
       5000

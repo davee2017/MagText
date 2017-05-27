@@ -24,25 +24,21 @@
 // 3. Maximum colour value of pixels.
 // 4. A number to increase (positive) or decrease (negative) by.
 
-function adjIntensity(picCanvasId, minColVal, maxColVal, amt)
+function adjIntensity(inCanvasId, outCanvasId, minColVal, maxColVal, amt)
 {  
-   // Get picture canvas
-   var picCanvas = document.getElementById(picCanvasId);
-   
-   // Get canvas 2D context
-   var context = picCanvas.getContext('2d');
-   
-   // Get pixels from canvas
-   var picPixels = context.getImageData(0, 0, picCanvas.width,
-                   picCanvas.height);
+   // Get pixels from input canvas
+   var inCanvas = document.getElementById(inCanvasId);
+   var inContext = inCanvas.getContext('2d');
+   var inPixels = inContext.getImageData(0, 0, inCanvas.width,
+                   inCanvas.height);
    
    // Adjust pixel values
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
+   for (var redPos = 0; redPos < inPixels.data.length; redPos += 4)
    {
       // Determine average colour value
-      var redVal = picPixels.data[redPos];
-      var greenVal = picPixels.data[redPos + 1];
-      var blueVal = picPixels.data[redPos + 2];
+      var redVal = inPixels.data[redPos];
+      var greenVal = inPixels.data[redPos + 1];
+      var blueVal = inPixels.data[redPos + 2];
       var pxColVals = [redVal, greenVal, blueVal];
       var avg = avgVal(pxColVals);
       
@@ -50,14 +46,18 @@ function adjIntensity(picCanvasId, minColVal, maxColVal, amt)
       if ( (avg >= minColVal) && (avg <= maxColVal) )  
       {                                             // In colour range
          // Adjust by specified amount
-         picPixels.data[redPos] = linearY(picPixels.data[redPos], 1, amt);
-         picPixels.data[redPos + 1] = linearY(picPixels.data[redPos + 1], 1, 
+         inPixels.data[redPos] = linearY(inPixels.data[redPos], 1, amt);
+         inPixels.data[redPos + 1] = linearY(inPixels.data[redPos + 1], 1, 
                                               amt);
-         picPixels.data[redPos + 2] = linearY(picPixels.data[redPos + 2], 1, 
+         inPixels.data[redPos + 2] = linearY(inPixels.data[redPos + 2], 1, 
                                               amt);
       }
    }
    
-   // Draw pixels on canvas
-   context.putImageData(picPixels, 0, 0);
+   // Draw pixels on output canvas
+   var outCanvas = null;
+   outCanvas = document.getElementById(outCanvasId);
+   var outContext = null;
+   outContext = outCanvas.getContext('2d');
+   outContext.putImageData(inPixels, 0, 0);
 }
