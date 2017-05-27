@@ -25,11 +25,7 @@
 // 4. A number to increase (positive) or decrease (negative) by.
 
 function adjIntensity(picCanvasId, minColVal, maxColVal, amt)
-{
-   console.log("min col val: " + minColVal);
-   console.log("max col val: " + maxColVal);
-   console.log("amt" + amt);
-   
+{  
    // Get picture canvas
    var picCanvas = document.getElementById(picCanvasId);
    
@@ -58,16 +54,6 @@ function adjIntensity(picCanvasId, minColVal, maxColVal, amt)
          picPixels.data[redPos + 1] = picPixels.data[redPos + 1] + amt;
          picPixels.data[redPos + 2] = picPixels.data[redPos + 2] + amt;
       }
-   }
-   
-   // Display altered pixel colour values
-   for (var redPos = 0; redPos < picPixels.data.length; redPos += 4)
-   {
-      // Determine average colour values
-      var redVal = picPixels.data[redPos];
-      var greenVal = picPixels.data[redPos + 1];
-      var blueVal = picPixels.data[redPos + 2];
-      var pxColVals = [redVal, greenVal, blueVal];
    }
    
    // Draw pixels on canvas

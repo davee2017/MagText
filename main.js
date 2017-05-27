@@ -32,6 +32,9 @@ function main()
                                                          // Can be abstracted to
                                                          // out? As object?
    
+   // Determine Y
+   var y = linearY(5, 2, 0);
+                                                         
    // View environment
    viewEnv(videoElem);
    
@@ -43,7 +46,34 @@ function main()
          captureEnv(videoElem, outCanvasElem);
          
          binContent('video', 'outCanvas', 'txtContDist');
+         
       },
       5000
-   );    
+   );
+   
+   // Alter brightness/contrast when drag occurs
+   // var brightAmt;
+   // var contFactor;
+   //outCanvasElem.addEventListener
+   //(  'touchmove', 
+   //   function(event)
+    //  {
+    //     if (event.targetTouches.length == 1)      // One finger drag
+    //     {
+                                                   // Right half
+                                                   
+                                                   // Up
+                                                   
+                                                   // Down
+                                                   
+                                                   // Top half
+                                                   
+                                                   // To left
+                                                         
+                                                   // To right
+                                                         
+                                                   
+      //},
+     // false
+   //);
 }

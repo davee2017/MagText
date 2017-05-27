@@ -1,0 +1,37 @@
+/*  MagText - An application to produce text and speech from content in the 
+    surrounding environment under any lighting condition. 
+    Copyright (C) 2017 David Ellison
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+// Determine linear y
+// Determines the y-coordinate at a point on a line graph.
+// Accepts:
+// 1. X-coordinate of point.
+// 2. Gradient of line.
+// 3. Y-intercept of line.
+
+function linearY(xCoord, grad, yInt)
+{
+   console.log("X-coordinate: " + xCoord);
+   console.log("Grad: " + grad);
+   console.log("Y-int: " + yInt);
+   
+   // Calculate y-coordinate
+   var yCoord = grad*xCoord + yInt;
+   
+   // Return result
+   return yCoord;
+}
