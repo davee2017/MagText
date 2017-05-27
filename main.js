@@ -34,7 +34,8 @@ function main()
    
    // Determine Y
    var y = linearY(5, 2, 0);
-                                                         
+   console.log("y: " + y);
+   
    // View environment
    viewEnv(videoElem);
    
