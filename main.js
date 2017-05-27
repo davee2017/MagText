@@ -42,7 +42,9 @@ function main()
       {
          captureEnv(videoElem, outCanvasElem);
          
-         binContent('video', 'outCanvas', 'txtContDist');
+         //binContent('video', 'outCanvas', 'txtContDist');
+         
+         adjIntensity('outCanvas', 0, 255, 100);
          
       },
       5000

@@ -17,7 +17,7 @@
 */
 
 // Adjust intensity
-// Applies a certain number to a range of pixels in a monochrome picture canvas.
+// Applies a certain number to a range of pixels in a picture canvas.
 // Accepts:
 // 1. Monochrome picture canvas.
 // 2. Minimum colour value of pixels.
@@ -50,9 +50,11 @@ function adjIntensity(picCanvasId, minColVal, maxColVal, amt)
       if ( (avg >= minColVal) && (avg <= maxColVal) )  
       {                                             // In colour range
          // Adjust by specified amount
-         picPixels.data[redPos] = picPixels.data[redPos] + amt;
-         picPixels.data[redPos + 1] = picPixels.data[redPos + 1] + amt;
-         picPixels.data[redPos + 2] = picPixels.data[redPos + 2] + amt;
+         picPixels.data[redPos] = linearY(picPixels.data[redPos], 1, amt);
+         picPixels.data[redPos + 1] = linearY(picPixels.data[redPos + 1], 1, 
+                                              amt);
+         picPixels.data[redPos + 2] = linearY(picPixels.data[redPos + 2], 1, 
+                                              amt);
       }
    }
    
