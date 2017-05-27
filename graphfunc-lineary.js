@@ -24,11 +24,7 @@
 // 3. Y-intercept of line.
 
 function linearY(xCoord, grad, yInt)
-{
-   console.log("X-coordinate: " + xCoord);
-   console.log("Grad: " + grad);
-   console.log("Y-int: " + yInt);
-   
+{  
    // Calculate y-coordinate
    var yCoord = grad*xCoord + yInt;
    
