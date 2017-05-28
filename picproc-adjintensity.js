@@ -27,9 +27,12 @@
 function adjIntensity(inCanvasId, outCanvasId, minColVal, maxColVal, amt)
 {  
    // Get pixels from input canvas
-   var inCanvas = document.getElementById(inCanvasId);
-   var inContext = inCanvas.getContext('2d');
-   var inPixels = inContext.getImageData(0, 0, inCanvas.width,
+   var inCanvas = null;
+   inCanvas = document.getElementById(inCanvasId);
+   var inContext = null;
+   inContext = inCanvas.getContext('2d');
+   var inPixels = null;
+   inPixels = inContext.getImageData(0, 0, inCanvas.width,
                    inCanvas.height);
    
    // Adjust pixel values

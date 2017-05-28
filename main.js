@@ -42,7 +42,10 @@ function main()
       {
          captureEnv('video', 'rendCanvas');
          
-         //binContent('video', 'outCanvas', 'txtContDist');
+         binContent('video', 'rendCanvas', 'txtContDist');
+         
+         // Copy rendition canvas to output canvas
+         cpyCanv('rendCanvas', 'outCanvas');
          
          //adjIntensity('rendCanvas', 'outCanvas', 0, 255, 100);
          
@@ -50,7 +53,7 @@ function main()
       5000
    );
    
-   // Alter brightness/contrast when drag occurs
+   // Specify brightness/contrast when drag occurs
    // var brightAmt;
    // var contFactor;
    //outCanvasElem.addEventListener
@@ -75,4 +78,7 @@ function main()
       //},
      // false
    //);
+   
+   // When a rendition button is pressed
+      // Render to specified brightness and contrast
 }
