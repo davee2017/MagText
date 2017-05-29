@@ -57,54 +57,54 @@ function captureEnv(videoId, canvasId)
 function colContent(videoId, canvasId)
 {  
    // Get out canvas element
-   var outCanvasElem = null;
-   outCanvasElem = document.getElementById(canvasId);
+   var canvasElem = null;
+   canvasElem = document.getElementById(canvasId);
    
    // Get video element
    var videoElem = null;
    videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video
-   takeVidPic(videoElem, outCanvasElem);
+   takeVidPic(videoElem, canvasElem);
 }
 
 // Mono content
 function monoContent(videoId, canvasId)
 {  
    // Get out canvas element
-   var outCanvasElem = null;
-   outCanvasElem = document.getElementById(canvasId);
+   var canvasElem = null;
+   canvasElem = document.getElementById(canvasId);
    
    // Get video element
    var videoElem = null;
    videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video
-   takeVidPic(videoElem, outCanvasElem);
+   takeVidPic(videoElem, canvasElem);
    
    // Use variations of black and white for colours (grayscale content)
-   monoPic(outCanvasElem);
+   monoPic(canvasElem);
 }
 
 // Invert content
 function invContent(videoId, canvasId)
 {  
    // Get out canvas element
-   var outCanvasElem = null;
-   outCanvasElem = document.getElementById(canvasId);
+   var canvasElem = null;
+   canvasElem = document.getElementById(canvasId);
    
    // Get video element
    var videoElem = null;
    videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video
-   takeVidPic(videoElem, outCanvasElem);
+   takeVidPic(videoElem, canvasElem);
    
    // Use variations of black and white for colours (grayscale content)
-   monoPic(outCanvasElem);
+   monoPic(canvasElem);
    
    // Invert content
-   invPic(outCanvasElem);
+   invPic(canvasElem);
 }
 
 // Binary content
@@ -114,21 +114,21 @@ function invContent(videoId, canvasId)
 function binContent(videoId, canvasId, txtContDistId)
 {  
    // Get out canvas element
-   var outCanvasElem = null;
-   outCanvasElem = document.getElementById(canvasId);
+   var canvasElem = null;
+   canvasElem = document.getElementById(canvasId);
    
    // Get video element
    var videoElem = null;
    videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video
-   takeVidPic(videoElem, outCanvasElem);
+   takeVidPic(videoElem, canvasElem);
    
    // Use variations of black and white for colours (grayscale content)
-   monoPic(outCanvasElem);
+   monoPic(canvasElem);
    
    // Invert content
-   invPic(outCanvasElem);
+   invPic(canvasElem);
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
@@ -141,11 +141,11 @@ function binContent(videoId, canvasId, txtContDistId)
       contDistNo = Number(contDistField.value);       // Get it
    }
    var medColValue = -1;                              // Median
-   medColValue = medColVal(outCanvasElem);             
+   medColValue = medColVal(canvasElem);             
    var minTxtColVal = -1;                             // Min text distance
    minTxtColVal = medColValue + contDistNo;
    var maxTxtColVal = -1;                             // Max text distance
-   maxTxtColVal = maxColVal(outCanvasElem);
+   maxTxtColVal = maxColVal(canvasElem);
    var dispTxtR = -1;
    var txtRField = document.getElementById('txtR');
    dispTxtR = Number(txtRField.value);
@@ -164,7 +164,7 @@ function binContent(videoId, canvasId, txtContDistId)
    var dispBgB = -1;
    var bgBField = document.getElementById('bgB');
    dispBgB = Number(bgBField.value);
-   binPic(outCanvasElem, minTxtColVal, maxTxtColVal, dispTxtR, dispTxtG, 
+   binPic(canvasElem, minTxtColVal, maxTxtColVal, dispTxtR, dispTxtG, 
           dispTxtB, dispBgR, dispBgG, dispBgB);
    
    // Make colour transitions between text and background distinct (sharpen 
@@ -174,5 +174,5 @@ function binContent(videoId, canvasId, txtContDistId)
                    -1*shpFactor, 5*shpFactor, -1*shpFactor,
                    0, -1*shpFactor, 0 ];
    var opaque = false;                
-   convPic(outCanvasElem, weights, opaque);
+   convPic(canvasElem, weights, opaque);
 }

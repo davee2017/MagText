@@ -26,12 +26,12 @@ function main()
                                                          // Can be abstracted
                                                          // out? As object?
    
-   // Get canvas element                                                      
-   var outCanvasElem = null;
-   var outCanvasElem = document.getElementById('outCanvas'); 
+   // Get rendition canvas element                                                      
+   var rendCanvasElem = null;
+   var rendCanvasElem = document.getElementById('rendCanvas'); 
                                                          // Can be abstracted to
                                                          // out? As object?
-   
+                                           
    // View environment
    viewEnv(videoElem);
    
@@ -44,7 +44,6 @@ function main()
          
          binContent('video', 'rendCanvas', 'txtContDist');
          
-         // Copy rendition canvas to output canvas
          cpyCanv('rendCanvas', 'outCanvas');
          
          //adjIntensity('rendCanvas', 'outCanvas', 0, 255, 100);
@@ -53,31 +52,7 @@ function main()
       5000
    );
    
-   // Specify brightness/contrast when drag occurs
-   // var brightAmt;
-   // var contFactor;
-   //outCanvasElem.addEventListener
-   //(  'touchmove', 
-   //   function(event)
-    //  {
-    //     if (event.targetTouches.length == 1)      // One finger drag
-    //     {
-                                                   // Right half
-                                                   
-                                                   // Up
-                                                   
-                                                   // Down
-                                                   
-                                                   // Top half
-                                                   
-                                                   // To left
-                                                         
-                                                   // To right
-                                                         
-                                                   
-      //},
-     // false
-   //);
+   
    
    // When a rendition button is pressed
       // Render to specified brightness and contrast
