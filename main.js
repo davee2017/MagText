@@ -51,9 +51,4 @@ function main()
       },
       5000
    );
-   
-   
-   
-   // When a rendition button is pressed
-      // Render to specified brightness and contrast
 }
