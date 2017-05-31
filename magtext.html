@@ -135,14 +135,14 @@
            </script>
          <button id="butInv">Inverted</button>
             <script>
-               var butColElem = document.getElementById("butInv");
-               butColElem.addEventListener
+               var butInvElem = document.getElementById("butInv");
+               butInvElem.addEventListener
                ( 'click',
                  function(event)
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    monoContent('video', 'rendCanvas');
+                    invContent('video', 'rendCanvas');
                     
                     // Copy rendition canvas onto out canvas
                     cpyCanv('rendCanvas', 'outCanvas');
