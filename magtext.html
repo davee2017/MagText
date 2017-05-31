@@ -105,13 +105,15 @@
                     // Copy rendition canvas onto out canvas
                     cpyCanv('rendCanvas', 'outCanvas');
                     
-                    // Apply brightness (brightness amt)
+                    // Apply contrast (contrast factor) first
                     
-                    // Apply contrast (contrast factor)
+                    // Apply brightness (brightness amt) second
+                    
+                    // Set rendition
                  },
                  false
                );
-           </script>
+            </script>
          <button id="butMono">Monochrome</button>
             <script>
                var butMonoElem = document.getElementById("butMono");
@@ -126,13 +128,15 @@
                     // Copy rendition canvas onto out canvas
                     cpyCanv('rendCanvas', 'outCanvas');
                     
-                    // Apply brightness (brightness amt)
+                    // Apply contrast (contrast factor) first
                     
-                    // Apply contrast (contrast factor)
+                    // Apply brightness (brightness amt) second
+                    
+                    // Set rendition
                  },
                  false
                );
-           </script>
+            </script>
          <button id="butInv">Inverted</button>
             <script>
                var butInvElem = document.getElementById("butInv");
@@ -147,14 +151,38 @@
                     // Copy rendition canvas onto out canvas
                     cpyCanv('rendCanvas', 'outCanvas');
                     
-                    // Apply brightness (brightness amt)
+                    // Apply contrast (contrast factor) first
                     
-                    // Apply contrast (contrast factor)
+                    // Apply brightness (brightness amt) second
+                    
+                    // Set rendition
                  },
                  false
                );
-           </script>
-         <button>Binary</button>
+            </script>
+         <button id="butBin">Binary</button>
+            <script>
+                  var butBinElem = document.getElementById("butBin");
+                  butBinElem.addEventListener
+                  ( 'click',
+                    function(event)
+                    {
+                       // Perform rendition operation on video onto rendition 
+                       // canvas
+                       binContent('video', 'rendCanvas', 'txtContDist');
+                       
+                       // Copy rendition canvas onto out canvas
+                       cpyCanv('rendCanvas', 'outCanvas');
+                       
+                       // Apply contrast (contrast factor) first
+                    
+                       // Apply brightness (brightness amt) second
+                       
+                       // Set rendition
+                    },
+                    false
+                  );
+            </script>
       </p>
       
       <!-- Put video underneath????? -->

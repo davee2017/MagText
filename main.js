@@ -42,12 +42,14 @@ function main()
       {
          captureEnv('video', 'rendCanvas');
          
-         binContent('video', 'rendCanvas', 'txtContDist');
-         
+         // Apply rendition
+         //switch
+         //binContent('video', 'rendCanvas', 'txtContDist');
          cpyCanv('rendCanvas', 'outCanvas');
          
-         //adjIntensity('rendCanvas', 'outCanvas', 0, 255, 100);
-         
+         // Apply contrast (contrast factor) first
+                    
+         // Apply brightness (brightness amt) second
       },
       5000
    );
