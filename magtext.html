@@ -19,6 +19,7 @@
       <script src="picproc-maxcolval.js"></script>
       <script src="picproc-medcolval.js"></script>
       <script src="picproc-adjintensity.js"></script>
+      <script src="picproc-adjcontrast.js"></script>
       <script src="filterous-conv.js"></script>
       <script src="picproc-binpic.js"></script>
       <script src="magtext.js"></script>
@@ -166,23 +167,23 @@
             
          <button id="butBin">Binary</button>
             <script>
-                  var butBinElem = document.getElementById("butBin");
-                  butBinElem.addEventListener
-                  ( 'click',
-                    function(event)
-                    {
-                       // Perform rendition operation on video onto rendition 
-                       // canvas
-                       binContent('video', 'rendCanvas', 'txtContDist');
-                       
-                       // Copy rendition canvas onto out canvas
-                       cpyCanv('rendCanvas', 'outCanvas');
-                       
-                       // Set rendition
-                       window.rend = window.BIN_REND;
-                    },
-                    false
-                  );
+               var butBinElem = document.getElementById("butBin");
+               butBinElem.addEventListener
+               ( 'click',
+                 function(event)
+                 {
+                    // Perform rendition operation on video onto rendition 
+                    // canvas
+                    binContent('video', 'rendCanvas', 'txtContDist');
+                    
+                    // Copy rendition canvas onto out canvas
+                    cpyCanv('rendCanvas', 'outCanvas');
+                    
+                    // Set rendition
+                    window.rend = window.BIN_REND;
+                 },
+                 false
+               );
             </script>
       </p>
       

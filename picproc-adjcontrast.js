@@ -17,16 +17,52 @@
 */
 
 // Adjust contrast
+// Adjusts the contrast of canvas pixels within a certain colour value 
+// range.
 // Accepts:
-// 1. A picture canvas.
-// 2. A light/dark threshold colour value.
-// 3. A threshold offset value for dynamic threshold colour values. Range of
-// pixel values at and above this threshold are classified as light pixels.
-// Range of pixel values below this threshold are classified as dark pixels.
-// 4. A colour value to decrease dark pixels by.
-// 5. A colour value to increase light pixels by.
+// 1. Monochrome or colour picture canvas.
+// 2. Minimum colour value of pixels.
+// 3. Maximum colour value of pixels.
+// 4. A factor to increase (whole number) or decrease 
+// (fractional number) contrast by.
 
-function adjContrast(picCanvas, factor)
+function adjContrast(inCanvasId, outCanvasId, minColVal, maxColVal, factor)
 {  
+   // Get pixels from input canvas
+   var inCanvas = null;
+   inCanvas = document.getElementById(inCanvasId);
+   var inContext = null;
+   inContext = inCanvas.getContext('2d');
+   var inPixels = null;
+   inPixels = inContext.getImageData(0, 0, inCanvas.width,
+                   inCanvas.height);
    
+   // Adjust pixel values
+   for (var redPos = 0; redPos < inPixels.data.length; redPos += 4)
+   {
+      // Determine average colour value
+      var redVal = inPixels.data[redPos];
+      var greenVal = inPixels.data[redPos + 1];
+      var blueVal = inPixels.data[redPos + 2];
+      var pxColVals = [redVal, greenVal, blueVal];
+      var avg = avgVal(pxColVals);
+      
+      // Adjust pixel value
+      if ( (avg >= minColVal) && (avg <= maxColVal) )  
+      {                                             // In colour range
+         // Adjust by specified factor
+         inPixels.data[redPos] = linearY(inPixels.data[redPos], factor, 0);
+         inPixels.data[redPos + 1] = linearY(inPixels.data[redPos + 1], factor, 
+                                             0);
+         inPixels.data[redPos + 2] = linearY(inPixels.data[redPos + 2], factor, 
+                                             0);
+      }
+   }
+   
+   // Draw pixels on output canvas
+   var outCanvas = null;
+   outCanvas = document.getElementById(outCanvasId);
+   var outContext = null;
+   outContext = outCanvas.getContext('2d');
+   outContext.putImageData(inPixels, 0, 0);
 }

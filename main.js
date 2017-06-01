@@ -73,6 +73,9 @@ function main()
          }
          cpyCanv('rendCanvas', 'outCanvas');            // Rendition to out
                                                         // canvas
+                                                        
+         // Apply contrast
+         adjContrast('rendCanvas', 'outCanvas', 0, 255, 2);
       },
       5000
    );

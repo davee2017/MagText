@@ -17,12 +17,12 @@
 */
 
 // Adjust intensity
-// Applies a certain number to a range of pixels in a picture canvas.
+// Adjusts the intensity of pixels within a certain range.
 // Accepts:
-// 1. Monochrome picture canvas.
+// 1. Monochrome or colour picture canvas.
 // 2. Minimum colour value of pixels.
 // 3. Maximum colour value of pixels.
-// 4. A number to increase (positive) or decrease (negative) by.
+// 4. A number to increase (positive) or decrease (negative) intensity by.
 
 function adjIntensity(inCanvasId, outCanvasId, minColVal, maxColVal, amt)
 {  
