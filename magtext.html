@@ -56,39 +56,30 @@
       <p>Background G<input id="bgG" type="text" value="0"></input></p>
       <p>Background B<input id="bgB" type="text" value="0"></input></p>
       
+      <!-- Specify contrast dynamically by slider -->
+      <p>Contrast<input id="slideCont" type="range" step="1" min="0" max="100" value="50"></input></p>
+      <script> 
+            var slideContElem = document.getElementById("slideCont");
+            slideContElem.addEventListener
+            (
+               'change',
+               function()
+               {
+                  console.log("cont adj:" + Number(slideContElem.value)/50 
+                             );
+               },
+               false
+            );
+      </script>
+      
+      <!-- Specify brightness dynamically by slider -->
+      <script> 
+         var brightAmt = 0;
+      </script>
+      
       <!-- Create output canvas -->
       <!-- Note: dimensions must match video element -->
       <canvas id="outCanvas" width="640" height="480"></canvas>
-      
-      <!-- Specify brightness/contrast when drag occurs -->
-      <script> 
-         var brightAmt;
-         var contFactor;
-         var outCanvasElem = document.getElementById('outCanvas');
-         outCanvasElem.addEventListener
-         (  'touchmove', 
-            function(event)
-            {
-               if (event.targetTouches.length == 1)// One finger drag
-               {
-                  alert("Drag!");                  // Right half
-                                                   
-                                                   // Up
-                                                   
-                                                   // Down
-                                                   
-                                                   // Top half
-                                                   
-                                                   // To left
-                                                         
-                                                   // To right
-                                                         
-                                                   
-               }
-           },
-           false
-         );
-      </script>
       
       <!-- Render content when button pressed, taking into account previous
       adjustments -->
@@ -107,7 +98,8 @@
             <script>
                var butColElem = document.getElementById("butCol");
                butColElem.addEventListener
-               ( 'click',
+               ( 
+                 'click',
                  function(event)
                  {
                     // Perform rendition operation on video onto rendition 
