@@ -43,7 +43,6 @@ function main()
          captureEnv('video', 'rendCanvas');
          
          // Apply rendition
-         console.log("rend in main(): " + window.rend);
                                                         // Put this into
                                                         // adjContent with
                                                         // constants and 
