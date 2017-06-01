@@ -61,17 +61,17 @@
       <canvas id="outCanvas" width="640" height="480"></canvas>
       
       <!-- Specify brightness/contrast when drag occurs -->
-      <script>
-         // 
-   // var brightAmt;
-   // var contFactor;
-   //outCanvasElem.addEventListener
-   //(  'touchmove', 
-   //   function(event)
-    //  {
-    //     if (event.targetTouches.length == 1)      // One finger drag
-    //     {
-                                                   // Right half
+      <script> 
+         var brightAmt;
+         var contFactor;
+         var outCanvasElem = document.getElementById('outCanvas');
+         outCanvasElem.addEventListener
+         (  'touchmove', 
+            function(event)
+            {
+               if (event.targetTouches.length == 1)// One finger drag
+               {
+                  alert("Drag!");                  // Right half
                                                    
                                                    // Up
                                                    
@@ -84,9 +84,10 @@
                                                    // To right
                                                          
                                                    
-      //},
-     // false
-   //);
+               }
+           },
+           false
+         );
       </script>
       
       <!-- Render content when button pressed, taking into account previous
