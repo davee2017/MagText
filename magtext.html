@@ -91,6 +91,9 @@
       <!-- Render content when button pressed, taking into account previous
       adjustments -->
       <p>
+         <script>
+            var rendition;                            // Current rendition
+         </script>
          <button id="butCol">Colour</button>
             <script>
                var butColElem = document.getElementById("butCol");
@@ -105,11 +108,9 @@
                     // Copy rendition canvas onto out canvas
                     cpyCanv('rendCanvas', 'outCanvas');
                     
-                    // Apply contrast (contrast factor) first
-                    
-                    // Apply brightness (brightness amt) second
-                    
                     // Set rendition
+                    window.rendition = 0;
+                    console.log("rendition in HTML: " + window.rendition);
                  },
                  false
                );
@@ -127,10 +128,6 @@
                     
                     // Copy rendition canvas onto out canvas
                     cpyCanv('rendCanvas', 'outCanvas');
-                    
-                    // Apply contrast (contrast factor) first
-                    
-                    // Apply brightness (brightness amt) second
                     
                     // Set rendition
                  },
@@ -151,10 +148,6 @@
                     // Copy rendition canvas onto out canvas
                     cpyCanv('rendCanvas', 'outCanvas');
                     
-                    // Apply contrast (contrast factor) first
-                    
-                    // Apply brightness (brightness amt) second
-                    
                     // Set rendition
                  },
                  false
@@ -173,10 +166,6 @@
                        
                        // Copy rendition canvas onto out canvas
                        cpyCanv('rendCanvas', 'outCanvas');
-                       
-                       // Apply contrast (contrast factor) first
-                    
-                       // Apply brightness (brightness amt) second
                        
                        // Set rendition
                     },

@@ -66,6 +66,10 @@ function colContent(videoId, canvasId)
    
    // Redraw canvas from video
    takeVidPic(videoElem, canvasElem);
+   
+   // Apply contrast (contrast factor) first
+                    
+   // Apply brightness (brightness amt) second
 }
 
 // Mono content
@@ -84,6 +88,10 @@ function monoContent(videoId, canvasId)
    
    // Use variations of black and white for colours (grayscale content)
    monoPic(canvasElem);
+   
+   // Apply contrast (contrast factor) first
+                    
+   // Apply brightness (brightness amt) second
 }
 
 // Invert content
@@ -105,6 +113,10 @@ function invContent(videoId, canvasId)
    
    // Invert content
    invPic(canvasElem);
+   
+   // Apply contrast (contrast factor) first
+                    
+   // Apply brightness (brightness amt) second
 }
 
 // Binary content
@@ -175,4 +187,8 @@ function binContent(videoId, canvasId, txtContDistId)
                    0, -1*shpFactor, 0 ];
    var opaque = false;                
    convPic(canvasElem, weights, opaque);
+   
+   // Apply contrast (contrast factor) first
+                    
+   // Apply brightness (brightness amt) second
 }

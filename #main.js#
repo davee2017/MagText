@@ -43,7 +43,7 @@ function main()
          captureEnv('video', 'rendCanvas');
          
          // Apply rendition
-         //console.log("Rendition: " + window.rendition);
+         console.log("rendition in main(): " + window.rendition);
          //switch
          //binContent('video', 'rendCanvas', 'txtContDist');
          cpyCanv('rendCanvas', 'outCanvas');
