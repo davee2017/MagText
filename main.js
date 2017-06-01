@@ -58,6 +58,10 @@ function main()
                // Render rendition on rendition canvas
                colContent('video', 'rendCanvas');
                break;
+            case MONO_REND:
+               // Render rendition on rendition canvas
+               monoContent('video', 'rendCanvas');
+               break;
             case BIN_REND:
                // Render rendition on rendition canvas
                binContent('video', 'rendCanvas', 'txtContDist');
