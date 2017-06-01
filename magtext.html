@@ -92,7 +92,12 @@
       adjustments -->
       <p>
          <script>
-            var rendition = 3;                          // Current rendition
+            var COLOUR_REND = 0;
+            var MONO_REND = 1;
+            var INV_REND = 2;
+            var BIN_REND = 3;
+         
+            var rend = window.BIN_REND;                 // Current rendition
                                                         // Default binary
          </script>
          
@@ -111,7 +116,9 @@
                     cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
-                    window.rendition = 0;
+                    window.rend = window.COLOUR_REND;  // Don't forget
+                                                       // window.
+                    console.log("rend in doc: " + window.rend);
                  },
                  false
                );

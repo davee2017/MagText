@@ -16,12 +16,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-var COLOUR = 0;
-var MONO = 1;
-var INV = 2;
-var BIN = 3;
-// Renditions
-
 function main()
 {
    // Debug mode?
@@ -49,18 +43,29 @@ function main()
          captureEnv('video', 'rendCanvas');
          
          // Apply rendition
-         switch (window.rendition)
+         console.log("rend in main(): " + window.rend);
+                                                        // Put this into
+                                                        // adjContent with
+                                                        // constants and 
+                                                        // cpyCanv later
+         
+         var COLOUR_REND = 0;                           // Possible renditions
+         var MONO_REND = 1;
+         var INV_REND = 2;
+         var BIN_REND = 3;                              
+         switch (window.rend)                           // Current rendition
          {
-            case COLOUR:
+            case COLOUR_REND:
                // Render rendition on rendition canvas
                colContent('video', 'rendCanvas');
                break;
-            case BIN:
+            case BIN_REND:
                // Render rendition on rendition canvas
                binContent('video', 'rendCanvas', 'txtContDist');
                break;
          }
-         cpyCanv('rendCanvas', 'outCanvas');
+         cpyCanv('rendCanvas', 'outCanvas');            // Rendition to out
+                                                        // canvas
       },
       5000
    );
