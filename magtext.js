@@ -53,6 +53,9 @@ function captureEnv(videoId, canvasId)
    takeVidPic(videoElem, canvasElem);
 }
 
+// LATER: change to adjContent(..., number) to choose rendition. Global 
+// constants for rendition?
+
 // Colour content
 function colContent(videoId, canvasId)
 {  
