@@ -49,7 +49,6 @@ function main()
          captureEnv('video', 'rendCanvas');
          
          // Apply rendition
-         console.log("rendition in main(): " + window.rendition);
          switch (window.rendition)
          {
             case COLOUR:
@@ -61,7 +60,6 @@ function main()
                binContent('video', 'rendCanvas', 'txtContDist');
                break;
          }
-         // Copy rendition canvas to out canvas
          cpyCanv('rendCanvas', 'outCanvas');
       },
       5000
