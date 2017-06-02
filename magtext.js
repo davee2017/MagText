@@ -93,6 +93,7 @@ function monoContent(videoId, canvasId)
    monoPic(canvasElem);
    
    // Apply contrast (contrast factor) first
+   //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
                     
    // Apply brightness (brightness amt) second
 }

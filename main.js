@@ -75,7 +75,7 @@ function main()
                                                         // canvas
                                                         
          // Apply contrast
-         adjContrast('rendCanvas', 'outCanvas', 0, 255, 2);
+         console.log("Contrast factor in main(): " + window.contFactor);
       },
       5000
    );

@@ -59,15 +59,19 @@
       <!-- Specify contrast dynamically by slider -->
       <p>Contrast<input id="slideCont" type="range" step="1" min="0" max="100" value="50"></input></p>
       <script> 
-            var contFactor = 1;
+            var contFactor = 1;                 // window.contFactor 
+                                                // Global scope
             var slideContElem = document.getElementById("slideCont");
             slideContElem.addEventListener
             (
                'change',
                function()
                {
-                  var contFactor = Number(slideContElem.value)/50.0;
-                  adjContrast('rendCanvas', 'outCanvas', 0, 255, contFactor);
+                                                // Any var declared here, 
+                                                // disappears outside
+                  
+                  window.contFactor = Number(slideContElem.value)/50.0;
+                  adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
                },
                false
             );
