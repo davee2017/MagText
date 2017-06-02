@@ -53,13 +53,10 @@ function captureEnv(videoId, canvasId)
    takeVidPic(videoElem, canvasElem);
 }
 
-// LATER: change to adjContent(..., number) to choose rendition. Global 
-// constants for rendition?
-
 // Colour content
-function colContent(videoId, canvasId)
+function colContent(videoId, canvasId, contFact)
 {  
-   // Get out canvas element
+   // Get rendition canvas element
    var canvasElem = null;
    canvasElem = document.getElementById(canvasId);
    
@@ -71,14 +68,16 @@ function colContent(videoId, canvasId)
    takeVidPic(videoElem, canvasElem);
    
    // Apply contrast (contrast factor) first
+   console.log("cont factor in colContent: " + contFact);
+   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);
                     
    // Apply brightness (brightness amt) second
 }
 
 // Mono content
-function monoContent(videoId, canvasId)
+function monoContent(videoId, canvasId, contFact)
 {  
-   // Get out canvas element
+   // Get rendition canvas element
    var canvasElem = null;
    canvasElem = document.getElementById(canvasId);
    
@@ -93,15 +92,17 @@ function monoContent(videoId, canvasId)
    monoPic(canvasElem);
    
    // Apply contrast (contrast factor) first
-   //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
-                    
+   console.log("cont factor in monoContent: " + contFact);
+   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);      
+   
    // Apply brightness (brightness amt) second
+   
 }
 
 // Invert content
 function invContent(videoId, canvasId)
 {  
-   // Get out canvas element
+   // Get rendition canvas element
    var canvasElem = null;
    canvasElem = document.getElementById(canvasId);
    
@@ -129,7 +130,7 @@ function invContent(videoId, canvasId)
 // the features another colour.
 function binContent(videoId, canvasId, txtContDistId)
 {  
-   // Get out canvas element
+   // Get rendition canvas element
    var canvasElem = null;
    canvasElem = document.getElementById(canvasId);
    

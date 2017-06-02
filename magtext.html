@@ -109,10 +109,11 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    colContent('video', 'rendCanvas');
+                    console.log("cont factor in event: " + window.contFactor);
+                    colContent('video', 'rendCanvas', window.contFactor);
                     
                     // Copy rendition canvas onto out canvas
-                    cpyCanv('rendCanvas', 'outCanvas');
+                    //cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
                     window.rend = window.COLOUR_REND;
@@ -130,10 +131,11 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    monoContent('video', 'rendCanvas');
+                    console.log("cont factor in event: " + window.contFactor);
+                    monoContent('video', 'rendCanvas', window.contFactor);
                     
                     // Copy rendition canvas onto out canvas
-                    cpyCanv('rendCanvas', 'outCanvas');
+                    //cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
                     window.rend = window.MONO_REND;
