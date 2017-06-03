@@ -175,10 +175,12 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    binContent('video', 'rendCanvas', 'txtContDist');
+                    console.log("cont factor in event: " + window.contFactor);
+                    binContent('video', 'rendCanvas', 'txtContDist', 
+                               window.contFactor);
                     
                     // Copy rendition canvas onto out canvas
-                    cpyCanv('rendCanvas', 'outCanvas');
+                    //cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
                     window.rend = window.BIN_REND;

@@ -130,7 +130,7 @@ function invContent(videoId, canvasId, contFact)
 // Adjusts the content for optimal reading with naked eye
 // by making desired features one colour and the rest of 
 // the features another colour.
-function binContent(videoId, canvasId, txtContDistId)
+function binContent(videoId, canvasId, txtContDistId, contFact)
 {  
    // Get rendition canvas element
    var canvasElem = null;
@@ -196,6 +196,8 @@ function binContent(videoId, canvasId, txtContDistId)
    convPic(canvasElem, weights, opaque);
    
    // Apply contrast (contrast factor) first
-                    
+   console.log("cont factor in binContent: " + contFact);
+   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);  
+   
    // Apply brightness (brightness amt) second
 }
