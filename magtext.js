@@ -100,7 +100,7 @@ function monoContent(videoId, canvasId, contFact)
 }
 
 // Invert content
-function invContent(videoId, canvasId)
+function invContent(videoId, canvasId, contFact)
 {  
    // Get rendition canvas element
    var canvasElem = null;
@@ -120,6 +120,8 @@ function invContent(videoId, canvasId)
    invPic(canvasElem);
    
    // Apply contrast (contrast factor) first
+   console.log("cont factor in invContent: " + contFact);
+   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);  
                     
    // Apply brightness (brightness amt) second
 }

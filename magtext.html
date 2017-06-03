@@ -153,10 +153,11 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    invContent('video', 'rendCanvas');
+                    console.log("cont factor in event: " + window.contFactor);
+                    invContent('video', 'rendCanvas', window.contFactor);
                     
                     // Copy rendition canvas onto out canvas
-                    cpyCanv('rendCanvas', 'outCanvas');
+                    //cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
                     window.rend = window.INV_REND;
