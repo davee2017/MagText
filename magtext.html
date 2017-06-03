@@ -108,11 +108,7 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    console.log("cont factor in event: " + window.contFactor);
                     colContent('video', 'rendCanvas', window.contFactor);
-                    
-                    // Copy rendition canvas onto out canvas
-                    //cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
                     window.rend = window.COLOUR_REND;
@@ -130,11 +126,7 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    console.log("cont factor in event: " + window.contFactor);
                     monoContent('video', 'rendCanvas', window.contFactor);
-                    
-                    // Copy rendition canvas onto out canvas
-                    //cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
                     window.rend = window.MONO_REND;
@@ -152,11 +144,7 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    console.log("cont factor in event: " + window.contFactor);
                     invContent('video', 'rendCanvas', window.contFactor);
-                    
-                    // Copy rendition canvas onto out canvas
-                    //cpyCanv('rendCanvas', 'outCanvas');
                     
                     // Set rendition
                     window.rend = window.INV_REND;
@@ -174,12 +162,7 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    console.log("cont factor in event: " + window.contFactor);
-                    binContent('video', 'rendCanvas', 'txtContDist', 
-                               window.contFactor);
-                    
-                    // Copy rendition canvas onto out canvas
-                    //cpyCanv('rendCanvas', 'outCanvas');
+                    binContent('video', 'rendCanvas', 'txtContDist',  window.contFactor);
                     
                     // Set rendition
                     window.rend = window.BIN_REND;

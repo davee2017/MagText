@@ -68,7 +68,6 @@ function colContent(videoId, canvasId, contFact)
    takeVidPic(videoElem, canvasElem);
    
    // Apply contrast (contrast factor) first
-   console.log("cont factor in colContent: " + contFact);
    adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);
                     
    // Apply brightness (brightness amt) second
@@ -92,7 +91,6 @@ function monoContent(videoId, canvasId, contFact)
    monoPic(canvasElem);
    
    // Apply contrast (contrast factor) first
-   console.log("cont factor in monoContent: " + contFact);
    adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);      
    
    // Apply brightness (brightness amt) second
@@ -120,7 +118,6 @@ function invContent(videoId, canvasId, contFact)
    invPic(canvasElem);
    
    // Apply contrast (contrast factor) first
-   console.log("cont factor in invContent: " + contFact);
    adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);  
                     
    // Apply brightness (brightness amt) second
@@ -196,7 +193,6 @@ function binContent(videoId, canvasId, txtContDistId, contFact)
    convPic(canvasElem, weights, opaque);
    
    // Apply contrast (contrast factor) first
-   console.log("cont factor in binContent: " + contFact);
    adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);  
    
    // Apply brightness (brightness amt) second

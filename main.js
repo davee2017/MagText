@@ -53,7 +53,6 @@ function main()
          var MONO_REND = 1;
          var INV_REND = 2;
          var BIN_REND = 3;                              
-         console.log("cont factor in main: " + window.contFactor);
          switch (window.rend)                           // Current rendition
          {
             case COLOUR_REND:
@@ -73,11 +72,6 @@ function main()
                binContent('video', 'rendCanvas', 'txtContDist', window.contFactor);
                break;
          }
-         //cpyCanv('rendCanvas', 'outCanvas');            // Rendition to out
-                                                        // canvas
-                                                        
-         // Apply contrast
-         //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
       },
       5000
    );
