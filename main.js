@@ -40,6 +40,7 @@ function main()
    (
       function()
       {
+         
          captureEnv('video', 'rendCanvas');
          
          // Apply rendition
@@ -52,30 +53,31 @@ function main()
          var MONO_REND = 1;
          var INV_REND = 2;
          var BIN_REND = 3;                              
+         console.log("cont factor in main: " + window.contFactor);
          switch (window.rend)                           // Current rendition
          {
             case COLOUR_REND:
-               // Render rendition on rendition canvas
-               colContent('video', 'rendCanvas');
+               // Render rendition
+               colContent('video', 'rendCanvas', window.contFactor);
                break;
             case MONO_REND:
-               // Render rendition on rendition canvas
-               monoContent('video', 'rendCanvas');
+               // Render rendition
+               monoContent('video', 'rendCanvas', window.contFactor);
                break;
             case INV_REND:
-               // Render rendition on rendition canvas
-               invContent('video', 'rendCanvas');
+               // Render rendition
+               invContent('video', 'rendCanvas', window.contFactor);
                break;
             case BIN_REND:
-               // Render rendition on rendition canvas
-               binContent('video', 'rendCanvas', 'txtContDist');
+               // Render rendition
+               binContent('video', 'rendCanvas', 'txtContDist', window.contFactor);
                break;
          }
-         cpyCanv('rendCanvas', 'outCanvas');            // Rendition to out
+         //cpyCanv('rendCanvas', 'outCanvas');            // Rendition to out
                                                         // canvas
                                                         
          // Apply contrast
-         adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
+         //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
       },
       5000
    );
