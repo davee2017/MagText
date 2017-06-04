@@ -69,19 +69,10 @@
                                              // disappears outside
                
                window.contFactor = Number(slideContElem.value)/50.0;
-               //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
                var rendCanvasElem = document.getElementById('rendCanvas');
                var outCanvasElem = document.getElementById('outCanvas');
-               // Debug
-               console.log("Contrast: " + window.contFactor);
-               console.log("Brightness: " + window.brightAmt);
-               console.log("Before: ");
-               showPxColVals(rendCanvasElem);
                adjIntensity(rendCanvasElem, outCanvasElem, 0, 255, 
                             window.contFactor, window.brightAmt);
-               // Debug
-               console.log("After: ");
-               showPxColVals(outCanvasElem);
             },
             false
          );
@@ -102,19 +93,10 @@
                                              // disappears outside
                
                window.brightAmt = Number(slideBrightElem.value);
-               //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
                var rendCanvasElem = document.getElementById('rendCanvas');
                var outCanvasElem = document.getElementById('outCanvas');
-               // Debug
-               console.log("Contrast: " + window.contFactor);
-               console.log("Brightness: " + window.brightAmt);
-               console.log("Before: ");
-               showPxColVals(rendCanvasElem);
                adjIntensity(rendCanvasElem, outCanvasElem, 0, 255, 
                             window.contFactor, window.brightAmt);
-               // Debug
-               console.log("After: ");
-               showPxColVals(outCanvasElem);
             },
             false
          );
