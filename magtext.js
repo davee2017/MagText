@@ -193,7 +193,7 @@ function binContent(videoId, canvasId, txtContDistId, contFact)
    convPic(canvasElem, weights, opaque);
    
    // Apply contrast (contrast factor) first
-   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);  
+   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact); 
    
    // Apply brightness (brightness amt) second
 }

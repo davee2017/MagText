@@ -7,12 +7,12 @@
       <title>MagText Web Application</title>
       
       <!-- Attach scripts (functions called above) -->
+      <script src="debug.js"></script>
       <script src="webcam-navgum.js"></script>
       <script src="graphfunc-lineary.js"></script>
       <script src="stats-avgval.js"></script>
       <script src="stats-medval.js"></script>
       <script src="stats-uniqvals.js"></script>
-      <script src="picproc-cpycanv.js"></script>
       <script src="picproc-monopic.js"></script>
       <script src="picproc-invpic.js"></script>
       <script src="picproc-binpic.js"></script>
@@ -21,7 +21,6 @@
       <script src="picproc-adjintensity.js"></script>
       <script src="picproc-adjcontrast.js"></script>
       <script src="filterous-conv.js"></script>
-      <script src="picproc-binpic.js"></script>
       <script src="magtext.js"></script>
       <script src="main.js"></script>
    </head>
@@ -34,11 +33,11 @@
 
       <!-- Create video placeholder -->
       <!-- Note: dimensions must match out canvas -->
-      <video id="video" width="640" height="480"></video>
+      <video id="video" width="50" height="100"></video>
       
       <!-- Create rendition canvas -->
       <!-- Note: dimensions must match video element and output canvas -->
-      <canvas id="rendCanvas" width="640" height="480"></canvas>
+      <canvas id="rendCanvas" width="50" height="100"></canvas>
       
       <!-- Specify content distance -->
       <p>
@@ -58,32 +57,72 @@
       <!-- Specify contrast dynamically by slider -->
       <p>Contrast<input id="slideCont" type="range" step="1" min="0" max="100" value="50"></input></p>
       <script> 
-            var contFactor = 1;                 // window.contFactor 
-                                                // Global scope
-            var slideContElem = document.getElementById("slideCont");
-            slideContElem.addEventListener
-            (
-               'change',
-               function()
-               {
-                                                // Any var declared here, 
-                                                // disappears outside
-                  
-                  window.contFactor = Number(slideContElem.value)/50.0;
-                  adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
-               },
-               false
-            );
+         var contFactor = 1;                 // window.contFactor 
+                                             // Global scope
+         var slideContElem = document.getElementById("slideCont");
+         slideContElem.addEventListener
+         (
+            'change',
+            function()
+            {
+                                             // Any var declared here, 
+                                             // disappears outside
+               
+               window.contFactor = Number(slideContElem.value)/50.0;
+               //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
+               var rendCanvasElem = document.getElementById('rendCanvas');
+               var outCanvasElem = document.getElementById('outCanvas');
+               // Debug
+               console.log("Contrast: " + window.contFactor);
+               console.log("Brightness: " + window.brightAmt);
+               console.log("Before: ");
+               showPxColVals(rendCanvasElem);
+               adjIntensity(rendCanvasElem, outCanvasElem, 0, 255, 
+                            window.contFactor, window.brightAmt);
+               // Debug
+               console.log("After: ");
+               showPxColVals(outCanvasElem);
+            },
+            false
+         );
       </script>
       
       <!-- Specify brightness dynamically by slider -->
+      <p>Brightness<input id="slideBright" type="range" step="1" min="-255" max="255" value="0"></input></p>
       <script> 
          var brightAmt = 0;
+         
+         var slideBrightElem = document.getElementById("slideBright");
+         slideBrightElem.addEventListener
+         (
+            'change',
+            function()
+            {
+                                             // Any var declared here, 
+                                             // disappears outside
+               
+               window.brightAmt = Number(slideBrightElem.value);
+               //adjContrast('rendCanvas', 'outCanvas', 0, 255, window.contFactor);
+               var rendCanvasElem = document.getElementById('rendCanvas');
+               var outCanvasElem = document.getElementById('outCanvas');
+               // Debug
+               console.log("Contrast: " + window.contFactor);
+               console.log("Brightness: " + window.brightAmt);
+               console.log("Before: ");
+               showPxColVals(rendCanvasElem);
+               adjIntensity(rendCanvasElem, outCanvasElem, 0, 255, 
+                            window.contFactor, window.brightAmt);
+               // Debug
+               console.log("After: ");
+               showPxColVals(outCanvasElem);
+            },
+            false
+         );
       </script>
       
       <!-- Create output canvas -->
       <!-- Note: dimensions must match video element -->
-      <canvas id="outCanvas" width="640" height="480"></canvas>
+      <canvas id="outCanvas" width="50" height="100"></canvas>
       
       <!-- Render content when button pressed, taking into account previous
       adjustments -->

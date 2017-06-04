@@ -16,19 +16,21 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// Adjust intensity
-// Adjusts the intensity of pixels within a certain range.
+// Adjust contrast
+// Adjusts the contrast of canvas pixels within a certain colour value 
+// range.
 // Accepts:
 // 1. Monochrome or colour picture canvas.
 // 2. Minimum colour value of pixels.
 // 3. Maximum colour value of pixels.
-// 4. A number to increase (positive) or decrease (negative) intensity by.
+// 4. A numerical factor to increase (whole number) or decrease 
+// (fractional number) contrast by.
+// 5. A numerical amount to increase (positive) or decrease (negative) 
+// brightness by.
 
-function adjIntensity(inCanvasId, outCanvasId, minColVal, maxColVal, amt)
+function adjIntensity(inCanvas, outCanvas, minColVal, maxColVal, contFact, 
+                      brightAmt)
 {  
-   // Get pixels from input canvas
-   var inCanvas = null;
-   inCanvas = document.getElementById(inCanvasId);
    var inContext = null;
    inContext = inCanvas.getContext('2d');
    var inPixels = null;
@@ -48,18 +50,17 @@ function adjIntensity(inCanvasId, outCanvasId, minColVal, maxColVal, amt)
       // Adjust pixel value
       if ( (avg >= minColVal) && (avg <= maxColVal) )  
       {                                             // In colour range
-         // Adjust by specified amount
-         inPixels.data[redPos] = linearY(inPixels.data[redPos], 1, amt);
-         inPixels.data[redPos + 1] = linearY(inPixels.data[redPos + 1], 1, 
-                                              amt);
-         inPixels.data[redPos + 2] = linearY(inPixels.data[redPos + 2], 1, 
-                                              amt);
+         // Adjust by specified contFact
+         inPixels.data[redPos] = linearY(inPixels.data[redPos], contFact, 
+                                         brightAmt);
+         inPixels.data[redPos + 1] = linearY(inPixels.data[redPos + 1], 
+                                             contFact, brightAmt);
+         inPixels.data[redPos + 2] = linearY(inPixels.data[redPos + 2], 
+                                             contFact, brightAmt);
       }
    }
    
    // Draw pixels on output canvas
-   var outCanvas = null;
-   outCanvas = document.getElementById(outCanvasId);
    var outContext = null;
    outContext = outCanvas.getContext('2d');
    outContext.putImageData(inPixels, 0, 0);
