@@ -169,7 +169,9 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    invContent('video', 'rendCanvas', window.contFactor);
+                    var rendCanvasElem = document.getElementById('rendCanvas');
+                    var outCanvasElem = document.getElementById('outCanvas');
+                    invContent('video', rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.INV_REND;

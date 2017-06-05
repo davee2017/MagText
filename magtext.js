@@ -63,7 +63,7 @@ function colContent(videoId, inCanvas, outCanvas, contFact, brightAmt)
    // Redraw canvas from video
    takeVidPic(videoElem, inCanvas);
    
-   // Apply contrast (contrast factor) first
+   // Apply contrast & brightness
    adjIntensity(inCanvas, outCanvas, 0, 255, contFact, brightAmt);
 }
 
@@ -80,34 +80,28 @@ function monoContent(videoId, inCanvas, outCanvas, contFact, brightAmt)
    // Use variations of black and white for colours (grayscale content)
    monoPic(inCanvas);
    
-   // Apply contrast (contrast factor) first
+   // Apply contrast & brightness
    adjIntensity(inCanvas, outCanvas, 0, 255, contFact, brightAmt);
 }
 
 // Invert content
-function invContent(videoId, canvasId, contFact)
+function invContent(videoId, inCanvas, outCanvas, contFact, brightAmt)
 {  
-   // Get rendition canvas element
-   var canvasElem = null;
-   canvasElem = document.getElementById(canvasId);
-   
    // Get video element
    var videoElem = null;
    videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video
-   takeVidPic(videoElem, canvasElem);
+   takeVidPic(videoElem, inCanvas);
    
    // Use variations of black and white for colours (grayscale content)
-   monoPic(canvasElem);
+   monoPic(inCanvas);
    
    // Invert content
-   invPic(canvasElem);
+   invPic(inCanvas);
    
-   // Apply contrast (contrast factor) first
-   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact);  
-                    
-   // Apply brightness (brightness amt) second
+   // Apply contrast & brightness
+   adjIntensity(inCanvas, outCanvas, 0, 255, contFact, brightAmt);  
 }
 
 // Binary content
