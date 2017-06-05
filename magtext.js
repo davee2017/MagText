@@ -47,7 +47,7 @@ function captureEnv(videoId, canvasId)
    
    // Take a picture of the current video
    var videoElem = null; 
-   videoElem = document.getElementById(videoId);
+   videoElem = document.getElementById(videoId);            // Move this out
    var canvasElem = null;
    canvasElem = document.getElementById(canvasId);
    takeVidPic(videoElem, canvasElem);
@@ -57,7 +57,9 @@ function captureEnv(videoId, canvasId)
 function colContent(videoId, inCanvas, outCanvas, contFact, brightAmt)
 {  
    // Get video element
-   var videoElem = null;
+   var videoElem = null;                                    // Move this out
+                                                            //, inputting
+                                                            // canvas
    videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video

@@ -40,15 +40,10 @@ function main()
    (
       function()
       {
-         
+                                                        // Put elements here
          captureEnv('video', 'rendCanvas');
          
          // Apply rendition
-                                                        // Put this into
-                                                        // adjContent with
-                                                        // constants and 
-                                                        // cpyCanv later
-         
          var COLOUR_REND = 0;                           // Possible renditions
          var MONO_REND = 1;
          var INV_REND = 2;
@@ -57,15 +52,26 @@ function main()
          {
             case COLOUR_REND:
                // Render rendition
-               colContent('video', 'rendCanvas', window.contFactor);
+               var rendCanvasElem = document.getElementById('rendCanvas');
+               var outCanvasElem = document.getElementById('outCanvas');
+               colContent('video', rendCanvasElem, outCanvasElem, 
+                          window.contFactor, window.brightAmt);
                break;
             case MONO_REND:
                // Render rendition
-               monoContent('video', 'rendCanvas', window.contFactor);
+               var rendCanvasElem = document.getElementById('rendCanvas');
+               var outCanvasElem = document.getElementById('outCanvas');
+               monoContent('video', rendCanvasElem, outCanvasElem, 
+                          window.contFactor, window.brightAmt);
                break;
             case INV_REND:
                // Render rendition
-               invContent('video', 'rendCanvas', window.contFactor);
+               var rendCanvasElem = document.getElementById('rendCanvas');
+               var outCanvasElem = document.getElementById('outCanvas');
+                                                       // Abstract out
+                                                       // Reduce size of code
+               invContent('video', rendCanvasElem, outCanvasElem, 
+                          window.contFactor, window.brightAmt);
                break;
             case BIN_REND:
                // Render rendition
