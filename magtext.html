@@ -1,3 +1,20 @@
+<!--MagText - An application to produce text and speech from content in the 
+    surrounding environment under any lighting condition. 
+    Copyright (C) 2017 David Ellison
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
 <meta charset="UTF-8">
 <!-- Set markup to HTML5 -->
 <!DOCTYPE html>
@@ -22,13 +39,70 @@
       <script src="picproc-adjcontrast.js"></script>
       <script src="filterous-conv.js"></script>
       <script src="magtext.js"></script>
-      <script src="main.js"></script>
    </head>
    
    <body>  
       <!-- Begin main capture routine on button click -->
       <p>
-         <button onClick="main();">Capture</button>
+         <button id="butCap">Capture</button>
+            <script>
+                  var butCapElem = document.getElementById("butCap");
+                  butCapElem.addEventListener
+                  ( 
+                    'click',
+                    function(event)
+                    {
+                        // Get video element
+                        var videoElem = null;
+                        videoElem = document.getElementById('video');     
+                        
+                        // Get rendition canvas element                                                      
+                        var rendCanvasElem = null;
+                        var rendCanvasElem = document.getElementById('rendCanvas'); 
+                                                                
+                        // View environment
+                        viewEnv(videoElem);
+                        
+                        // After 5 seconds
+                        window.setTimeout
+                        (
+                           function()
+                           {
+                              captureEnv('video', 'rendCanvas');
+                              
+                              // Apply rendition
+                              var rendCanvasElem = document.getElementById('rendCanvas');
+                              var outCanvasElem = document.getElementById('outCanvas');
+                              var COLOUR_REND = 0;        // Possible renditions
+                              var MONO_REND = 1;
+                              var INV_REND = 2;
+                              var BIN_REND = 3;                              
+                              switch (window.rend)        // Current rendition
+                              {
+                                 case COLOUR_REND:
+                                    colContent('video', rendCanvasElem, outCanvasElem, 
+                                               window.contFactor, window.brightAmt);
+                                    break;
+                                 case MONO_REND:
+                                    monoContent('video', rendCanvasElem, outCanvasElem, 
+                                               window.contFactor, window.brightAmt);
+                                    break;
+                                 case INV_REND:
+                                    invContent('video', rendCanvasElem, outCanvasElem, 
+                                               window.contFactor, window.brightAmt);
+                                    break;
+                                 case BIN_REND:
+                                    binContent('video', rendCanvasElem, outCanvasElem, 
+                                               'txtContDist', window.contFactor,
+                                               window.brightAmt);
+                                    break;
+                              }
+                           },
+                           5000
+                        );
+                    }
+                  );
+             </script>
       </p>
 
       <!-- Create video placeholder -->
