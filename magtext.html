@@ -129,7 +129,9 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    colContent('video', 'rendCanvas', window.contFactor);
+                    var rendCanvasElem = document.getElementById('rendCanvas');
+                    var outCanvasElem = document.getElementById('outCanvas');
+                    colContent('video', rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.COLOUR_REND;
@@ -147,7 +149,9 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    monoContent('video', 'rendCanvas', window.contFactor);
+                    var rendCanvasElem = document.getElementById('rendCanvas');
+                    var outCanvasElem = document.getElementById('outCanvas');
+                    monoContent('video', rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.MONO_REND;
