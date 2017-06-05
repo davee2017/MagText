@@ -69,26 +69,22 @@
                               
                               captureEnv(videoElem, rendCanvasElem);
                               
-                              // Apply rendition
-                              var COLOUR_REND = 0;        // Possible renditions
-                              var MONO_REND = 1;
-                              var INV_REND = 2;
-                              var BIN_REND = 3;                              
+                              // Apply rendition                         
                               switch (window.rend)        // Current rendition
                               {
-                                 case COLOUR_REND:
+                                 case window.COLOUR_REND:
                                     colContent('video', rendCanvasElem, outCanvasElem, 
                                                window.contFactor, window.brightAmt);
                                     break;
-                                 case MONO_REND:
+                                 case window.MONO_REND:
                                     monoContent('video', rendCanvasElem, outCanvasElem, 
                                                window.contFactor, window.brightAmt);
                                     break;
-                                 case INV_REND:
+                                 case window.INV_REND:
                                     invContent('video', rendCanvasElem, outCanvasElem, 
                                                window.contFactor, window.brightAmt);
                                     break;
-                                 case BIN_REND:
+                                 case window.BIN_REND:
                                     binContent('video', rendCanvasElem, outCanvasElem, 
                                                'txtContDist', window.contFactor,
                                                window.brightAmt);
