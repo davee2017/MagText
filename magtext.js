@@ -108,24 +108,20 @@ function invContent(videoId, inCanvas, outCanvas, contFact, brightAmt)
 // Adjusts the content for optimal reading with naked eye
 // by making desired features one colour and the rest of 
 // the features another colour.
-function binContent(videoId, canvasId, txtContDistId, contFact)
+function binContent(videoId, inCanvas, outCanvas, txtContDistId, contFact, brightAmt)
 {  
-   // Get rendition canvas element
-   var canvasElem = null;
-   canvasElem = document.getElementById(canvasId);
-   
    // Get video element
    var videoElem = null;
    videoElem = document.getElementById(videoId);
    
    // Redraw canvas from video
-   takeVidPic(videoElem, canvasElem);
+   takeVidPic(videoElem, inCanvas);
    
    // Use variations of black and white for colours (grayscale content)
-   monoPic(canvasElem);
+   monoPic(inCanvas);
    
    // Invert content
-   invPic(canvasElem);
+   invPic(inCanvas);
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
@@ -138,11 +134,11 @@ function binContent(videoId, canvasId, txtContDistId, contFact)
       contDistNo = Number(contDistField.value);       // Get it
    }
    var medColValue = -1;                              // Median
-   medColValue = medColVal(canvasElem);             
+   medColValue = medColVal(inCanvas);             
    var minTxtColVal = -1;                             // Min text distance
    minTxtColVal = medColValue + contDistNo;
    var maxTxtColVal = -1;                             // Max text distance
-   maxTxtColVal = maxColVal(canvasElem);
+   maxTxtColVal = maxColVal(inCanvas);
    var dispTxtR = -1;
    var txtRField = document.getElementById('txtR');
    dispTxtR = Number(txtRField.value);
@@ -161,7 +157,7 @@ function binContent(videoId, canvasId, txtContDistId, contFact)
    var dispBgB = -1;
    var bgBField = document.getElementById('bgB');
    dispBgB = Number(bgBField.value);
-   binPic(canvasElem, minTxtColVal, maxTxtColVal, dispTxtR, dispTxtG, 
+   binPic(inCanvas, minTxtColVal, maxTxtColVal, dispTxtR, dispTxtG, 
           dispTxtB, dispBgR, dispBgG, dispBgB);
    
    // Make colour transitions between text and background distinct (sharpen 
@@ -171,10 +167,8 @@ function binContent(videoId, canvasId, txtContDistId, contFact)
                    -1*shpFactor, 5*shpFactor, -1*shpFactor,
                    0, -1*shpFactor, 0 ];
    var opaque = false;                
-   convPic(canvasElem, weights, opaque);
+   convPic(inCanvas, weights, opaque);
    
-   // Apply contrast (contrast factor) first
-   adjContrast('rendCanvas', 'outCanvas', 0, 255, contFact); 
-   
-   // Apply brightness (brightness amt) second
+   // Apply contrast & brightness
+   adjIntensity(inCanvas, outCanvas, 0, 255, contFact, brightAmt); 
 }

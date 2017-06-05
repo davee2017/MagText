@@ -69,7 +69,11 @@ function main()
                break;
             case BIN_REND:
                // Render rendition
-               binContent('video', 'rendCanvas', 'txtContDist', window.contFactor);
+               var rendCanvasElem = document.getElementById('rendCanvas');
+               var outCanvasElem = document.getElementById('outCanvas');
+               binContent('video', rendCanvasElem, outCanvasElem, 
+                          'txtContDist', window.contFactor,
+                          window.brightAmt);
                break;
          }
       },

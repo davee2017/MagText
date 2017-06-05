@@ -189,7 +189,11 @@
                  {
                     // Perform rendition operation on video onto rendition 
                     // canvas
-                    binContent('video', 'rendCanvas', 'txtContDist',  window.contFactor);
+                    var rendCanvasElem = document.getElementById('rendCanvas');
+                    var outCanvasElem = document.getElementById('outCanvas');
+                    binContent('video', rendCanvasElem, outCanvasElem, 
+                               'txtContDist', window.contFactor,
+                               window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.BIN_REND;
