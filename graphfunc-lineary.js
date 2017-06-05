@@ -20,7 +20,7 @@
 // Determines the y-coordinate at a point on a line graph.
 // Accepts:
 // 1. X-coordinate of point.
-// 2. Gradient of lincfe.
+// 2. Gradient of line.
 // 3. Y-intercept of line.
 
 function linearY(xCoord, grad, yInt)
