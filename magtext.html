@@ -52,15 +52,9 @@
                     'click',
                     function(event)
                     {
-                        // Get video element
-                        var videoElem = null;
-                        videoElem = document.getElementById('video');     
-                        
-                        // Get rendition canvas element                                                      
-                        var rendCanvasElem = null;
-                        var rendCanvasElem = document.getElementById('rendCanvas'); 
-                                                                
                         // View environment
+                        var videoElem = null;
+                        videoElem = document.getElementById('video'); 
                         viewEnv(videoElem);
                         
                         // After 5 seconds
@@ -68,11 +62,14 @@
                         (
                            function()
                            {
-                              captureEnv('video', 'rendCanvas');
-                              
-                              // Apply rendition
+                              // Get elements
+                              var videoElem = document.getElementById('video'); 
                               var rendCanvasElem = document.getElementById('rendCanvas');
                               var outCanvasElem = document.getElementById('outCanvas');
+                              
+                              captureEnv(videoElem, rendCanvasElem);
+                              
+                              // Apply rendition
                               var COLOUR_REND = 0;        // Possible renditions
                               var MONO_REND = 1;
                               var INV_REND = 2;
