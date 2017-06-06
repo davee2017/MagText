@@ -50,14 +50,8 @@ function captureEnv(videoElem, canvasElem)
 }
 
 // Colour content
-function colContent(videoId, inCanvas, outCanvas, contFact, brightAmt)
+function colContent(videoElem, inCanvas, outCanvas, contFact, brightAmt)
 {  
-   // Get video element
-   var videoElem = null;                                    // Move this out
-                                                            //, inputting
-                                                            // canvas
-   videoElem = document.getElementById(videoId);
-   
    // Redraw canvas from video
    takeVidPic(videoElem, inCanvas);
    
@@ -138,7 +132,7 @@ function binContent(videoId, inCanvas, outCanvas, txtContDistId, contFact, brigh
    var maxTxtColVal = -1;                             // Max text distance
    maxTxtColVal = maxColVal(inCanvas);
    var dispTxtR = -1;
-   var txtRField = document.getElementById('txtR');
+   var txtRField = document.getElementById('txtR');   // Pass elements in
    dispTxtR = Number(txtRField.value);
    var dispTxtG = -1;
    var txtGField = document.getElementById('txtG');

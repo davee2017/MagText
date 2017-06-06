@@ -73,7 +73,7 @@
                               switch (window.rend)        // Current rendition
                               {
                                  case window.COLOUR_REND:
-                                    colContent('video', rendCanvasElem, outCanvasElem, 
+                                    colContent(videoElem, rendCanvasElem, outCanvasElem, 
                                                window.contFactor, window.brightAmt);
                                     break;
                                  case window.MONO_REND:
@@ -198,7 +198,8 @@
                     // canvas
                     var rendCanvasElem = document.getElementById('rendCanvas');
                     var outCanvasElem = document.getElementById('outCanvas');
-                    colContent('video', rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
+                    var videoElem = document.getElementById('video');
+                    colContent(videoElem, rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.COLOUR_REND;
