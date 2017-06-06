@@ -77,7 +77,7 @@
                                                window.contFactor, window.brightAmt);
                                     break;
                                  case window.MONO_REND:
-                                    monoContent('video', rendCanvasElem, outCanvasElem, 
+                                    monoContent(videoElem, rendCanvasElem, outCanvasElem, 
                                                window.contFactor, window.brightAmt);
                                     break;
                                  case window.INV_REND:
@@ -219,7 +219,8 @@
                     // canvas
                     var rendCanvasElem = document.getElementById('rendCanvas');
                     var outCanvasElem = document.getElementById('outCanvas');
-                    monoContent('video', rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
+                    var videoElem = document.getElementById('video');
+                    monoContent(video, rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.MONO_REND;
