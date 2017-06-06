@@ -114,15 +114,18 @@ function invContent(videoElem, inCanvas, outCanvas, contFact, brightAmt)
 }
 
 // Binary content
-// Adjusts the content for optimal reading with naked eye
-// by making desired features one colour and the rest of 
-// the features another colour.
-function binContent(videoId, inCanvas, outCanvas, txtContDistId, contFact, brightAmt)
-{  
-   // Get video element
-   var videoElem = null;
-   videoElem = document.getElementById(videoId);
-   
+// Renders paused video content as a monochrome inversion on a canvas.
+// Accepts: 
+// 1. A video element with the paused content.
+// 2. A source canvas for the paused content.
+// 3. A destination canvas for rendering and adjustments to go on.
+// 4. A text field of the distance text is from median colour value.
+// 5. A contrast factor from 0 to 2 for adjusting contrast up/down.
+// 6. A brightness amount from -127 to 127 for adjusting brightness 
+// up/down
+function binContent(videoElem, inCanvas, outCanvas, txtContDistElem, txtR,
+                    txtG, txtB, bgR, bgG, bgB, contFact, brightAmt)
+{     
    // Redraw canvas from video
    takeVidPic(videoElem, inCanvas);
    
@@ -134,13 +137,11 @@ function binContent(videoId, inCanvas, outCanvas, txtContDistId, contFact, brigh
    
    // Make text a foreground colour, background a background colour
    // (quantise content)
-   var contDistField = null;
-   var contDistField = document.getElementById(txtContDistId);
    var contDistNo = 34;                               // Dynamic
-   if (contDistField.value != "")                     // distance input
+   if (txtContDistElem.value != "")                   // distance input
                                                       // exists
    {
-      contDistNo = Number(contDistField.value);       // Get it
+      contDistNo = Number(txtContDistElem.value);     // Get it
    }
    var medColValue = -1;                              // Median
    medColValue = medColVal(inCanvas);             
@@ -148,31 +149,13 @@ function binContent(videoId, inCanvas, outCanvas, txtContDistId, contFact, brigh
    minTxtColVal = medColValue + contDistNo;
    var maxTxtColVal = -1;                             // Max text distance
    maxTxtColVal = maxColVal(inCanvas);
-   var dispTxtR = -1;
-   var txtRField = document.getElementById('txtR');   // Pass elements in
-   dispTxtR = Number(txtRField.value);
-   var dispTxtG = -1;
-   var txtGField = document.getElementById('txtG');
-   dispTxtG = Number(txtGField.value);
-   var dispTxtB = -1;
-   var txtBField = document.getElementById('txtB');
-   dispTxtB = Number(txtBField.value);
-   var dispBgR = -1;
-   var bgRField = document.getElementById('bgR');
-   dispBgR = Number(bgRField.value);
-   var dispBgG = -1;
-   var bgGField = document.getElementById('bgG');
-   dispBgG = Number(bgGField.value);
-   var dispBgB = -1;
-   var bgBField = document.getElementById('bgB');
-   dispBgB = Number(bgBField.value);
-   binPic(inCanvas, minTxtColVal, maxTxtColVal, dispTxtR, dispTxtG, 
-          dispTxtB, dispBgR, dispBgG, dispBgB);
+   binPic(inCanvas, minTxtColVal, maxTxtColVal, txtR, txtG, txtB, bgR, bgG, 
+          bgB);
    
    // Make colour transitions between text and background distinct (sharpen 
    // content)
    var shpFactor = 1;
-   var weights = [ 0, -1 *shpFactor, 0,                  // Sharpening kernel
+   var weights = [ 0, -1 *shpFactor, 0,               // Sharpening kernel
                    -1*shpFactor, 5*shpFactor, -1*shpFactor,
                    0, -1*shpFactor, 0 ];
    var opaque = false;                

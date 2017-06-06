@@ -73,20 +73,56 @@
                               switch (window.rend)        // Current rendition
                               {
                                  case window.COLOUR_REND:
-                                    colContent(videoElem, rendCanvasElem, outCanvasElem, 
-                                               window.contFactor, window.brightAmt);
+                                    colContent(videoElem, rendCanvasElem,
+                                               outCanvasElem,
+                                               window.contFactor,
+                                               window.brightAmt);
                                     break;
                                  case window.MONO_REND:
-                                    monoContent(videoElem, rendCanvasElem, outCanvasElem, 
-                                               window.contFactor, window.brightAmt);
+                                    monoContent(videoElem, rendCanvasElem,
+                                               outCanvasElem, 
+                                               window.contFactor,
+                                               window.brightAmt);
                                     break;
                                  case window.INV_REND:
-                                    invContent(videoElem, rendCanvasElem, outCanvasElem, 
-                                               window.contFactor, window.brightAmt);
+                                    invContent(videoElem, rendCanvasElem,     
+                                               outCanvasElem, 
+                                               window.contFactor,
+                                               window.brightAmt);
                                     break;
                                  case window.BIN_REND:
-                                    binContent('video', rendCanvasElem, outCanvasElem, 
-                                               'txtContDist', window.contFactor,
+                                    var txtContDistElem = 
+                                    document.getElementById('txtContDist');
+                                    var txtRField =
+                                    document.getElementById('txtR');
+                                    var dispTxtR = -1;
+                                    dispTxtR = Number(txtRField.value);
+                                    var txtGField =
+                                    document.getElementById('txtG');
+                                    var dispTxtG = -1;
+                                    dispTxtG = Number(txtGField.value);
+                                    var txtBField =
+                                    document.getElementById('txtB');
+                                    var dispTxtB = -1;
+                                    dispTxtB = Number(txtBField.value);
+                                    var bgRField =
+                                    document.getElementById('bgR');
+                                    var dispBgR = -1;
+                                    dispBgR = Number(bgRField.value);
+                                    var bgGField =
+                                    document.getElementById('bgG');
+                                    var dispBgG = -1;
+                                    dispBgG = Number(bgGField.value);
+                                    var bgBField =
+                                    document.getElementById('bgB');
+                                    var dispBgB = -1;
+                                    dispBgB = Number(bgBField.value);
+                                    binContent(videoElem, rendCanvasElem,   
+                                               outCanvasElem, 
+                                               txtContDistElem, dispTxtR,
+                                               dispTxtG, dispTxtB, dispBgR,
+                                               dispBgG, dispBgB,
+                                               window.contFactor,
                                                window.brightAmt);
                                     break;
                               }
@@ -261,8 +297,30 @@
                     // canvas
                     var rendCanvasElem = document.getElementById('rendCanvas');
                     var outCanvasElem = document.getElementById('outCanvas');
-                    binContent('video', rendCanvasElem, outCanvasElem, 
-                               'txtContDist', window.contFactor,
+                    var videoElem = document.getElementById('video');
+                    var txtContDistElem = 
+                    document.getElementById('txtContDist');
+                    var txtRField = document.getElementById('txtR');
+                    var dispTxtR = -1;
+                    dispTxtR = Number(txtRField.value);
+                    var txtGField = document.getElementById('txtG');
+                    var dispTxtG = -1;
+                    dispTxtG = Number(txtGField.value);
+                    var txtBField = document.getElementById('txtB');
+                    var dispTxtB = -1;
+                    dispTxtB = Number(txtBField.value);
+                    var bgRField = document.getElementById('bgR');
+                    var dispBgR = -1;
+                    dispBgR = Number(bgRField.value);
+                    var bgGField = document.getElementById('bgG');
+                    var dispBgG = -1;
+                    dispBgG = Number(bgGField.value);
+                    var bgBField = document.getElementById('bgB');
+                    var dispBgB = -1;
+                    dispBgB = Number(bgBField.value);
+                    binContent(videoElem, rendCanvasElem, outCanvasElem, 
+                               txtContDistElem, dispTxtR, dispTxtG, dispTxtB,
+                               dispBgR, dispBgG, dispBgB, window.contFactor,
                                window.brightAmt);
                     
                     // Set rendition

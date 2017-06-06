@@ -27,6 +27,14 @@
 
 function binPic(picCanvas, fgMin, fgMax, fgR, fgG, fgB, bgR, bgG, bgB)
 {
+   console.log("fgR: " + fgR);
+   console.log("fgG: " + fgG);
+   console.log("fgB: " + fgB);
+   console.log("");
+   console.log("bgR: " + bgR);
+   console.log("bgG: " + bgG);
+   console.log("bgB: " + bgB);
+   
    // Get canvas 2D context
    var context = picCanvas.getContext('2d');
    
