@@ -90,20 +90,16 @@ function monoContent(videoElem, inCanvas, outCanvas, contFact, brightAmt)
 }
 
 // Invert content
-// Renders content in colour.
+// Renders paused video content as a monochrome inversion on a canvas.
 // Accepts: 
-// 1. A video element for original content.
-// 2. A source canvas for original content.
+// 1. A video element with the paused content.
+// 2. A source canvas for the paused content.
 // 3. A destination canvas for rendering and adjustments to go on.
 // 4. A contrast factor from 0 to 2 for adjusting contrast up/down.
 // 5. A brightness amount from -127 to 127 for adjusting brightness 
 // up/down.
-function invContent(videoId, inCanvas, outCanvas, contFact, brightAmt)
+function invContent(videoElem, inCanvas, outCanvas, contFact, brightAmt)
 {  
-   // Get video element
-   var videoElem = null;
-   videoElem = document.getElementById(videoId);
-   
    // Redraw canvas from video
    takeVidPic(videoElem, inCanvas);
    

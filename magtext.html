@@ -81,7 +81,7 @@
                                                window.contFactor, window.brightAmt);
                                     break;
                                  case window.INV_REND:
-                                    invContent('video', rendCanvasElem, outCanvasElem, 
+                                    invContent(videoElem, rendCanvasElem, outCanvasElem, 
                                                window.contFactor, window.brightAmt);
                                     break;
                                  case window.BIN_REND:
@@ -220,7 +220,7 @@
                     var rendCanvasElem = document.getElementById('rendCanvas');
                     var outCanvasElem = document.getElementById('outCanvas');
                     var videoElem = document.getElementById('video');
-                    monoContent(video, rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
+                    monoContent(videoElem, rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.MONO_REND;
@@ -240,7 +240,8 @@
                     // canvas
                     var rendCanvasElem = document.getElementById('rendCanvas');
                     var outCanvasElem = document.getElementById('outCanvas');
-                    invContent('video', rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
+                    var videoElem = document.getElementById('video');
+                    invContent(videoElem, rendCanvasElem, outCanvasElem, window.contFactor, window.brightAmt);
                     
                     // Set rendition
                     window.rend = window.INV_REND;
