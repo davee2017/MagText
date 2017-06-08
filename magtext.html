@@ -23,20 +23,21 @@
       <!-- Set title -->
       <title>MagText Web Application</title>
       
-      <!-- Attach scripts (functions called above) -->
+      <!-- Attach scripts (functions called above) 
+           Case sensitive on server? -->
       <script src="debug.js"></script>
       <script src="webcam-navgum.js"></script>
       <script src="graphfunc-lineary.js"></script>
       <script src="stats-avgval.js"></script>
       <script src="stats-medval.js"></script>
       <script src="stats-uniqvals.js"></script>
-      <script src="picproc-monopic.js"></script>
-      <script src="picproc-invpic.js"></script>
-      <script src="picproc-binpic.js"></script>
       <script src="picproc-maxcolval.js"></script>
       <script src="picproc-medcolval.js"></script>
       <script src="picproc-adjintensity.js"></script>
       <script src="picproc-adjcontrast.js"></script>
+      <script src="picproc-monopic.js"></script>
+      <script src="picproc-invpic.js"></script>
+      <script src="picproc-binpic.js"></script>
       <script src="filterous-conv.js"></script>
       <script src="magtext.js"></script>
    </head>
@@ -133,14 +134,6 @@
                   );
              </script>
       </p>
-
-      <!-- Create video placeholder -->
-      <!-- Note: dimensions must match out canvas -->
-      <video id="video" width="50" height="100"></video>
-      
-      <!-- Create rendition canvas -->
-      <!-- Note: dimensions must match video element and output canvas -->
-      <canvas id="rendCanvas" width="50" height="100"></canvas>
       
       <!-- Specify content distance -->
       <p>
@@ -205,9 +198,17 @@
          );
       </script>
       
+      <!-- Create video placeholder -->
+      <!-- Note: dimensions must match out canvas -->
+      <video id="video" width="640" height="480"></video>
+      
+      <!-- Create rendition canvas -->
+      <!-- Note: dimensions must match video element and output canvas -->
+      <canvas id="rendCanvas" width="640" height="480"></canvas>
+      
       <!-- Create output canvas -->
       <!-- Note: dimensions must match video element -->
-      <canvas id="outCanvas" width="50" height="100"></canvas>
+      <canvas id="outCanvas" width="640" height="480"></canvas>
       
       <!-- Render content when button pressed, taking into account previous
       adjustments -->

@@ -52,7 +52,7 @@ function medVal(vals)
       var centNoPos2 = -1;             // Central no. position 2
       centNoPos2 = vals.length / 2;    // Amt of values / 2
       centNoPos1 = centNoPos2 - 1;     // In front of second central no.
-            
+      
       // Determine central no.s
       var centNo1 = vals[centNoPos1];
       var centNo2 = vals[centNoPos2];

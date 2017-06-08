@@ -114,17 +114,23 @@ function invContent(videoElem, inCanvas, outCanvas, contFact, brightAmt)
 }
 
 // Binary content
-// Renders paused video content as a monochrome inversion on a canvas.
+// Quantises the content: content becomes one colour, the background another.
 // Accepts: 
 // 1. A video element with the paused content.
 // 2. A source canvas for the paused content.
 // 3. A destination canvas for rendering and adjustments to go on.
-// 4. A text field of the distance text is from median colour value.
-// 5. A contrast factor from 0 to 2 for adjusting contrast up/down.
-// 6. A brightness amount from -127 to 127 for adjusting brightness 
+// 4. A text field containing the content offset colour value from the median.
+// 5. Desired red component colour value for the content.
+// 6. Desired green component colour value for the content.
+// 7. Desired blue component colour value for the content.
+// 8. Desired red component colour value for the the background.
+// 9. Desired blue component colour value for the the background.
+// 10. Desired green component colour value for the the background.
+// 11. A contrast factor from 0 to 2 for adjusting contrast up/down.
+// 12. A brightness amount from -127 to 127 for adjusting brightness 
 // up/down
-function binContent(videoElem, inCanvas, outCanvas, txtContDistElem, txtR,
-                    txtG, txtB, bgR, bgG, bgB, contFact, brightAmt)
+function binContent(videoElem, inCanvas, outCanvas, txtContDistElem, contR,
+                    contG, contB, bgR, bgG, bgB, contFact, brightAmt)
 {     
    // Redraw canvas from video
    takeVidPic(videoElem, inCanvas);
@@ -149,7 +155,7 @@ function binContent(videoElem, inCanvas, outCanvas, txtContDistElem, txtR,
    minTxtColVal = medColValue + contDistNo;
    var maxTxtColVal = -1;                             // Max text distance
    maxTxtColVal = maxColVal(inCanvas);
-   binPic(inCanvas, minTxtColVal, maxTxtColVal, txtR, txtG, txtB, bgR, bgG, 
+   binPic(inCanvas, minTxtColVal, maxTxtColVal, contR, contG, contB, bgR, bgG, 
           bgB);
    
    // Make colour transitions between text and background distinct (sharpen 
